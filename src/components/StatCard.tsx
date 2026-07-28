@@ -22,10 +22,10 @@ interface StatCardProps {
 
 export function StatCard({ title, value, subtitle, trend, className, status = 'neutral', icon }: StatCardProps) {
   const statusColors = {
-    optimal: 'from-emerald-400 to-teal-500 text-transparent bg-clip-text',
-    warning: 'from-amber-400 to-orange-500 text-transparent bg-clip-text',
-    critical: 'from-rose-400 to-red-500 text-transparent bg-clip-text',
-    neutral: 'from-cyan-400 to-blue-500 text-transparent bg-clip-text'
+    optimal: 'bg-gradient-to-r from-emerald-400 to-teal-500 text-transparent bg-clip-text',
+    warning: 'bg-gradient-to-r from-amber-400 to-orange-500 text-transparent bg-clip-text',
+    critical: 'bg-gradient-to-r from-rose-400 to-red-500 text-transparent bg-clip-text',
+    neutral: 'bg-gradient-to-r from-cyan-400 to-blue-500 text-transparent bg-clip-text'
   };
 
   const IconComponent = 
