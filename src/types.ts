@@ -1,3 +1,5 @@
+export type ExamType = 'CSE' | 'AFPSAT';
+
 export type Subject = 
   | 'Numerical Ability'
   | 'Verbal Reasoning'
@@ -15,9 +17,24 @@ export const SUBJECTS: Subject[] = [
   'R.A. 6713'
 ];
 
+export const CSE_SUBJECTS: Subject[] = [
+  'Numerical Ability',
+  'Verbal Reasoning',
+  'General Information',
+  'Philippine Constitution',
+  'R.A. 6713'
+];
+
+export const AFPSAT_SUBJECTS: Subject[] = [
+  'Verbal Reasoning',
+  'Numerical Ability',
+  'Abstract Reasoning'
+];
+
 export interface ScoreLog {
   id: string;
   timestamp: number;
+  exam?: ExamType; // Optional for backward compatibility with old local storage data
   subject: Subject;
   score: number;
   total: number;
@@ -30,6 +47,7 @@ export interface SubjectStats {
   latestPercentage: number;
   averagePercentage: number;
   logsCount: number;
+  history: { timestamp: number; percentage: number }[]; // Added for line chart
 }
 
 export interface AnalyticsData {

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Subject, SUBJECTS, ScoreLog } from '../types';
+import React, { useState, useEffect } from 'react';
+import { Subject, ExamType, CSE_SUBJECTS, AFPSAT_SUBJECTS, ScoreLog } from '../types';
 import { Activity, Send } from 'lucide-react';
 
 interface ScoreEntryFormProps {
@@ -7,16 +7,25 @@ interface ScoreEntryFormProps {
 }
 
 export function ScoreEntryForm({ onAddLog }: ScoreEntryFormProps) {
-  const [subject, setSubject] = useState<Subject>(SUBJECTS[0]);
+  const [exam, setExam] = useState<ExamType>('CSE');
+  const [subject, setSubject] = useState<Subject>(CSE_SUBJECTS[0]);
   const [score, setScore] = useState<number | ''>('');
   const [total, setTotal] = useState<number | ''>(50);
   const [subtopicsMissed, setSubtopicsMissed] = useState<string>('');
+
+  const currentSubjects = exam === 'CSE' ? CSE_SUBJECTS : AFPSAT_SUBJECTS;
+
+  // Reset subject when exam changes
+  useEffect(() => {
+    setSubject(currentSubjects[0]);
+  }, [exam]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (score === '' || total === '') return;
     
     onAddLog({
+      exam,
       subject,
       score: Number(score),
       total: Number(total),
@@ -43,20 +52,39 @@ export function ScoreEntryForm({ onAddLog }: ScoreEntryFormProps) {
       </div>
       
       <form onSubmit={handleSubmit} className="space-y-5 relative flex-1 flex flex-col">
-        <div>
-          <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Subject Cluster</label>
-          <div className="relative">
-            <select 
-              value={subject}
-              onChange={(e) => setSubject(e.target.value as Subject)}
-              className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 appearance-none transition-all"
-            >
-              {SUBJECTS.map(s => (
-                <option key={s} value={s} className="bg-slate-900">{s}</option>
-              ))}
-            </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400">
-              <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+        <div className="grid grid-cols-2 gap-5">
+          <div>
+            <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Exam</label>
+            <div className="relative">
+              <select 
+                value={exam}
+                onChange={(e) => setExam(e.target.value as ExamType)}
+                className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 appearance-none transition-all font-bold"
+              >
+                <option value="CSE" className="bg-slate-900 font-sans">CSE</option>
+                <option value="AFPSAT" className="bg-slate-900 font-sans">AFPSAT</option>
+              </select>
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400">
+                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Subject Cluster</label>
+            <div className="relative">
+              <select 
+                value={subject}
+                onChange={(e) => setSubject(e.target.value as Subject)}
+                className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 appearance-none transition-all"
+              >
+                {currentSubjects.map(s => (
+                  <option key={s} value={s} className="bg-slate-900 font-sans">{s}</option>
+                ))}
+              </select>
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400">
+                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+              </div>
             </div>
           </div>
         </div>

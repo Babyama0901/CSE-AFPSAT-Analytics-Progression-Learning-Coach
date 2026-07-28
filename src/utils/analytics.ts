@@ -1,8 +1,8 @@
-import { ScoreLog, SubjectStats, AnalyticsData, SUBJECTS } from '../types';
+import { ScoreLog, SubjectStats, AnalyticsData, SUBJECTS, Subject } from '../types';
 
 export const PASSING_THRESHOLD = 80;
 
-export function calculateAnalytics(logs: ScoreLog[]): AnalyticsData {
+export function calculateAnalytics(logs: ScoreLog[], allowedSubjects: Subject[] = SUBJECTS): AnalyticsData {
   if (logs.length === 0) {
     return {
       overallAverage: 0,
@@ -14,10 +14,13 @@ export function calculateAnalytics(logs: ScoreLog[]): AnalyticsData {
   }
 
   const statsMap = new Map<string, ScoreLog[]>();
-  SUBJECTS.forEach(s => statsMap.set(s, []));
+  allowedSubjects.forEach(s => statsMap.set(s, []));
 
   logs.forEach(log => {
-    statsMap.get(log.subject)?.push(log);
+    // Only map if the subject is part of this exam's allowed subjects
+    if (statsMap.has(log.subject)) {
+      statsMap.get(log.subject)?.push(log);
+    }
   });
 
   const subjectStats: SubjectStats[] = [];
@@ -28,21 +31,24 @@ export function calculateAnalytics(logs: ScoreLog[]): AnalyticsData {
     // Sort chronologically
     subjectLogs.sort((a, b) => a.timestamp - b.timestamp);
 
-    const baselineLog = subjectLogs[0];
-    const latestLog = subjectLogs[subjectLogs.length - 1];
+    const history = subjectLogs.map(log => ({
+      timestamp: log.timestamp,
+      percentage: Number(((log.score / log.total) * 100).toFixed(1))
+    }));
 
-    const baselinePercentage = (baselineLog.score / baselineLog.total) * 100;
-    const latestPercentage = (latestLog.score / latestLog.total) * 100;
+    const baselinePercentage = history[0].percentage;
+    const latestPercentage = history[history.length - 1].percentage;
     
-    const sumPercentage = subjectLogs.reduce((sum, log) => sum + ((log.score / log.total) * 100), 0);
-    const averagePercentage = sumPercentage / subjectLogs.length;
+    const sumPercentage = history.reduce((sum, h) => sum + h.percentage, 0);
+    const averagePercentage = sumPercentage / history.length;
 
     subjectStats.push({
-      subject: subjectStr as any,
+      subject: subjectStr as Subject,
       baselinePercentage,
       latestPercentage,
       averagePercentage,
-      logsCount: subjectLogs.length
+      logsCount: subjectLogs.length,
+      history
     });
   });
 
