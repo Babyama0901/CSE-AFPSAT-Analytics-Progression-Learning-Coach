@@ -8,6 +8,7 @@ import { StatCard } from './components/StatCard';
 import { MasteryChart } from './components/MasteryChart';
 import { CoachingPanel } from './components/CoachingPanel';
 import { ProgressionChart } from './components/ProgressionChart';
+import { OverallProgressionChart } from './components/OverallProgressionChart';
 import { ExportModal } from './components/ExportModal';
 import { generateAnalyticsReport } from './utils/pdfGenerator';
 
@@ -72,6 +73,24 @@ export default function App() {
   const handleExport = () => {
     generateAnalyticsReport(cseAnalytics, afpsatAnalytics, logs);
   };
+
+  // Calculate macro-level historical readiness
+  const historicalReadinessData = useMemo(() => {
+    return logs.map((_, index) => {
+      const currentLogs = logs.slice(0, index + 1);
+      const cseCurrent = currentLogs.filter(l => l.exam === 'CSE' || !l.exam);
+      const afpsatCurrent = currentLogs.filter(l => l.exam === 'AFPSAT');
+      
+      const cseAn = calculateAnalytics(cseCurrent, CSE_SUBJECTS);
+      const afpsatAn = calculateAnalytics(afpsatCurrent, AFPSAT_SUBJECTS);
+      
+      return {
+        attempt: `Log ${index + 1}`,
+        CSE: cseAn.readinessScore > 0 ? Number(cseAn.readinessScore.toFixed(1)) : null,
+        AFPSAT: afpsatAn.readinessScore > 0 ? Number(afpsatAn.readinessScore.toFixed(1)) : null
+      };
+    });
+  }, [logs]);
 
   return (
     <div className="min-h-screen text-slate-200">
@@ -171,6 +190,11 @@ export default function App() {
               subtitle="Diagnostic Logs Analyzed"
               icon="inputs"
             />
+          </motion.div>
+
+          {/* Macro Readiness Graph */}
+          <motion.div variants={itemVariants}>
+            <OverallProgressionChart data={historicalReadinessData} />
           </motion.div>
 
           {/* Input & Coaching Row */}
