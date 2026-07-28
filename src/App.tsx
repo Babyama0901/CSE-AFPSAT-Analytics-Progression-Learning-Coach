@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { BrainCircuit, Activity, Sparkles, LayoutDashboard, TrendingUp } from 'lucide-react';
+import { BrainCircuit, Activity, Sparkles, LayoutDashboard, TrendingUp, Download } from 'lucide-react';
 import { motion } from 'motion/react';
 import { ScoreLog, ExamType, CSE_SUBJECTS, AFPSAT_SUBJECTS } from './types';
 import { calculateAnalytics, generateCoachingPlan } from './utils/analytics';
@@ -8,6 +8,8 @@ import { StatCard } from './components/StatCard';
 import { MasteryChart } from './components/MasteryChart';
 import { CoachingPanel } from './components/CoachingPanel';
 import { ProgressionChart } from './components/ProgressionChart';
+import { ExportModal } from './components/ExportModal';
+import { generateAnalyticsReport } from './utils/pdfGenerator';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -27,6 +29,7 @@ const itemVariants = {
 export default function App() {
   const [logs, setLogs] = useState<ScoreLog[]>([]);
   const [activeTab, setActiveTab] = useState<ExamType>('CSE');
+  const [isExportModalOpen, setIsExportModalOpen] = useState(false);
 
   // Load from local storage on mount
   useEffect(() => {
@@ -66,6 +69,10 @@ export default function App() {
     return generateCoachingPlan(activeAnalytics.weakestSubject, latestLog);
   }, [activeAnalytics.weakestSubject, latestLog]);
 
+  const handleExport = () => {
+    generateAnalyticsReport(cseAnalytics, afpsatAnalytics, logs);
+  };
+
   return (
     <div className="min-h-screen text-slate-200">
       
@@ -87,12 +94,22 @@ export default function App() {
               <p className="text-xs font-medium text-slate-400 tracking-wide">Performance Tracking & Optimization</p>
             </div>
           </div>
-          <div className="flex items-center gap-3 bg-slate-900/50 px-4 py-2 rounded-full border border-white/5">
-            <div className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+          
+          <div className="flex items-center gap-4">
+            <button 
+              onClick={() => setIsExportModalOpen(true)}
+              className="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-xs font-bold uppercase tracking-wider text-slate-200 transition-all flex items-center gap-2"
+            >
+              <Download className="w-4 h-4" /> Export Report
+            </button>
+
+            <div className="flex items-center gap-3 bg-slate-900/50 px-4 py-2 rounded-full border border-white/5">
+              <div className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+              </div>
+              <span className="text-xs font-semibold tracking-wider text-slate-300">SYSTEM ONLINE</span>
             </div>
-            <span className="text-xs font-semibold tracking-wider text-slate-300">SYSTEM ONLINE</span>
           </div>
         </div>
       </header>
@@ -174,6 +191,17 @@ export default function App() {
           
         </motion.div>
       </main>
+
+      {/* Export Modal Overlay */}
+      <ExportModal 
+        isOpen={isExportModalOpen}
+        onClose={() => setIsExportModalOpen(false)}
+        onExport={handleExport}
+        cseAnalytics={cseAnalytics}
+        afpsatAnalytics={afpsatAnalytics}
+        logs={logs}
+      />
+
     </div>
   );
 }
