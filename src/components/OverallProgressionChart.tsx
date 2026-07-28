@@ -29,6 +29,15 @@ export function OverallProgressionChart({ data }: OverallProgressionChartProps) 
     );
   }
 
+  // Recharts sometimes struggles to render a line with a single data point.
+  // If there's only 1 log, we duplicate it with a 'Start' label to draw a flat line.
+  const chartData = data.length === 1 
+    ? [
+        { ...data[0], attempt: 'Start' }, 
+        data[0]
+      ] 
+    : data;
+
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       return (
@@ -49,7 +58,7 @@ export function OverallProgressionChart({ data }: OverallProgressionChartProps) 
   };
 
   return (
-    <div className="glass-panel p-8 rounded-2xl flex flex-col h-full min-h-[350px]">
+    <div className="glass-panel p-8 rounded-2xl flex flex-col">
       <div className="flex justify-between items-end mb-6">
         <div>
           <h2 className="text-xl font-bold text-white tracking-tight flex items-center gap-2">
@@ -59,9 +68,10 @@ export function OverallProgressionChart({ data }: OverallProgressionChartProps) 
         </div>
       </div>
       
-      <div className="flex-1 w-full mt-2">
+      {/* Fixed height ensures ResponsiveContainer doesn't collapse to 0 in flex layouts */}
+      <div className="w-full mt-2 h-[300px]">
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={data} margin={{ top: 10, right: 20, left: -20, bottom: 0 }}>
+          <LineChart data={chartData} margin={{ top: 10, right: 20, left: -20, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" vertical={false} />
             <XAxis 
               dataKey="attempt" 
