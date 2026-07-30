@@ -98,6 +98,17 @@ export default function App() {
           
           <div className="flex items-center gap-4">
             <button 
+              onClick={() => {
+                if(window.confirm('Are you sure you want to reset all your data? This cannot be undone.')) {
+                  setLogs([]);
+                  localStorage.removeItem('analytics-engine-logs');
+                }
+              }}
+              className="px-4 py-2 bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/20 rounded-full text-xs font-bold uppercase tracking-wider text-rose-400 transition-none flex items-center gap-2"
+            >
+              Reset Data
+            </button>
+            <button 
               onClick={() => setIsExportModalOpen(true)}
               className="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-xs font-bold uppercase tracking-wider text-slate-200 transition-none flex items-center gap-2"
             >
