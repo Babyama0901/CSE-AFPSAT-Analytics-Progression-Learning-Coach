@@ -18,10 +18,27 @@ interface MasteryChartProps {
   stats: SubjectStats[];
 }
 
+const SHORT_NAMES: Record<string, string> = {
+  'Reading Comprehension': 'Reading',
+  'Vocabulary': 'Vocab',
+  'Grammar and Language Usage': 'Grammar',
+  'Logical Verbal Reasoning': 'Log Verbal',
+  'Basic Arithmetic': 'Arithmetic',
+  'Word Problems': 'Word Probs',
+  'Algebra Basics': 'Algebra',
+  'Geometry Basics': 'Geometry',
+  'Logical Relationships': 'Log Rel',
+  'Series Completion': 'Series',
+  'Pattern Recognition 1': 'Pattern 1',
+  'Pattern Recognition 2': 'Pattern 2',
+  'Pattern Recognition 3': 'Pattern 3',
+  'Philippine Constitution': 'Ph Const'
+};
+
 export function MasteryChart({ stats }: MasteryChartProps) {
   // Sort by latest percentage descending for better visualization
   const data = [...stats].sort((a, b) => b.latestPercentage - a.latestPercentage).map(s => ({
-    name: s.subject.replace(' Reasoning', '').replace(' Information', '').replace(' Constitution', ' Const'),
+    name: SHORT_NAMES[s.subject] || s.subject.replace(' Reasoning', '').replace(' Information', ''),
     subject: s.subject,
     score: Number(s.latestPercentage.toFixed(1))
   }));
@@ -72,11 +89,14 @@ export function MasteryChart({ stats }: MasteryChartProps) {
             <XAxis 
               dataKey="name" 
               stroke="#94a3b8" 
-              fontSize={12}
+              fontSize={10}
               fontWeight={500}
               tickLine={false}
               axisLine={false}
-              dy={15}
+              dy={10}
+              angle={-45}
+              textAnchor="end"
+              height={60}
             />
             <YAxis 
               stroke="#94a3b8" 
