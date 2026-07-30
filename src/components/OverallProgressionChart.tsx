@@ -40,17 +40,30 @@ export function OverallProgressionChart({ data }: OverallProgressionChartProps) 
 
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
+      const data = payload[0].payload;
       return (
-        <div className="bg-slate-900/90 backdrop-blur-md border border-white/10 p-4 rounded-xl shadow-2xl">
-          <p className="text-slate-300 font-bold mb-2">{label}</p>
-          {payload.map((entry: any, index: number) => (
-            <div key={index} className="flex items-center gap-2 mb-1">
-              <div className="w-2 h-2 rounded-full" style={{ backgroundColor: entry.color }} />
-              <p className="text-slate-200 text-sm">
-                {entry.name}: <span className="font-mono font-bold">{entry.value}%</span>
-              </p>
+        <div className="bg-slate-900/95 backdrop-blur-xl border border-white/10 p-5 rounded-2xl shadow-2xl min-w-[200px]">
+          <p className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-3 pb-2 border-b border-white/10">{label}</p>
+          
+          <div className="flex items-center justify-between gap-4 mb-2">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.6)]" />
+              <p className="text-slate-200 text-sm font-medium">CSE Readiness</p>
             </div>
-          ))}
+            <span className={`font-mono font-bold text-sm ${data.CSE ? 'text-white' : 'text-slate-500'}`}>
+              {data.CSE ? `${data.CSE}%` : 'N/A'}
+            </span>
+          </div>
+          
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-fuchsia-500 shadow-[0_0_8px_rgba(217,70,239,0.6)]" />
+              <p className="text-slate-200 text-sm font-medium">AFPSAT Readiness</p>
+            </div>
+            <span className={`font-mono font-bold text-sm ${data.AFPSAT ? 'text-white' : 'text-slate-500'}`}>
+              {data.AFPSAT ? `${data.AFPSAT}%` : 'N/A'}
+            </span>
+          </div>
         </div>
       );
     }
