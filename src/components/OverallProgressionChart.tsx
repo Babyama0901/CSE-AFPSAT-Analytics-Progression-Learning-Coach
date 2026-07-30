@@ -113,7 +113,7 @@ export function OverallProgressionChart({ data }: OverallProgressionChartProps) 
               connectNulls
               dot={{ r: 4, fill: '#0f172a', strokeWidth: 2 }}
               activeDot={{ r: 6, fill: '#0ea5e9' }}
-              animationDuration={1500}
+              isAnimationActive={false}
             />
             <Line 
               type="monotone" 
@@ -124,7 +124,7 @@ export function OverallProgressionChart({ data }: OverallProgressionChartProps) 
               connectNulls
               dot={{ r: 4, fill: '#0f172a', strokeWidth: 2 }}
               activeDot={{ r: 6, fill: '#d946ef' }}
-              animationDuration={1500}
+              isAnimationActive={false}
             />
           </LineChart>
         </ResponsiveContainer>

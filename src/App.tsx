@@ -1,6 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { BrainCircuit, Activity, Sparkles, LayoutDashboard, TrendingUp, Download } from 'lucide-react';
-import { motion } from 'motion/react';
 import { ScoreLog, ExamType, CSE_SUBJECTS, AFPSAT_SUBJECTS } from './types';
 import { calculateAnalytics, generateCoachingPlan } from './utils/analytics';
 import { ScoreEntryForm } from './components/ScoreEntryForm';
@@ -11,21 +10,6 @@ import { ProgressionChart } from './components/ProgressionChart';
 import { OverallProgressionChart } from './components/OverallProgressionChart';
 import { ExportModal } from './components/ExportModal';
 import { generateAnalyticsReport } from './utils/pdfGenerator';
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
-};
 
 export default function App() {
   const [logs, setLogs] = useState<ScoreLog[]>([]);
@@ -76,6 +60,7 @@ export default function App() {
 
   // Calculate macro-level historical readiness
   const historicalReadinessData = useMemo(() => {
+    // Optimization: avoid O(N^2) mapping overhead if not needed, but doing it on useMemo prevents re-renders during typing
     return logs.map((_, index) => {
       const currentLogs = logs.slice(0, index + 1);
       const cseCurrent = currentLogs.filter(l => l.exam === 'CSE' || !l.exam);
@@ -93,21 +78,18 @@ export default function App() {
   }, [logs]);
 
   return (
-    <div className="min-h-screen text-slate-200">
+    <div className="min-h-screen text-slate-200 bg-slate-950">
       
-      {/* Top Navigation / Header */}
-      <header className="glass-panel sticky top-0 z-50 border-b-0 border-white/5 bg-slate-950/40 backdrop-blur-xl">
+      {/* Top Navigation / Header (Removed backdrop-blur) */}
+      <header className="glass-panel sticky top-0 z-50 border-b-0 border-white/5 bg-slate-950">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl blur opacity-50 group-hover:opacity-100 transition duration-500"></div>
-              <div className="relative w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center border border-white/10 shadow-xl">
-                <BrainCircuit className="w-6 h-6 text-cyan-400" />
-              </div>
+            <div className="relative w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center border border-white/10 shadow-xl">
+              <BrainCircuit className="w-6 h-6 text-cyan-400" />
             </div>
             <div>
               <h1 className="font-bold text-xl tracking-tight text-white flex items-center gap-2">
-                Analytics <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Engine</span>
+                Analytics <span className="text-cyan-400">Engine</span>
                 <Sparkles className="w-4 h-4 text-blue-400" />
               </h1>
               <p className="text-xs font-medium text-slate-400 tracking-wide">Performance Tracking & Optimization</p>
@@ -117,14 +99,13 @@ export default function App() {
           <div className="flex items-center gap-4">
             <button 
               onClick={() => setIsExportModalOpen(true)}
-              className="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-xs font-bold uppercase tracking-wider text-slate-200 transition-all flex items-center gap-2"
+              className="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-xs font-bold uppercase tracking-wider text-slate-200 transition-none flex items-center gap-2"
             >
               <Download className="w-4 h-4" /> Export Report
             </button>
 
             <div className="flex items-center gap-3 bg-slate-900/50 px-4 py-2 rounded-full border border-white/5">
               <div className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
               </div>
               <span className="text-xs font-semibold tracking-wider text-slate-300">SYSTEM ONLINE</span>
@@ -140,9 +121,9 @@ export default function App() {
           <div className="glass-panel p-1.5 rounded-2xl inline-flex gap-2">
             <button
               onClick={() => setActiveTab('CSE')}
-              className={`px-8 py-3 rounded-xl text-sm font-bold tracking-widest uppercase transition-all duration-300 flex items-center gap-2 ${
+              className={`px-8 py-3 rounded-xl text-sm font-bold tracking-widest uppercase flex items-center gap-2 ${
                 activeTab === 'CSE' 
-                ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/20' 
+                ? 'bg-cyan-600 text-white' 
                 : 'text-slate-400 hover:text-slate-200 hover:bg-white/5'
               }`}
             >
@@ -150,9 +131,9 @@ export default function App() {
             </button>
             <button
               onClick={() => setActiveTab('AFPSAT')}
-              className={`px-8 py-3 rounded-xl text-sm font-bold tracking-widest uppercase transition-all duration-300 flex items-center gap-2 ${
+              className={`px-8 py-3 rounded-xl text-sm font-bold tracking-widest uppercase flex items-center gap-2 ${
                 activeTab === 'AFPSAT' 
-                ? 'bg-gradient-to-r from-purple-500 to-pink-600 text-white shadow-lg shadow-purple-500/20' 
+                ? 'bg-purple-600 text-white' 
                 : 'text-slate-400 hover:text-slate-200 hover:bg-white/5'
               }`}
             >
@@ -161,15 +142,9 @@ export default function App() {
           </div>
         </div>
 
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          key={activeTab} // re-trigger animation on tab change
-          className="space-y-8"
-        >
+        <div key={activeTab} className="space-y-8">
           {/* Top Stats Row */}
-          <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <StatCard 
               title={`${activeTab} Readiness`}
               value={`${activeAnalytics.readinessScore.toFixed(1)}%`}
@@ -190,30 +165,30 @@ export default function App() {
               subtitle="Diagnostic Logs Analyzed"
               icon="inputs"
             />
-          </motion.div>
+          </div>
 
           {/* Macro Readiness Graph */}
-          <motion.div variants={itemVariants}>
+          <div>
             <OverallProgressionChart data={historicalReadinessData} />
-          </motion.div>
+          </div>
 
           {/* Input & Coaching Row */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <motion.div variants={itemVariants} className="lg:col-span-4 flex flex-col">
+            <div className="lg:col-span-4 flex flex-col">
               <ScoreEntryForm onAddLog={handleAddLog} />
-            </motion.div>
-            <motion.div variants={itemVariants} className="lg:col-span-8 flex flex-col">
+            </div>
+            <div className="lg:col-span-8 flex flex-col">
               <CoachingPanel plan={coachingPlan} />
-            </motion.div>
+            </div>
           </div>
 
           {/* Visualization Row (Progression & Mastery) */}
-          <motion.div variants={itemVariants} className="grid grid-cols-1 xl:grid-cols-2 gap-8 pt-2">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 pt-2">
             <ProgressionChart stats={activeAnalytics.subjectStats} exam={activeTab} />
             <MasteryChart stats={activeAnalytics.subjectStats} />
-          </motion.div>
+          </div>
           
-        </motion.div>
+        </div>
       </main>
 
       {/* Export Modal Overlay */}

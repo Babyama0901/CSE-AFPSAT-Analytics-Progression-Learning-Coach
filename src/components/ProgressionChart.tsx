@@ -127,7 +127,7 @@ export function ProgressionChart({ stats, exam }: ProgressionChartProps) {
                 strokeWidth={3}
                 dot={{ r: 4, fill: '#0f172a', strokeWidth: 2 }}
                 activeDot={{ r: 6, fill: colors[index % colors.length] }}
-                animationDuration={1500}
+                isAnimationActive={false}
               />
             ))}
           </LineChart>

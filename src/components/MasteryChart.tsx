@@ -99,7 +99,7 @@ export function MasteryChart({ stats }: MasteryChartProps) {
               label={{ position: 'right', value: 'TARGET 80%', fill: '#0ea5e9', fontSize: 11, fontWeight: 'bold' }} 
             />
             
-            <Bar dataKey="score" radius={[6, 6, 0, 0]} maxBarSize={60} animationDuration={1500}>
+            <Bar dataKey="score" radius={[6, 6, 0, 0]} maxBarSize={60} isAnimationActive={false}>
               {data.map((entry, index) => (
                 <Cell 
                   key={`cell-${index}`} 

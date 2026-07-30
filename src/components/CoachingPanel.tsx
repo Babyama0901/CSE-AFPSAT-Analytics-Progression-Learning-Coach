@@ -1,6 +1,5 @@
 import React from 'react';
 import { Bot, CheckCircle2, AlertCircle, TrendingUp, Target, Activity, Zap } from 'lucide-react';
-import { motion } from 'motion/react';
 import { cn } from './StatCard';
 
 interface CoachingPanelProps {
@@ -52,8 +51,6 @@ export function CoachingPanel({ plan }: CoachingPanelProps) {
 
   return (
     <div className="glass-panel p-8 rounded-2xl h-full flex flex-col relative overflow-hidden group">
-      {/* Decorative background glow */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
       
       <div className="relative flex items-center gap-4 mb-8">
         <div className="p-3 bg-purple-500/10 rounded-xl border border-purple-500/20">
@@ -74,16 +71,13 @@ export function CoachingPanel({ plan }: CoachingPanelProps) {
               <Activity className="w-4 h-4 text-slate-500" /> Performance Diagnostics
             </h3>
             {categorizedPlan.diagnostics.map((item, i) => (
-              <motion.div 
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.15, duration: 0.5 }}
+              <div 
                 key={`diag-${i}`} 
                 className={cn("flex gap-4 p-4 rounded-xl border", bgs[item.type as keyof typeof bgs])}
               >
                 {icons[item.type as keyof typeof icons]}
                 <p className="text-slate-200 text-sm leading-relaxed">{item.text}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         )}
@@ -95,16 +89,13 @@ export function CoachingPanel({ plan }: CoachingPanelProps) {
               <Zap className="w-4 h-4 text-amber-500" /> Strategic Action Plan
             </h3>
             {categorizedPlan.actions.map((item, i) => (
-              <motion.div 
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: (categorizedPlan.diagnostics.length + i) * 0.15, duration: 0.5 }}
+              <div 
                 key={`action-${i}`} 
                 className={cn("flex gap-4 p-4 rounded-xl border", bgs[item.type as keyof typeof bgs])}
               >
                 {icons[item.type as keyof typeof icons]}
                 <p className="text-slate-200 text-sm leading-relaxed">{item.text}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         )}
