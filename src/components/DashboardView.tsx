@@ -51,15 +51,15 @@ export function DashboardView({ logs, cseAnalytics, afpsatAnalytics, historicalR
         />
         <StatCard 
           title="Critical Deficit" 
-          value={overallWeakest ? overallWeakest.subject.replace(' Reasoning', '').replace(' Information', '') : 'N/A'}
-          subtitle={overallWeakest ? `Mastery: ${overallWeakest.latestPercentage.toFixed(1)}%` : 'Awaiting Data'}
+          value={overallWeakest ? `${overallWeakest.latestPercentage.toFixed(1)}%` : 'N/A'}
+          subtitle={overallWeakest ? overallWeakest.subject.replace(' Reasoning', '').replace(' Information', '') : 'Awaiting Data'}
           status={overallWeakest ? 'critical' : 'neutral'}
           icon="deficit"
         />
         <StatCard 
           title="Strongest Domain" 
-          value={overallStrongest ? overallStrongest.subject.replace(' Reasoning', '').replace(' Information', '') : 'N/A'}
-          subtitle={overallStrongest ? `Mastery: ${overallStrongest.latestPercentage.toFixed(1)}%` : 'Awaiting Data'}
+          value={overallStrongest ? `${overallStrongest.latestPercentage.toFixed(1)}%` : 'N/A'}
+          subtitle={overallStrongest ? overallStrongest.subject.replace(' Reasoning', '').replace(' Information', '') : 'Awaiting Data'}
           status={overallStrongest ? 'optimal' : 'neutral'}
           icon="readiness"
         />
