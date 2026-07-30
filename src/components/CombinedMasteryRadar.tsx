@@ -8,7 +8,7 @@ import {
   Tooltip, 
   ResponsiveContainer
 } from 'recharts';
-import { AnalyticsData } from '../types';
+import { AnalyticsData, CSE_SUBJECTS, AFPSAT_SUBJECTS, Subject } from '../types';
 import { Activity } from 'lucide-react';
 
 interface CombinedMasteryRadarProps {
@@ -35,16 +35,19 @@ const SHORT_NAMES: Record<string, string> = {
 
 export function CombinedMasteryRadar({ cseAnalytics, afpsatAnalytics }: CombinedMasteryRadarProps) {
   
-  const processData = (stats: any[]) => {
-    return stats.map(s => ({
-      subject: SHORT_NAMES[s.subject] || s.subject.replace(' Reasoning', '').replace(' Information', ''),
-      fullSubject: s.subject,
-      score: Number(s.latestPercentage.toFixed(1))
-    }));
+  const processData = (stats: any[], allSubjects: Subject[]) => {
+    return allSubjects.map(subject => {
+      const existingStat = stats.find(s => s.subject === subject);
+      return {
+        subject: SHORT_NAMES[subject] || subject.replace(' Reasoning', '').replace(' Information', ''),
+        fullSubject: subject,
+        score: existingStat ? Number(existingStat.latestPercentage.toFixed(1)) : 0
+      };
+    });
   };
 
-  const cseData = processData(cseAnalytics.subjectStats);
-  const afpsatData = processData(afpsatAnalytics.subjectStats);
+  const cseData = processData(cseAnalytics.subjectStats, CSE_SUBJECTS);
+  const afpsatData = processData(afpsatAnalytics.subjectStats, AFPSAT_SUBJECTS);
 
   const CustomTooltip = ({ active, payload }: any) => {
     if (active && payload && payload.length) {
