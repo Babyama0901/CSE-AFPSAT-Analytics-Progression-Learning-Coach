@@ -86,7 +86,7 @@ export function CombinedMasteryRadar({ cseAnalytics, afpsatAnalytics }: Combined
               <PolarGrid stroke="rgba(255,255,255,0.05)" />
               <PolarAngleAxis 
                 dataKey="subject" 
-                tick={{ fill: '#94a3b8', fontSize: 10, fontWeight: 500 }} 
+                tick={{ fill: '#cbd5e1', fontSize: 11, fontWeight: 600 }} 
               />
               <PolarRadiusAxis 
                 angle={90} 
@@ -115,7 +115,7 @@ export function CombinedMasteryRadar({ cseAnalytics, afpsatAnalytics }: Combined
               <PolarGrid stroke="rgba(255,255,255,0.05)" />
               <PolarAngleAxis 
                 dataKey="subject" 
-                tick={{ fill: '#94a3b8', fontSize: 9, fontWeight: 500 }} 
+                tick={{ fill: '#cbd5e1', fontSize: 10, fontWeight: 600 }} 
               />
               <PolarRadiusAxis 
                 angle={90} 

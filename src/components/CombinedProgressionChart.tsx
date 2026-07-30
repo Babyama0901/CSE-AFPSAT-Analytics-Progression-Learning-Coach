@@ -81,7 +81,7 @@ export function CombinedProgressionChart({ data }: CombinedProgressionChartProps
       
       <div className="w-full mt-2 h-[350px]">
         <ResponsiveContainer width="100%" height="100%">
-          <AreaChart data={chartData} margin={{ top: 10, right: 20, left: -20, bottom: 0 }}>
+          <AreaChart data={chartData} margin={{ top: 20, right: 20, left: -20, bottom: 0 }}>
             <defs>
               <linearGradient id="colorCSE" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor="#0ea5e9" stopOpacity={0.4}/>
@@ -95,17 +95,17 @@ export function CombinedProgressionChart({ data }: CombinedProgressionChartProps
             <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" vertical={false} />
             <XAxis 
               dataKey="attempt" 
-              stroke="#94a3b8" 
-              fontSize={12}
-              fontWeight={500}
+              stroke="#cbd5e1" 
+              fontSize={13}
+              fontWeight={600}
               tickLine={false}
               axisLine={false}
               dy={15}
             />
             <YAxis 
-              stroke="#94a3b8" 
-              fontSize={12}
-              fontWeight={500}
+              stroke="#cbd5e1" 
+              fontSize={13}
+              fontWeight={600}
               tickLine={false}
               axisLine={false}
               domain={[0, 100]}
@@ -115,13 +115,13 @@ export function CombinedProgressionChart({ data }: CombinedProgressionChartProps
             <Tooltip content={<CustomTooltip />} />
             <Legend 
               iconType="circle" 
-              wrapperStyle={{ fontSize: '12px', paddingTop: '20px', color: '#cbd5e1' }}
+              wrapperStyle={{ fontSize: '14px', paddingTop: '20px', color: '#f8fafc', fontWeight: 600 }}
             />
             <ReferenceLine 
               y={PASSING_THRESHOLD} 
               stroke="#f43f5e" 
               strokeDasharray="4 4" 
-              label={{ position: 'right', value: 'TARGET 80%', fill: '#f43f5e', fontSize: 11, fontWeight: 'bold' }} 
+              label={{ position: 'insideTopLeft', value: 'TARGET 80%', fill: '#f43f5e', fontSize: 13, fontWeight: 'bold' }} 
             />
             
             <Area 
