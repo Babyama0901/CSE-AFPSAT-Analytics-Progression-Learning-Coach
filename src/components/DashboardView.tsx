@@ -1,6 +1,7 @@
 import React from 'react';
 import { StatCard } from './StatCard';
 import { ComprehensiveTimeline } from './ComprehensiveTimeline';
+import { DashboardMasteryRadar } from './DashboardMasteryRadar';
 import { ScoreLog, AnalyticsData, SubjectStats } from '../types';
 
 interface DashboardViewProps {
@@ -65,6 +66,22 @@ export function DashboardView({ logs, cseAnalytics, afpsatAnalytics }: Dashboard
           value={logs.length}
           subtitle="Total Logs Analyzed"
           icon="inputs"
+        />
+      </div>
+
+      {/* Radar Charts Row */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full">
+        <DashboardMasteryRadar 
+          title="CSE Mastery Overview" 
+          stats={cseAnalytics.subjectStats} 
+          strokeColor="#0ea5e9" // cyan-500
+          fillColor="#0ea5e9" 
+        />
+        <DashboardMasteryRadar 
+          title="AFPSAT Mastery Overview" 
+          stats={afpsatAnalytics.subjectStats} 
+          strokeColor="#d946ef" // fuchsia-500
+          fillColor="#d946ef" 
         />
       </div>
 
