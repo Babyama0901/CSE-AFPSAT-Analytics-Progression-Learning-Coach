@@ -15,6 +15,8 @@ export default function App() {
   const [logs, setLogs] = useState<ScoreLog[]>([]);
   const [activeTab, setActiveTab] = useState<'DASHBOARD' | ExamType>('DASHBOARD');
   const [isExportModalOpen, setIsExportModalOpen] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [saveStatus, setSaveStatus] = useState<'IDLE' | 'SAVING' | 'SAVED'>('IDLE');
 
   // Load from local storage on mount
   useEffect(() => {
@@ -24,12 +26,21 @@ export default function App() {
         setLogs(JSON.parse(saved));
       } catch (e) {}
     }
+    setIsLoaded(true);
   }, []);
 
   // Save to local storage on change
   useEffect(() => {
-    localStorage.setItem('analytics-engine-logs', JSON.stringify(logs));
-  }, [logs]);
+    if (isLoaded) {
+      setSaveStatus('SAVING');
+      const timeout = setTimeout(() => {
+        localStorage.setItem('analytics-engine-logs', JSON.stringify(logs));
+        setSaveStatus('SAVED');
+        setTimeout(() => setSaveStatus('IDLE'), 2000);
+      }, 500); // Debounce visual indicator
+      return () => clearTimeout(timeout);
+    }
+  }, [logs, isLoaded]);
 
   const handleAddLog = (logData: Omit<ScoreLog, 'id' | 'timestamp'>) => {
     const newLog: ScoreLog = {
@@ -115,11 +126,20 @@ export default function App() {
               <Download className="w-4 h-4" /> Export Report
             </button>
 
-            <div className="flex items-center gap-3 bg-slate-900/50 px-4 py-2 rounded-full border border-white/5">
+            <div className="flex items-center gap-3 bg-slate-900/50 px-4 py-2 rounded-full border border-white/5 transition-all w-[150px] justify-center">
               <div className="relative flex h-3 w-3">
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                {saveStatus === 'SAVING' && (
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                )}
+                <span className={`relative inline-flex rounded-full h-3 w-3 ${
+                  saveStatus === 'SAVING' ? 'bg-amber-500' : 
+                  saveStatus === 'SAVED' ? 'bg-emerald-500' : 'bg-cyan-500'
+                }`}></span>
               </div>
-              <span className="text-xs font-semibold tracking-wider text-slate-300">SYSTEM ONLINE</span>
+              <span className="text-xs font-semibold tracking-wider text-slate-300 whitespace-nowrap">
+                {saveStatus === 'SAVING' ? 'SAVING...' : 
+                 saveStatus === 'SAVED' ? 'ALL SAVED' : 'AUTO-SAVE ON'}
+              </span>
             </div>
           </div>
         </div>
