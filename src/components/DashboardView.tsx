@@ -1,16 +1,18 @@
 import React from 'react';
 import { StatCard } from './StatCard';
 import { ComprehensiveTimeline } from './ComprehensiveTimeline';
-import { DashboardMasteryRadar } from './DashboardMasteryRadar';
+import { CombinedProgressionChart } from './CombinedProgressionChart';
+import { CombinedMasteryRadar } from './CombinedMasteryRadar';
 import { ScoreLog, AnalyticsData, SubjectStats } from '../types';
 
 interface DashboardViewProps {
   logs: ScoreLog[];
   cseAnalytics: AnalyticsData;
   afpsatAnalytics: AnalyticsData;
+  historicalReadinessData: any[];
 }
 
-export function DashboardView({ logs, cseAnalytics, afpsatAnalytics }: DashboardViewProps) {
+export function DashboardView({ logs, cseAnalytics, afpsatAnalytics, historicalReadinessData }: DashboardViewProps) {
   
   // Calculate combined readiness
   let combinedReadiness = 0;
@@ -69,20 +71,10 @@ export function DashboardView({ logs, cseAnalytics, afpsatAnalytics }: Dashboard
         />
       </div>
 
-      {/* Radar Charts Row */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full">
-        <DashboardMasteryRadar 
-          title="CSE Mastery Overview" 
-          stats={cseAnalytics.subjectStats} 
-          strokeColor="#0ea5e9" // cyan-500
-          fillColor="#0ea5e9" 
-        />
-        <DashboardMasteryRadar 
-          title="AFPSAT Mastery Overview" 
-          stats={afpsatAnalytics.subjectStats} 
-          strokeColor="#d946ef" // fuchsia-500
-          fillColor="#d946ef" 
-        />
+      {/* Analytics Charts Row */}
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+        <CombinedProgressionChart data={historicalReadinessData} />
+        <CombinedMasteryRadar cseAnalytics={cseAnalytics} afpsatAnalytics={afpsatAnalytics} />
       </div>
 
       {/* Main Timeline */}

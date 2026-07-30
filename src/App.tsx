@@ -70,6 +70,24 @@ export default function App() {
     generateAnalyticsReport(cseAnalytics, afpsatAnalytics, logs);
   };
 
+  // Calculate macro-level historical readiness for the Dashboard Area Chart
+  const historicalReadinessData = useMemo(() => {
+    return logs.map((_, index) => {
+      const currentLogs = logs.slice(0, index + 1);
+      const cseCurrent = currentLogs.filter(l => l.exam === 'CSE' || !l.exam);
+      const afpsatCurrent = currentLogs.filter(l => l.exam === 'AFPSAT');
+      
+      const cseAn = calculateAnalytics(cseCurrent, CSE_SUBJECTS);
+      const afpsatAn = calculateAnalytics(afpsatCurrent, AFPSAT_SUBJECTS);
+      
+      return {
+        attempt: `Log ${index + 1}`,
+        CSE: cseAn.readinessScore > 0 ? Number(cseAn.readinessScore.toFixed(1)) : null,
+        AFPSAT: afpsatAn.readinessScore > 0 ? Number(afpsatAn.readinessScore.toFixed(1)) : null
+      };
+    });
+  }, [logs]);
+
   return (
     <div className="min-h-screen text-slate-200 bg-slate-950">
       
@@ -170,6 +188,7 @@ export default function App() {
             logs={logs}
             cseAnalytics={cseAnalytics}
             afpsatAnalytics={afpsatAnalytics}
+            historicalReadinessData={historicalReadinessData}
           />
         ) : (
           <div key={activeTab} className="space-y-8">
