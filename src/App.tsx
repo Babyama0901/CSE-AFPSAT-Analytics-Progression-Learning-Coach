@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { BrainCircuit, Activity, Sparkles, LayoutDashboard, TrendingUp, Download } from 'lucide-react';
+import { BrainCircuit, Activity, Sparkles, LayoutDashboard, TrendingUp, Download, Home } from 'lucide-react';
 import { ScoreLog, ExamType, CSE_SUBJECTS, AFPSAT_SUBJECTS } from './types';
 import { calculateAnalytics, generateCoachingPlan } from './utils/analytics';
 import { ScoreEntryForm } from './components/ScoreEntryForm';
@@ -7,13 +7,13 @@ import { StatCard } from './components/StatCard';
 import { MasteryChart } from './components/MasteryChart';
 import { CoachingPanel } from './components/CoachingPanel';
 import { ProgressionChart } from './components/ProgressionChart';
-import { OverallProgressionChart } from './components/OverallProgressionChart';
 import { ExportModal } from './components/ExportModal';
+import { DashboardView } from './components/DashboardView';
 import { generateAnalyticsReport } from './utils/pdfGenerator';
 
 export default function App() {
   const [logs, setLogs] = useState<ScoreLog[]>([]);
-  const [activeTab, setActiveTab] = useState<ExamType>('CSE');
+  const [activeTab, setActiveTab] = useState<'DASHBOARD' | ExamType>('DASHBOARD');
   const [isExportModalOpen, setIsExportModalOpen] = useState(false);
 
   // Load from local storage on mount
@@ -46,21 +46,21 @@ export default function App() {
   const cseAnalytics = useMemo(() => calculateAnalytics(cseLogs, CSE_SUBJECTS), [cseLogs]);
   const afpsatAnalytics = useMemo(() => calculateAnalytics(afpsatLogs, AFPSAT_SUBJECTS), [afpsatLogs]);
 
-  const activeAnalytics = activeTab === 'CSE' ? cseAnalytics : afpsatAnalytics;
-  const activeLogs = activeTab === 'CSE' ? cseLogs : afpsatLogs;
-  const latestLog = useMemo(() => activeLogs[activeLogs.length - 1], [activeLogs]);
+  // For the exam view
+  const currentExamAnalytics = activeTab === 'AFPSAT' ? afpsatAnalytics : cseAnalytics;
+  const currentExamLogs = activeTab === 'AFPSAT' ? afpsatLogs : cseLogs;
+  const latestLog = useMemo(() => currentExamLogs[currentExamLogs.length - 1], [currentExamLogs]);
   
   const coachingPlan = useMemo(() => {
-    return generateCoachingPlan(activeAnalytics.weakestSubject, latestLog);
-  }, [activeAnalytics.weakestSubject, latestLog]);
+    return generateCoachingPlan(currentExamAnalytics.weakestSubject, latestLog);
+  }, [currentExamAnalytics.weakestSubject, latestLog]);
 
   const handleExport = () => {
     generateAnalyticsReport(cseAnalytics, afpsatAnalytics, logs);
   };
 
-  // Calculate macro-level historical readiness
+  // Calculate macro-level historical readiness for the Dashboard
   const historicalReadinessData = useMemo(() => {
-    // Optimization: avoid O(N^2) mapping overhead if not needed, but doing it on useMemo prevents re-renders during typing
     return logs.map((_, index) => {
       const currentLogs = logs.slice(0, index + 1);
       const cseCurrent = currentLogs.filter(l => l.exam === 'CSE' || !l.exam);
@@ -131,6 +131,16 @@ export default function App() {
         <div className="flex justify-center mb-10">
           <div className="glass-panel p-1.5 rounded-2xl inline-flex gap-2">
             <button
+              onClick={() => setActiveTab('DASHBOARD')}
+              className={`px-8 py-3 rounded-xl text-sm font-bold tracking-widest uppercase flex items-center gap-2 ${
+                activeTab === 'DASHBOARD' 
+                ? 'bg-slate-700 text-white' 
+                : 'text-slate-400 hover:text-slate-200 hover:bg-white/5'
+              }`}
+            >
+              <Home className="w-4 h-4" /> Dashboard
+            </button>
+            <button
               onClick={() => setActiveTab('CSE')}
               className={`px-8 py-3 rounded-xl text-sm font-bold tracking-widest uppercase flex items-center gap-2 ${
                 activeTab === 'CSE' 
@@ -153,53 +163,57 @@ export default function App() {
           </div>
         </div>
 
-        <div key={activeTab} className="space-y-8">
-          {/* Top Stats Row */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <StatCard 
-              title={`${activeTab} Readiness`}
-              value={`${activeAnalytics.readinessScore.toFixed(1)}%`}
-              subtitle="Target: 80.0%"
-              status={activeAnalytics.readinessScore >= 80 ? 'optimal' : (activeAnalytics.readinessScore > 0 ? 'warning' : 'neutral')}
-              icon="readiness"
-            />
-            <StatCard 
-              title="Critical Deficit" 
-              value={activeAnalytics.weakestSubject ? activeAnalytics.weakestSubject.subject : 'N/A'}
-              subtitle={activeAnalytics.weakestSubject ? `Mastery: ${activeAnalytics.weakestSubject.latestPercentage.toFixed(1)}%` : 'Awaiting Data'}
-              status={activeAnalytics.weakestSubject ? 'critical' : 'neutral'}
-              icon="deficit"
-            />
-            <StatCard 
-              title="Engine Inputs" 
-              value={activeLogs.length}
-              subtitle="Diagnostic Logs Analyzed"
-              icon="inputs"
-            />
-          </div>
-
-          {/* Macro Readiness Graph */}
-          <div>
-            <OverallProgressionChart data={historicalReadinessData} />
-          </div>
-
-          {/* Input & Coaching Row */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <div className="lg:col-span-4 flex flex-col">
-              <ScoreEntryForm onAddLog={handleAddLog} />
+        {activeTab === 'DASHBOARD' ? (
+          <DashboardView 
+            logs={logs}
+            cseAnalytics={cseAnalytics}
+            afpsatAnalytics={afpsatAnalytics}
+            historicalReadinessData={historicalReadinessData}
+          />
+        ) : (
+          <div key={activeTab} className="space-y-8">
+            {/* Top Stats Row */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <StatCard 
+                title={`${activeTab} Readiness`}
+                value={`${currentExamAnalytics.readinessScore.toFixed(1)}%`}
+                subtitle="Target: 80.0%"
+                status={currentExamAnalytics.readinessScore >= 80 ? 'optimal' : (currentExamAnalytics.readinessScore > 0 ? 'warning' : 'neutral')}
+                icon="readiness"
+              />
+              <StatCard 
+                title="Critical Deficit" 
+                value={currentExamAnalytics.weakestSubject ? currentExamAnalytics.weakestSubject.subject : 'N/A'}
+                subtitle={currentExamAnalytics.weakestSubject ? `Mastery: ${currentExamAnalytics.weakestSubject.latestPercentage.toFixed(1)}%` : 'Awaiting Data'}
+                status={currentExamAnalytics.weakestSubject ? 'critical' : 'neutral'}
+                icon="deficit"
+              />
+              <StatCard 
+                title="Engine Inputs" 
+                value={currentExamLogs.length}
+                subtitle="Diagnostic Logs Analyzed"
+                icon="inputs"
+              />
             </div>
-            <div className="lg:col-span-8 flex flex-col">
-              <CoachingPanel plan={coachingPlan} />
-            </div>
-          </div>
 
-          {/* Visualization Row (Progression & Mastery) */}
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 pt-2">
-            <ProgressionChart stats={activeAnalytics.subjectStats} exam={activeTab} />
-            <MasteryChart stats={activeAnalytics.subjectStats} />
+            {/* Input & Coaching Row */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+              <div className="lg:col-span-4 flex flex-col">
+                <ScoreEntryForm onAddLog={handleAddLog} />
+              </div>
+              <div className="lg:col-span-8 flex flex-col">
+                <CoachingPanel plan={coachingPlan} />
+              </div>
+            </div>
+
+            {/* Visualization Row (Progression & Mastery) */}
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 pt-2">
+              <ProgressionChart stats={currentExamAnalytics.subjectStats} exam={activeTab} />
+              <MasteryChart stats={currentExamAnalytics.subjectStats} />
+            </div>
+            
           </div>
-          
-        </div>
+        )}
       </main>
 
       {/* Export Modal Overlay */}
