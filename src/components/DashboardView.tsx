@@ -1,17 +1,15 @@
 import React from 'react';
 import { StatCard } from './StatCard';
-import { OverallProgressionChart } from './OverallProgressionChart';
-import { RecentActivityFeed } from './RecentActivityFeed';
+import { ComprehensiveTimeline } from './ComprehensiveTimeline';
 import { ScoreLog, AnalyticsData, SubjectStats } from '../types';
 
 interface DashboardViewProps {
   logs: ScoreLog[];
   cseAnalytics: AnalyticsData;
   afpsatAnalytics: AnalyticsData;
-  historicalReadinessData: any[];
 }
 
-export function DashboardView({ logs, cseAnalytics, afpsatAnalytics, historicalReadinessData }: DashboardViewProps) {
+export function DashboardView({ logs, cseAnalytics, afpsatAnalytics }: DashboardViewProps) {
   
   // Calculate combined readiness
   let combinedReadiness = 0;
@@ -70,16 +68,9 @@ export function DashboardView({ logs, cseAnalytics, afpsatAnalytics, historicalR
         />
       </div>
 
-      {/* Main Charts & Feed */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        <div className="lg:col-span-8 flex flex-col">
-          <div className="flex-1">
-            <OverallProgressionChart data={historicalReadinessData} />
-          </div>
-        </div>
-        <div className="lg:col-span-4 flex flex-col">
-          <RecentActivityFeed logs={logs} />
-        </div>
+      {/* Main Timeline */}
+      <div className="w-full">
+        <ComprehensiveTimeline logs={logs} />
       </div>
     </div>
   );
