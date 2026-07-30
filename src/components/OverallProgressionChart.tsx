@@ -1,16 +1,14 @@
 import React from 'react';
 import { 
-  LineChart, 
-  Line, 
-  XAxis, 
-  YAxis, 
-  CartesianGrid, 
+  RadarChart, 
+  Radar, 
+  PolarGrid, 
+  PolarAngleAxis, 
+  PolarRadiusAxis, 
   Tooltip, 
   ResponsiveContainer,
-  Legend,
-  ReferenceLine
+  Legend
 } from 'recharts';
-import { PASSING_THRESHOLD } from '../utils/analytics';
 import { Activity } from 'lucide-react';
 
 interface OverallProgressionChartProps {
@@ -29,21 +27,17 @@ export function OverallProgressionChart({ data }: OverallProgressionChartProps) 
     );
   }
 
-  // Recharts sometimes struggles to render a line with a single data point.
-  // If there's only 1 log, we duplicate it with a 'Start' label to draw a flat line.
-  const chartData = data.length === 1 
-    ? [
-        { ...data[0], attempt: 'Start' }, 
-        data[0]
-      ] 
-    : data;
+  // To make the radar chart look like a polygon when there's only 1 or 2 logs,
+  // it's best to pad it to at least 3 points. But Recharts handles it by drawing a line/dot.
+  // We keep the original data directly since Radar charts intrinsically handle the shape.
+  const chartData = data;
 
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
       return (
         <div className="bg-slate-900/95 backdrop-blur-xl border border-white/10 p-5 rounded-2xl shadow-2xl min-w-[200px]">
-          <p className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-3 pb-2 border-b border-white/10">{label}</p>
+          <p className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-3 pb-2 border-b border-white/10">{data.attempt || label}</p>
           
           <div className="flex items-center justify-between gap-4 mb-2">
             <div className="flex items-center gap-2">
@@ -82,64 +76,43 @@ export function OverallProgressionChart({ data }: OverallProgressionChartProps) 
       </div>
       
       {/* Fixed height ensures ResponsiveContainer doesn't collapse to 0 in flex layouts */}
-      <div className="w-full mt-2 h-[300px]">
+      <div className="w-full mt-2 h-[400px]">
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={chartData} margin={{ top: 10, right: 20, left: -20, bottom: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" vertical={false} />
-            <XAxis 
+          <RadarChart data={chartData} margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+            <PolarGrid stroke="rgba(255,255,255,0.05)" />
+            <PolarAngleAxis 
               dataKey="attempt" 
-              stroke="#94a3b8" 
-              fontSize={12}
-              fontWeight={500}
-              tickLine={false}
-              axisLine={false}
-              dy={15}
+              tick={{ fill: '#94a3b8', fontSize: 12, fontWeight: 500 }} 
             />
-            <YAxis 
-              stroke="#94a3b8" 
-              fontSize={12}
-              fontWeight={500}
-              tickLine={false}
-              axisLine={false}
-              domain={[0, 100]}
-              ticks={[0, 25, 50, 75, 100]}
-              tickFormatter={(value) => `${value}%`}
+            <PolarRadiusAxis 
+              angle={30} 
+              domain={[0, 100]} 
+              tick={{ fill: '#94a3b8', fontSize: 10 }}
+              tickCount={5}
             />
             <Tooltip content={<CustomTooltip />} />
             <Legend 
               iconType="circle" 
-              wrapperStyle={{ fontSize: '12px', paddingTop: '20px', color: '#cbd5e1' }}
-            />
-            <ReferenceLine 
-              y={PASSING_THRESHOLD} 
-              stroke="#f43f5e" 
-              strokeDasharray="4 4" 
-              label={{ position: 'right', value: 'TARGET 80%', fill: '#f43f5e', fontSize: 11, fontWeight: 'bold' }} 
+              wrapperStyle={{ fontSize: '12px', paddingTop: '10px', color: '#cbd5e1' }}
             />
             
-            <Line 
-              type="monotone" 
+            <Radar 
+              name="CSE Readiness" 
               dataKey="CSE" 
-              name="CSE Readiness"
-              stroke="#0ea5e9" // cyan-500
-              strokeWidth={3}
-              connectNulls
-              dot={{ r: 4, fill: '#0f172a', strokeWidth: 2 }}
-              activeDot={{ r: 6, fill: '#0ea5e9' }}
+              stroke="#0ea5e9" 
+              fill="#0ea5e9" 
+              fillOpacity={0.3} 
               isAnimationActive={false}
             />
-            <Line 
-              type="monotone" 
+            <Radar 
+              name="AFPSAT Readiness" 
               dataKey="AFPSAT" 
-              name="AFPSAT Readiness"
-              stroke="#d946ef" // fuchsia-500
-              strokeWidth={3}
-              connectNulls
-              dot={{ r: 4, fill: '#0f172a', strokeWidth: 2 }}
-              activeDot={{ r: 6, fill: '#d946ef' }}
+              stroke="#d946ef" 
+              fill="#d946ef" 
+              fillOpacity={0.3} 
               isAnimationActive={false}
             />
-          </LineChart>
+          </RadarChart>
         </ResponsiveContainer>
       </div>
     </div>
