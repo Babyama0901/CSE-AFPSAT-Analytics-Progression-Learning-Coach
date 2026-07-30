@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Subject, ExamType, CSE_SUBJECTS, AFPSAT_SUBJECTS, ScoreLog } from '../types';
+import { Subject, ExamType, CSE_SUBJECTS, AFPSAT_SUBJECTS, AFPSAT_GROUPS, ScoreLog } from '../types';
 import { Activity, Send } from 'lucide-react';
 
 interface ScoreEntryFormProps {
@@ -78,9 +78,19 @@ export function ScoreEntryForm({ onAddLog }: ScoreEntryFormProps) {
                 onChange={(e) => setSubject(e.target.value as Subject)}
                 className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 appearance-none transition-all"
               >
-                {currentSubjects.map(s => (
-                  <option key={s} value={s} className="bg-slate-900 font-sans">{s}</option>
-                ))}
+                {exam === 'CSE' ? (
+                  CSE_SUBJECTS.map(s => (
+                    <option key={s} value={s} className="bg-slate-900 font-sans">{s}</option>
+                  ))
+                ) : (
+                  Object.entries(AFPSAT_GROUPS).map(([group, subjects]) => (
+                    <optgroup key={group} label={group} className="bg-slate-900 font-sans font-bold text-slate-400">
+                      {subjects.map(s => (
+                        <option key={s} value={s} className="bg-slate-900 font-sans font-normal text-slate-200">{s}</option>
+                      ))}
+                    </optgroup>
+                  ))
+                )}
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400">
                 <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
