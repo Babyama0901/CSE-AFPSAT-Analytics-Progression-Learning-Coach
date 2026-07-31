@@ -5,7 +5,6 @@ export type Subject =
   | 'Verbal Reasoning'
   | 'General Information'
   | 'Philippine Constitution'
-  | 'R.A. 6713'
   // AFPSAT Sub-components
   | 'Reading Comprehension'
   | 'Vocabulary'
@@ -26,7 +25,6 @@ export const SUBJECTS: Subject[] = [
   'Verbal Reasoning',
   'General Information',
   'Philippine Constitution',
-  'R.A. 6713',
   'Reading Comprehension',
   'Vocabulary',
   'Grammar and Language Usage',
