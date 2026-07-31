@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { BrainCircuit, Activity, Sparkles, LayoutDashboard, TrendingUp, Download, Home } from 'lucide-react';
+import { BrainCircuit, Activity, Sparkles, LayoutDashboard, TrendingUp, Download, Home, History } from 'lucide-react';
 import { ScoreLog, ExamType, CSE_SUBJECTS, AFPSAT_SUBJECTS } from './types';
 import { calculateAnalytics, generateCoachingPlan } from './utils/analytics';
 import { ScoreEntryForm } from './components/ScoreEntryForm';
@@ -9,11 +9,12 @@ import { CoachingPanel } from './components/CoachingPanel';
 import { ProgressionChart } from './components/ProgressionChart';
 import { ExportModal } from './components/ExportModal';
 import { DashboardView } from './components/DashboardView';
+import { HistoryView } from './components/HistoryView';
 import { generateAnalyticsReport } from './utils/pdfGenerator';
 
 export default function App() {
   const [logs, setLogs] = useState<ScoreLog[]>([]);
-  const [activeTab, setActiveTab] = useState<'DASHBOARD' | ExamType>('DASHBOARD');
+  const [activeTab, setActiveTab] = useState<'DASHBOARD' | ExamType | 'HISTORY'>('DASHBOARD');
   const [isExportModalOpen, setIsExportModalOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [saveStatus, setSaveStatus] = useState<'IDLE' | 'SAVING' | 'SAVED'>('IDLE');
@@ -49,6 +50,14 @@ export default function App() {
       timestamp: Date.now()
     };
     setLogs(prev => [...prev, newLog]);
+  };
+
+  const handleUpdateLog = (updatedLog: ScoreLog) => {
+    setLogs(prev => prev.map(log => log.id === updatedLog.id ? updatedLog : log));
+  };
+
+  const handleDeleteLog = (id: string) => {
+    setLogs(prev => prev.filter(log => log.id !== id));
   };
 
   const cseLogs = logs.filter(log => log.exam === 'CSE' || !log.exam); // Default older logs to CSE
@@ -180,6 +189,16 @@ export default function App() {
             >
               <TrendingUp className="w-4 h-4" /> AFPSAT View
             </button>
+            <button
+              onClick={() => setActiveTab('HISTORY')}
+              className={`px-8 py-3 rounded-xl text-sm font-bold tracking-widest uppercase flex items-center gap-2 ${
+                activeTab === 'HISTORY' 
+                ? 'bg-amber-600 text-white' 
+                : 'text-slate-400 hover:text-slate-200 hover:bg-white/5'
+              }`}
+            >
+              <History className="w-4 h-4" /> History
+            </button>
           </div>
         </div>
 
@@ -189,6 +208,12 @@ export default function App() {
             cseAnalytics={cseAnalytics}
             afpsatAnalytics={afpsatAnalytics}
             historicalReadinessData={historicalReadinessData}
+          />
+        ) : activeTab === 'HISTORY' ? (
+          <HistoryView 
+            logs={logs}
+            onUpdateLog={handleUpdateLog}
+            onDeleteLog={handleDeleteLog}
           />
         ) : (
           <div key={activeTab} className="space-y-8">
