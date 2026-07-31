@@ -44,8 +44,7 @@ export const CSE_SUBJECTS: Subject[] = [
   'Numerical Ability',
   'Verbal Reasoning',
   'General Information',
-  'Philippine Constitution',
-  'R.A. 6713'
+  'Philippine Constitution'
 ];
 
 export const AFPSAT_GROUPS = {
