@@ -2,9 +2,9 @@ export type ExamType = 'CSE' | 'AFPSAT';
 
 export type Subject = 
   | 'Numerical Ability'
-  | 'Verbal Reasoning'
+  | 'Verbal Ability'
   | 'General Information'
-  | 'Philippine Constitution'
+  | 'Analytic Ability'
   // AFPSAT Sub-components
   | 'Reading Comprehension'
   | 'Vocabulary'
@@ -22,9 +22,9 @@ export type Subject =
 
 export const SUBJECTS: Subject[] = [
   'Numerical Ability',
-  'Verbal Reasoning',
+  'Verbal Ability',
   'General Information',
-  'Philippine Constitution',
+  'Analytic Ability',
   'Reading Comprehension',
   'Vocabulary',
   'Grammar and Language Usage',
@@ -42,9 +42,9 @@ export const SUBJECTS: Subject[] = [
 
 export const CSE_SUBJECTS: Subject[] = [
   'Numerical Ability',
-  'Verbal Reasoning',
+  'Verbal Ability',
   'General Information',
-  'Philippine Constitution'
+  'Analytic Ability'
 ];
 
 export const AFPSAT_GROUPS = {
