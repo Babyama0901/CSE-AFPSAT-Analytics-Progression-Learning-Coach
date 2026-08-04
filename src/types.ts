@@ -2,9 +2,15 @@ export type ExamType = 'CSE' | 'AFPSAT';
 
 export type Subject = 
   | 'Numerical Ability'
-  | 'Verbal Ability'
   | 'General Information'
-  | 'Analytic Ability'
+  // CSE Sub-components
+  | 'Spelling'
+  | 'Idiomatic Expressions'
+  | 'Identifying Errors'
+  | 'Talasitaan'
+  | 'Kawikaang Filipino'
+  | 'Pagkilala sa Mali'
+  | 'Logic'
   // AFPSAT Sub-components
   | 'Reading Comprehension'
   | 'Vocabulary'
@@ -20,11 +26,38 @@ export type Subject =
   | 'Pattern Recognition 2'
   | 'Pattern Recognition 3';
 
+export const CSE_GROUPS = {
+  'VERBAL ABILITY (ENGLISH)': [
+    'Spelling',
+    'Idiomatic Expressions',
+    'Identifying Errors'
+  ] as Subject[],
+  'VERBAL ABILITY (FILIPINO)': [
+    'Talasitaan',
+    'Kawikaang Filipino',
+    'Pagkilala sa Mali'
+  ] as Subject[],
+  'ANALYTIC ABILITY': [
+    'Logic'
+  ] as Subject[],
+  'NUMERICAL ABILITY': [
+    'Numerical Ability'
+  ] as Subject[],
+  'GENERAL INFORMATION': [
+    'General Information'
+  ] as Subject[]
+};
+
+export const CSE_SUBJECTS: Subject[] = [
+  ...CSE_GROUPS['VERBAL ABILITY (ENGLISH)'],
+  ...CSE_GROUPS['VERBAL ABILITY (FILIPINO)'],
+  ...CSE_GROUPS['ANALYTIC ABILITY'],
+  ...CSE_GROUPS['NUMERICAL ABILITY'],
+  ...CSE_GROUPS['GENERAL INFORMATION']
+];
+
 export const SUBJECTS: Subject[] = [
-  'Numerical Ability',
-  'Verbal Ability',
-  'General Information',
-  'Analytic Ability',
+  ...CSE_SUBJECTS,
   'Reading Comprehension',
   'Vocabulary',
   'Grammar and Language Usage',
@@ -38,13 +71,6 @@ export const SUBJECTS: Subject[] = [
   'Pattern Recognition 1',
   'Pattern Recognition 2',
   'Pattern Recognition 3'
-];
-
-export const CSE_SUBJECTS: Subject[] = [
-  'Numerical Ability',
-  'Verbal Ability',
-  'General Information',
-  'Analytic Ability'
 ];
 
 export const AFPSAT_GROUPS = {

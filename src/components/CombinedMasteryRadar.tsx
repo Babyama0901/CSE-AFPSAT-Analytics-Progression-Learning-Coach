@@ -30,7 +30,11 @@ const SHORT_NAMES: Record<string, string> = {
   'Pattern Recognition 1': 'Pattern 1',
   'Pattern Recognition 2': 'Pattern 2',
   'Pattern Recognition 3': 'Pattern 3',
-  'Analytic Ability': 'Analytic'
+  'Analytic Ability': 'Analytic',
+  'Idiomatic Expressions': 'Idioms',
+  'Identifying Errors': 'Errors',
+  'Kawikaang Filipino': 'Kawikaan',
+  'Pagkilala sa Mali': 'Pagkilala Mali'
 };
 
 export function CombinedMasteryRadar({ cseAnalytics, afpsatAnalytics }: CombinedMasteryRadarProps) {

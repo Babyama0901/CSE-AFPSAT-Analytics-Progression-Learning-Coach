@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Subject, ExamType, CSE_SUBJECTS, AFPSAT_SUBJECTS, AFPSAT_GROUPS, ScoreLog } from '../types';
+import { Subject, ExamType, CSE_SUBJECTS, CSE_GROUPS, AFPSAT_SUBJECTS, AFPSAT_GROUPS, ScoreLog } from '../types';
 import { Activity, Send } from 'lucide-react';
 
 interface ScoreEntryFormProps {
@@ -79,8 +79,12 @@ export function ScoreEntryForm({ onAddLog }: ScoreEntryFormProps) {
                 className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 appearance-none transition-all"
               >
                 {exam === 'CSE' ? (
-                  CSE_SUBJECTS.map(s => (
-                    <option key={s} value={s} className="bg-slate-900 font-sans">{s}</option>
+                  Object.entries(CSE_GROUPS).map(([group, subjects]) => (
+                    <optgroup key={group} label={group} className="bg-slate-900 font-sans font-bold text-slate-400">
+                      {subjects.map(s => (
+                        <option key={s} value={s} className="bg-slate-900 font-sans font-normal text-slate-200">{s}</option>
+                      ))}
+                    </optgroup>
                   ))
                 ) : (
                   Object.entries(AFPSAT_GROUPS).map(([group, subjects]) => (
