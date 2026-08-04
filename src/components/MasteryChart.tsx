@@ -33,10 +33,13 @@ const SHORT_NAMES: Record<string, string> = {
   'Pattern Recognition 2': 'Pattern 2',
   'Pattern Recognition 3': 'Pattern 3',
   'Analytic Ability': 'Analytic',
+  'Spelling': 'Spelling',
   'Idiomatic Expressions': 'Idioms',
-  'Identifying Errors': 'Errors',
+  'Identifying Errors (English Grammar)': 'Eng Errors',
+  'Talasitaan': 'Talasitaan',
   'Kawikaang Filipino': 'Kawikaan',
-  'Pagkilala sa Mali': 'Pagkilala Mali'
+  'Pagkilala sa Mali': 'Mali',
+  'Logic': 'Logic'
 };
 
 export function MasteryChart({ stats }: MasteryChartProps) {
