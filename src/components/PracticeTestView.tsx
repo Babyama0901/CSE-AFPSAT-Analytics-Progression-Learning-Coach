@@ -60,6 +60,9 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
 
   const handleAnswer = (questionId: string, answer: string) => {
     setAnswers(prev => ({ ...prev, [questionId]: answer }));
+    if (currentIndex < allQuestions.length - 1) {
+      setTimeout(() => setCurrentIndex(prev => prev + 1), 300);
+    }
   };
 
   const formatTime = (seconds: number) => {
@@ -105,6 +108,14 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
               <CheckCircle2 className="w-4 h-4" /> Submit Exam
             </button>
           </div>
+        </div>
+
+        {/* Progress Bar */}
+        <div className="h-1 w-full bg-slate-900">
+          <div 
+            className="h-full bg-indigo-500 transition-all duration-300 ease-out"
+            style={{ width: `${((currentIndex + 1) / allQuestions.length) * 100}%` }}
+          />
         </div>
 
         {/* Body */}
@@ -195,43 +206,6 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
                   Submit <Check className="w-4 h-4" />
                 </button>
               )}
-            </div>
-          </div>
-
-          {/* Right Sidebar map */}
-          <div className="w-64 bg-slate-950/50 border-l border-white/5 p-4 flex flex-col shrink-0 hidden lg:flex">
-            <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">Question Map</h3>
-            <div className="overflow-y-auto flex-1 pr-2 custom-scrollbar">
-              <div className="grid grid-cols-4 gap-2">
-                {allQuestions.map((q, i) => {
-                  const isAnswered = !!answers[q.question.id];
-                  const isCurrent = i === currentIndex;
-                  return (
-                    <button
-                      key={q.question.id}
-                      onClick={() => setCurrentIndex(i)}
-                      className={`w-full aspect-square rounded flex items-center justify-center text-xs font-medium transition-all ${
-                        isCurrent 
-                          ? 'ring-2 ring-indigo-500 bg-indigo-500/20 text-indigo-300' 
-                          : isAnswered 
-                            ? 'bg-indigo-600/60 text-white' 
-                            : 'bg-slate-800 text-slate-400 hover:bg-slate-700'
-                      }`}
-                    >
-                      {i + 1}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-            
-            <div className="mt-4 pt-4 border-t border-white/5">
-              <div className="flex items-center gap-2 text-xs text-slate-400 mb-2">
-                <div className="w-3 h-3 rounded bg-indigo-600/60"></div> Answered
-              </div>
-              <div className="flex items-center gap-2 text-xs text-slate-400">
-                <div className="w-3 h-3 rounded bg-slate-800"></div> Unanswered
-              </div>
             </div>
           </div>
         </div>
