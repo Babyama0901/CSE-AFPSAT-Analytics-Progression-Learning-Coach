@@ -12,11 +12,21 @@ const highlightQuestionText = (text: string, subject: Subject) => {
   const highlights: Record<string, string[]> = {
     'Vocabulary': [
       'Gullible', 'jettison', 'disseminate', 'feasible', 'perennial', 
-      'amicable', 'abridged', 'laudable', 'lackadaisical'
+      'amicable', 'abridged', 'laudable', 'lackadaisical', 'tenaciously',
+      'equalitarian', 'diligence', 'abominate', 'furious', 'complacent',
+      'exacerbate', 'inherent', 'affluent', 'incessant', 'exhaustive',
+      'serendipity', 'appease', 'benevolent', 'litigate', 'antsy',
+      'accolades', 'engender', 'fret', 'fortuitous', 'renowned', 'deprecate'
     ],
     'Idiomatic Expressions': [
       'out of hand', 'picks on', 'black sheep', 'raining cats and dogs',
-      'put in for', 'wild-goose chase', 'prowled around', 'put her foot in it'
+      'put in for', 'wild-goose chase', 'prowled around', 'put her foot in it',
+      'add up', 'clammed up', 'get into', 'knock your socks off', 'cooped up',
+      'saw red', 'pig out', 'made a deal', 'talking through her hat', 'towers over',
+      'pull a few strings', 'got out of bed on the wrong side', 'buries herself',
+      'white elephant', 'stands to reason', 'give my right arm', 'went bananas',
+      'brought her into contact', 'grass grow under your feet', 'spill the beans',
+      'starving'
     ]
   };
 
