@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { MOCK_EXAMS } from '../data/mockExams';
-import { MockExam, Question, ExamSection, Subject } from '../types';
+import { MOCK_EXAM_TEMPLATES } from '../data/mockExams';
+import { QUESTION_BANK } from '../data/questionBank';
+import { MockExamTemplate, MockExam, Question, ExamSection, Subject } from '../types';
 import { Play, Clock, CheckCircle2, AlertCircle, ChevronLeft, ChevronRight, Check } from 'lucide-react';
 import { ExamResultsView } from './ExamResultsView';
 
@@ -8,7 +9,6 @@ import { ExamResultsView } from './ExamResultsView';
 const highlightQuestionText = (text: string, subject: Subject) => {
   let highlightedText = text;
 
-  // Words/idioms to highlight based on the specific 50-item mock exam
   const highlights: Record<string, string[]> = {
     'Vocabulary': [
       'Gullible', 'jettison', 'disseminate', 'feasible', 'perennial', 
@@ -30,10 +30,8 @@ const highlightQuestionText = (text: string, subject: Subject) => {
     }
   }
 
-  // Always highlight blanks
   highlightedText = highlightedText.replace(/(_{2,})/g, '<span class="text-cyan-400 font-bold">$1</span>');
 
-  // Highlight (A), (B), (C), (D) for Identifying Errors
   if (subject === 'Identifying Errors (English Grammar)') {
     highlightedText = highlightedText.replace(/(\([A-E]\))/g, '<span class="text-indigo-400 font-bold bg-indigo-500/10 px-1 rounded mx-1">$1</span>');
   }
@@ -41,12 +39,23 @@ const highlightQuestionText = (text: string, subject: Subject) => {
   return <span dangerouslySetInnerHTML={{ __html: highlightedText }} />;
 };
 
+function shuffleArray<T>(array: T[]): T[] {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
 export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any) => void }) {
   const [selectedExam, setSelectedExam] = useState<MockExam | null>(null);
   const [isStarted, setIsStarted] = useState(false);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [timeLeft, setTimeLeft] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
+  const [examStartTime, setExamStartTime] = useState<number>(0);
+  const [timeElapsed, setTimeElapsed] = useState<number>(0);
   
   const [allQuestions, setAllQuestions] = useState<{question: Question, section: ExamSection, index: number}[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -62,6 +71,7 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
       });
       setAllQuestions(qList);
       setTimeLeft(selectedExam.timeLimitMinutes * 60);
+      setExamStartTime(Date.now());
     }
   }, [selectedExam]);
 
@@ -82,8 +92,74 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
     return () => clearInterval(timer);
   }, [isStarted, isFinished, timeLeft]);
 
-  const handleStart = (exam: MockExam) => {
-    setSelectedExam(exam);
+  const generateExamFromTemplate = (template: MockExamTemplate): MockExam => {
+    const seenQuestionsStr = localStorage.getItem('seen_questions') || '[]';
+    let seenQuestions: string[] = JSON.parse(seenQuestionsStr);
+
+    const sections: ExamSection[] = [];
+    const newSeenIds: string[] = [];
+
+    // Simple mapping of subject to instructions (can be expanded if needed)
+    const instructionMap: Record<string, string> = {
+      'Grammar and Language Usage': 'Fill in the blanks with correct answers.',
+      'Vocabulary': 'Choose the meaning of the underlined word.',
+      'Spelling': 'Choose the letter of the correct answer according to the prompt.',
+      'Idiomatic Expressions': 'Choose the meaning of the underlined idiomatic expression.',
+      'Identifying Errors (English Grammar)': 'Identify the error in the sentence.',
+      'Reading Comprehension': 'Read the passage and answer the questions.'
+    };
+
+    Object.entries(template.subjectDistribution).forEach(([subjectStr, count]) => {
+      const subject = subjectStr as Subject;
+      const availableQuestions = QUESTION_BANK.filter(q => q.subject === subject);
+      
+      // Separate into seen and unseen
+      const unseen = availableQuestions.filter(q => !seenQuestions.includes(q.id));
+      const seen = availableQuestions.filter(q => seenQuestions.includes(q.id));
+
+      // Shuffle both independently
+      const shuffledUnseen = shuffleArray(unseen);
+      const shuffledSeen = shuffleArray(seen);
+
+      // Prioritize unseen, then fill with seen if needed
+      let selectedPool = [...shuffledUnseen, ...shuffledSeen];
+      
+      // If we run out of everything (shouldn't happen unless exam is huge), it just wraps
+      let selectedForSection = selectedPool.slice(0, count);
+
+      // Shuffle options for each selected question
+      selectedForSection = selectedForSection.map(q => ({
+        ...q,
+        options: shuffleArray(q.options)
+      }));
+
+      newSeenIds.push(...selectedForSection.map(q => q.id));
+
+      sections.push({
+        title: subject,
+        instructions: instructionMap[subject] || 'Select the correct answer.',
+        questions: selectedForSection
+      });
+    });
+
+    // Update seen questions in localStorage (keep up to 1000 to avoid bloat, or just all)
+    const updatedSeen = Array.from(new Set([...seenQuestions, ...newSeenIds]));
+    if (updatedSeen.length > 500) updatedSeen.splice(0, updatedSeen.length - 500);
+    localStorage.setItem('seen_questions', JSON.stringify(updatedSeen));
+
+    return {
+      id: template.id + '-' + Date.now(),
+      title: template.title,
+      examType: template.examType,
+      totalItems: template.totalItems,
+      timeLimitMinutes: template.timeLimitMinutes,
+      sections
+    };
+  };
+
+  const handleStart = (template: MockExamTemplate) => {
+    const generatedExam = generateExamFromTemplate(template);
+    setSelectedExam(generatedExam);
     setIsStarted(true);
     setIsFinished(false);
     setAnswers({});
@@ -91,13 +167,14 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
   };
 
   const handleFinishExam = () => {
+    const elapsed = Math.floor((Date.now() - examStartTime) / 1000);
+    setTimeElapsed(elapsed);
     setIsFinished(true);
   };
 
   const handleAnswer = (questionId: string, answer: string) => {
     setAnswers(prev => ({ ...prev, [questionId]: answer }));
     
-    // Automatic next question with a slight delay for visual feedback
     if (currentIndex < allQuestions.length - 1) {
       setTimeout(() => {
         setCurrentIndex(prev => prev + 1);
@@ -116,7 +193,15 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
   };
 
   if (isFinished && selectedExam) {
-    return <ExamResultsView exam={selectedExam} answers={answers} onComplete={onCompleteExam} onRetry={() => setIsStarted(false)} />;
+    return (
+      <ExamResultsView 
+        exam={selectedExam} 
+        answers={answers} 
+        timeElapsed={timeElapsed}
+        onComplete={onCompleteExam} 
+        onRetry={() => setIsStarted(false)} 
+      />
+    );
   }
 
   if (isStarted && selectedExam && allQuestions.length > 0) {
@@ -127,8 +212,6 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
 
     return (
       <div className="flex flex-col h-full glass-panel rounded-2xl overflow-hidden shadow-2xl border border-white/5 bg-slate-900/60 relative">
-        
-        {/* Progress Bar */}
         <div className="absolute top-0 left-0 w-full h-1.5 bg-slate-800 z-50">
           <div 
             className="h-full bg-gradient-to-r from-cyan-400 to-indigo-500 transition-all duration-300 ease-out"
@@ -136,7 +219,6 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
           />
         </div>
 
-        {/* Header */}
         <div className="bg-slate-950/80 p-4 pt-5 border-b border-white/5 flex justify-between items-center shrink-0">
           <div>
             <h2 className="text-lg font-bold text-white">{selectedExam.title}</h2>
@@ -160,13 +242,9 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
           </div>
         </div>
 
-        {/* Body */}
         <div className="flex flex-1 overflow-hidden">
-          {/* Main Question Area */}
           <div className="flex-1 overflow-y-auto p-6 md:p-10 flex flex-col">
             <div className="max-w-3xl mx-auto w-full flex-1">
-              
-              {/* Subject Name and Instructions */}
               <div className="mb-8">
                 <h3 className="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-400 uppercase tracking-widest mb-3">
                   {currentQ.section.title}
@@ -179,7 +257,6 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
                 )}
               </div>
 
-              {/* Passage (if any) */}
               {currentQ.question.passage && (
                 <div className="bg-slate-800/50 border border-slate-700 p-6 rounded-xl mb-6 text-slate-300 prose prose-invert max-w-none">
                   {currentQ.question.passage.split('\n').map((p, i) => (
@@ -188,7 +265,6 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
                 </div>
               )}
 
-              {/* Question Text */}
               <div className="mb-8">
                 <div className="flex items-start gap-4 mb-6">
                   <div className="bg-indigo-500/20 text-indigo-400 font-bold w-10 h-10 rounded-full flex items-center justify-center shrink-0 border border-indigo-500/30">
@@ -199,7 +275,6 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
                   </h3>
                 </div>
 
-                {/* Options */}
                 <div className="space-y-3 pl-14">
                   {currentQ.question.options.map((opt, i) => {
                     const isSelected = answers[currentQ.question.id] === opt;
@@ -229,7 +304,6 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
               </div>
             </div>
 
-            {/* Navigation Footer */}
             <div className="max-w-3xl mx-auto w-full flex justify-between items-center pt-6 border-t border-white/5 mt-auto">
               <button 
                 onClick={() => setCurrentIndex(prev => prev - 1)}
@@ -261,7 +335,6 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
     );
   }
 
-  // Landing Page
   return (
     <div className="h-full flex flex-col items-center justify-center">
       <div className="max-w-4xl w-full">
@@ -276,14 +349,14 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {MOCK_EXAMS.map(exam => (
-            <div key={exam.id} className="glass-panel p-6 sm:p-8 rounded-2xl border border-white/5 hover:border-indigo-500/30 transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-indigo-500/10 flex flex-col h-full relative overflow-hidden">
+          {MOCK_EXAM_TEMPLATES.map(template => (
+            <div key={template.id} className="glass-panel p-6 sm:p-8 rounded-2xl border border-white/5 hover:border-indigo-500/30 transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-indigo-500/10 flex flex-col h-full relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-indigo-500"></div>
               <div className="flex justify-between items-start mb-6 pt-2">
                 <div>
-                  <h2 className="text-2xl font-bold text-white mb-2">{exam.title}</h2>
+                  <h2 className="text-2xl font-bold text-white mb-2">{template.title}</h2>
                   <div className="flex items-center gap-3">
-                    <span className="px-2.5 py-1 rounded-md bg-indigo-500/20 text-indigo-300 text-xs font-bold tracking-wider">{exam.examType}</span>
+                    <span className="px-2.5 py-1 rounded-md bg-indigo-500/20 text-indigo-300 text-xs font-bold tracking-wider">{template.examType}</span>
                   </div>
                 </div>
               </div>
@@ -293,25 +366,25 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
                   <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center shrink-0">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400" />
                   </div>
-                  <span className="font-medium">{exam.totalItems} Items Total</span>
+                  <span className="font-medium">{template.totalItems} Items Total</span>
                 </div>
                 <div className="flex items-center gap-3 text-slate-300">
                   <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center shrink-0">
                     <Clock className="w-4 h-4 text-cyan-400" />
                   </div>
-                  <span className="font-medium">{Math.floor(exam.timeLimitMinutes / 60) > 0 ? `${Math.floor(exam.timeLimitMinutes / 60)}h ` : ''}{exam.timeLimitMinutes % 60}m Time Limit</span>
+                  <span className="font-medium">{Math.floor(template.timeLimitMinutes / 60) > 0 ? `${Math.floor(template.timeLimitMinutes / 60)}h ` : ''}{template.timeLimitMinutes % 60}m Time Limit</span>
                 </div>
               </div>
               
               <button 
-                onClick={() => handleStart(exam)}
+                onClick={() => handleStart(template)}
                 className="mt-auto w-full py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition-all shadow-lg shadow-indigo-500/25 flex items-center justify-center gap-2"
               >
                 <Play className="w-5 h-5 fill-current" /> Start Exam
               </button>
             </div>
           ))}
-          {MOCK_EXAMS.length === 0 && (
+          {MOCK_EXAM_TEMPLATES.length === 0 && (
              <div className="col-span-1 md:col-span-2 text-center p-12 text-slate-500 border border-dashed border-white/10 rounded-2xl">
                No mock exams available yet.
              </div>

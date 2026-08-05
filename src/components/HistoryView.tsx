@@ -89,12 +89,24 @@ export function HistoryView({ logs, onUpdateLog, onDeleteLog }: HistoryViewProps
                   </td>
                   
                   <td className="px-6 py-4">
-                    <span className={`inline-block mb-1 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded ${
-                      log.exam === 'AFPSAT' ? 'bg-fuchsia-500/20 text-fuchsia-400' : 'bg-cyan-500/20 text-cyan-400'
-                    }`}>
-                      {log.exam || 'CSE'}
-                    </span>
-                    <div className="text-sm font-semibold text-slate-200">{log.subject}</div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className={`inline-block px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded ${
+                        log.exam === 'AFPSAT' ? 'bg-fuchsia-500/20 text-fuchsia-400' : 'bg-cyan-500/20 text-cyan-400'
+                      }`}>
+                        {log.exam || 'CSE'}
+                      </span>
+                      {log.isMockExam && (
+                        <span className="inline-block px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded bg-indigo-500/20 text-indigo-400 border border-indigo-500/20">
+                          Practice Exam
+                        </span>
+                      )}
+                    </div>
+                    <div className="text-sm font-semibold text-slate-200">
+                      {log.subject}
+                    </div>
+                    {log.isMockExam && log.mockExamTitle && (
+                      <div className="text-xs text-slate-500 mt-0.5">from {log.mockExamTitle}</div>
+                    )}
                   </td>
                   
                   <td className="px-6 py-4 text-right">

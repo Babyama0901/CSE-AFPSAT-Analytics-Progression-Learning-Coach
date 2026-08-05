@@ -97,6 +97,10 @@ export interface ScoreLog {
   score: number;
   total: number;
   subtopicsMissed?: string;
+  groupId?: string; // Groups multiple logs together (e.g. from one mock exam)
+  isMockExam?: boolean;
+  mockExamTitle?: string;
+  timeElapsed?: number; // Total time spent in seconds
 }
 
 export interface SubjectStats {
@@ -123,6 +127,7 @@ export interface Question {
   options: string[];
   correctAnswer: string; // The exact string of the correct option
   subject: Subject;
+  explanation?: string; // Explanation for the answer
 }
 
 export interface ExamSection {
@@ -138,4 +143,13 @@ export interface MockExam {
   totalItems: number;
   timeLimitMinutes: number;
   sections: ExamSection[];
+}
+
+export interface MockExamTemplate {
+  id: string;
+  title: string;
+  examType: ExamType;
+  totalItems: number;
+  timeLimitMinutes: number;
+  subjectDistribution: Partial<Record<Subject, number>>;
 }
