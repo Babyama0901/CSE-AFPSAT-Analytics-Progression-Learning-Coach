@@ -34,10 +34,20 @@ const highlightQuestionText = (text: string, subject: Subject) => {
       'kumakandili', 'kinakatigan', 'Inaaninaw', 'kabisera', 'pumapasag', 'duplikal', 'hungkag', 'pagpapalahaw', 'bantayog', 'tarangkahan', 
       'Matalinghaga', 'pumanaw', 'tarheta', 'asul', 'lagom', 'dalubhasa', 'horno', 'panukala', 'salawal', 'guryon', 
       'kanaryo', 'magkakaalyansa', 'pagal', 'salipawpaw', 'agiw', 'panaghoy', 'pantas', 'sipi', 'salumpuwit', 'payak'
+    ],
+    'Kawikaang Filipino': [
+      'alilang-kanin', 'tulak ng bibig', 'mabigat ang kamay', 'kusang-palo', 'balik-harap', 'utak-biya', 'nagtataingang-kawali', 
+      "buto't balat", 'sukat ang bulsa', 'pagbabatak ng buto', 'kidlat sa bilis', 'di makabasag-pinggan', 'hindi mahulugang karayom', 
+      'daga sa dibdib', 'magbukas ng dibdib', 'mabulaklak na dila', 'maanghang ang dila', 'hindi mahapayang gatang', 'mapurol ang utak', 
+      'sampa-bakod', 'nagpupusa', 'patay-gutom', 'makati ang paa', 'ningas-kugon', 'putok sa buho', 'naningalang-pugad', 'mababa ang loob', 
+      'itinaga sa bato', 'krus ang dila', 'maitim ang dugo', 'kaututang dila', 'pagputi ng uwak', 'matigas ang ulo', 'bumbong na walang laman', 
+      'nakakasakit ng ulo', 'hindi na makasampa sa patyo', 'hindi kakapitan ng alikabok', 'nabasagan ng pinggan', 'nagpapahaba ng alulod', 
+      'mahinhin-talipandas', 'maluwag ang turnilyo', 'makabasag-kampana', 'madisgrasya', 'pambala sa kanyon', 'sinuob ng kamanyang', 
+      'walang kamay', 'malalagutan ng pisi', 'bulang-gugo', 'may uwang sa puwit', 'sumugba sa ningas'
     ]
   };
 
-  if (subject === 'Vocabulary' || subject === 'Idiomatic Expressions' || subject === 'Talasitaan') {
+  if (subject === 'Vocabulary' || subject === 'Idiomatic Expressions' || subject === 'Talasitaan' || subject === 'Kawikaang Filipino') {
     const words = highlights[subject];
     if (words) {
       words.forEach(word => {

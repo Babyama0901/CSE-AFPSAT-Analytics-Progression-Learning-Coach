@@ -3061,4 +3061,907 @@ export const QUESTION_BANK: Question[] = [
     "subject": "Talasitaan"
   }
 
+,
+
+  {
+    "id": "cse-kawikaan-1",
+    "text": "May mga napapabalitang kasambahay na sinasamantala at ginagawang alilang-kanin ng kanilang mga malulupit na amo.",
+    "options": [
+      "katulong na hindi binabayaran ng tama",
+      "taong pinapahirapan nang husto",
+      "manggagawang hindi pinapakain",
+      "empleyadong walang maayos na tulugan"
+    ],
+    "correctAnswer": "katulong na hindi binabayaran ng tama",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-2",
+    "text": "Huwag ka kaagad maniniwala sa kanyang mga pangako dahil karamihan doon ay tulak ng bibig lamang.",
+    "options": [
+      "nagmula sa kaibuturan ng puso",
+      "salita lamang at hindi tunay sa loob",
+      "mga salitang nagbibigay inspirasyon",
+      "mayamang matalinhagang salita"
+    ],
+    "correctAnswer": "salita lamang at hindi tunay sa loob",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-3",
+    "text": "Napilitan ang manedyer na tanggalin ang tauhan sapagkat sadyang mabigat ang kamay nito sa opisina.",
+    "options": [
+      "madaling magalit o mapikon",
+      "laging nananakit o namamalo",
+      "tamad at ayaw kumilos sa trabaho",
+      "hindi kayang gumawa ng mabibigat na bagay"
+    ],
+    "correctAnswer": "tamad at ayaw kumilos sa trabaho",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-4",
+    "text": "Ang lahat ng tagumpay na kanyang tinatamasa ngayon ay resulta ng kanyang kusang-palo noong siya ay nag-aaral pa.",
+    "options": [
+      "pagkukusa at sariling sipag",
+      "pagtulong nang walang inaasahang bayad",
+      "gawaing pagkakawanggawa",
+      "pagtatrabaho ng higit sa oras"
+    ],
+    "correctAnswer": "pagkukusa at sariling sipag",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-5",
+    "text": "Mag-ingat ka sa mga taong balik-harap sa loob ng kumpanya upang hindi ka mapahamak.",
+    "options": [
+      "walang natatapos sa anumang trabaho",
+      "walang ibang ginawa kundi ang magpabalik-balik",
+      "nagkukunwaring mabait sa harapan pero naninira sa likuran",
+      "taong ayaw nang balikan ang kanyang nakaraan"
+    ],
+    "correctAnswer": "nagkukunwaring mabait sa harapan pero naninira sa likuran",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-6",
+    "text": "Isang malaking hamon para sa isang guro ang turuan ang isang mag-aaral na utak-biya.",
+    "options": [
+      "marunong at malalim mag-isip",
+      "laging hati ang atensyon at pag-iisip",
+      "walang pokus sa mga inaaral",
+      "mahina ang pag-unawa o bobo"
+    ],
+    "correctAnswer": "mahina ang pag-unawa o bobo",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-7",
+    "text": "Kapag pinagsasabihan siya ng kanyang ina, siya ay laging nagtataingang-kawali.",
+    "options": [
+      "sadyang ayaw makinig",
+      "hindi nakapokus sa kinakausap",
+      "laging tulala at malayo ang tingin",
+      "sinasadyang magbingi-bingihan"
+    ],
+    "correctAnswer": "sinasadyang magbingi-bingihan",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-8",
+    "text": "Nakakaawa ang hitsura ng asong napulot sa kalye dahil ito ay buto't balat na.",
+    "options": [
+      "nakalabas na ang mga buto",
+      "sobrang payat",
+      "mahilig kumain ng buto",
+      "sobrang liit ng pangangatawan"
+    ],
+    "correctAnswer": "sobrang payat",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-9",
+    "text": "Maraming naghahangad na makapangasawa ng isang taong sukat ang bulsa upang umasenso sa buhay.",
+    "options": [
+      "may sapat na yaman o maraming pera",
+      "napakasipag humanap ng pagkakakitaan",
+      "matipid at marunong gumamit ng pera",
+      "laging may barya sa kanyang bulsa"
+    ],
+    "correctAnswer": "matipid at marunong gumamit ng pera",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-10",
+    "text": "Ang pagbabatak ng buto sa ibang bansa ay isa sa pinakamahirap na sakripisyo ng ating mga OFW.",
+    "options": [
+      "pagtatrabaho nang todong-todo at higit sa kinakailangan",
+      "paghahanapbuhay sa malalayong lugar",
+      "pagtatrabaho bilang isang sepulturero",
+      "pangangalaga sa kalusugan at buto ng katawan"
+    ],
+    "correctAnswer": "pagtatrabaho nang todong-todo at higit sa kinakailangan",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-11",
+    "text": "Natapos niya ang mahabang pagsusulit nang may kidlat sa bilis kaya siya ay nakapagpahinga agad.",
+    "options": [
+      "buong husay",
+      "napakadali",
+      "napakabilis o sobrang tulin",
+      "walang kahirap-hirap"
+    ],
+    "correctAnswer": "napakabilis o sobrang tulin",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-12",
+    "text": "Sa harap ng kanyang mga biyenan, ang nobya ay wari bang di makabasag-pinggan.",
+    "options": [
+      "hindi marunong sa mga gawaing bahay",
+      "alagang-alaga at ayaw pagawin",
+      "labis ang pagkahinhin kumilos",
+      "sobrang mahiyain sa maraming tao"
+    ],
+    "correctAnswer": "labis ang pagkahinhin kumilos",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-13",
+    "text": "Sa tuwing may prusisyon ng Nazareno, wari bang hindi mahulugang karayom ang buong Quiapo.",
+    "options": [
+      "napakatahimik ng paligid",
+      "punong-puno ng tao o siksikan",
+      "sobrang haba ng pila",
+      "walang gustong maghulog ng gamit"
+    ],
+    "correctAnswer": "punong-puno ng tao o siksikan",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-14",
+    "text": "Habang naghihintay ng resulta ng board exam, may daga sa dibdib ang mga kumukuha nito.",
+    "options": [
+      "matinding bugso ng emosyon",
+      "napakalalim na pag-iisip",
+      "umaasa sa positibong kahihinatnan",
+      "nakakaramdam ng matinding kaba o takot"
+    ],
+    "correctAnswer": "nakakaramdam ng matinding kaba o takot",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-15",
+    "text": "Matapos ang limang taong panliligaw, nagpasya na siyang magbukas ng dibdib sa kanyang sinta.",
+    "options": [
+      "magbigay ng sariling opinyon",
+      "magsabi ng pangkalahatang katotohanan",
+      "magtapat ng tunay na pag-ibig at layong magpakasal",
+      "magpakatotoo sa nararamdaman"
+    ],
+    "correctAnswer": "magtapat ng tunay na pag-ibig at layong magpakasal",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-16",
+    "text": "Nakuha niya ang loob ng mga mamimili dahil sa kanyang mabulaklak na dila.",
+    "options": [
+      "labis at mabuladas magsalita na madalas ay pambobola",
+      "masyadong maraming sinasabi",
+      "mga salitang nakakatuwang pakinggan",
+      "dila na may hugis bulaklak"
+    ],
+    "correctAnswer": "labis at mabuladas magsalita na madalas ay pambobola",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-17",
+    "text": "Iniiwasan siya ng kanyang mga kapitbahay dahil sadyang maanghang ang dila niya kapag nagagalit.",
+    "options": [
+      "mahilig kumain ng maanghang",
+      "masakit at bastos kung magsalita",
+      "mahirap intindihin ang sinasabi",
+      "walang modo kung kumilos"
+    ],
+    "correctAnswer": "masakit at bastos kung magsalita",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-18",
+    "text": "Kilala siyang hindi mahapayang gatang sa anumang debate kaya walang nangahas na kumalaban sa kanya.",
+    "options": [
+      "laging nagpapakitang-gilas",
+      "nagsasabi lamang ng katotohanan",
+      "ayaw magpatalo sa anumang usapan o laban",
+      "hindi marunong magpatawad"
+    ],
+    "correctAnswer": "hindi marunong magpatawad",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-19",
+    "text": "Madalas siyang mapagsabihan ng guro dahil mapurol ang utak niya sa asignaturang Matematika.",
+    "options": [
+      "may pambihirang talino",
+      "mabilis umunawa ng leksyon",
+      "mahina ang pag-iisip o nahihirapang makaintindi",
+      "nagbibingi-bingihan kapag tinatawag"
+    ],
+    "correctAnswer": "mahina ang pag-iisip o nahihirapang makaintindi",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-20",
+    "text": "Mag-ingat sa mga nakatambay sa labas tuwing gabi dahil baka sila ay mga sampa-bakod.",
+    "options": [
+      "ordinaryong magnanakaw",
+      "taong akyat-bahay o nanloloob",
+      "taong nagpapanggap na kaibigan",
+      "nangunguha ng mga nakasampay na damit"
+    ],
+    "correctAnswer": "taong nagpapanggap na kaibigan",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-21",
+    "text": "Imbes na magtrabaho nang maayos, siya ay nagpupusa lamang at nakikipag-kwentuhan sa opisina.",
+    "options": [
+      "kumakain at nag-iingay na parang pusa",
+      "mahilig mag-tsismis at magsabi ng kwento ng iba",
+      "nagbubulakbol at iniiwasan ang gawain",
+      "naghahanap ng pagkakakitaan gamit ang malikot na mata"
+    ],
+    "correctAnswer": "mahilig mag-tsismis at magsabi ng kwento ng iba",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-22",
+    "text": "Kahit anong dami ng pagkain ang ihanda, ang tingin niya pa rin sa sarili ay patay-gutom.",
+    "options": [
+      "laging walang makain o gutumin",
+      "walang pakialam sa grasya",
+      "hindi palakibo habang kumakain",
+      "ayaw magsalita kapag busog"
+    ],
+    "correctAnswer": "hindi palakibo habang kumakain",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-23",
+    "text": "Tuwing araw ng linggo, makati ang paa ng binata at hindi mapirmi sa loob ng bahay.",
+    "options": [
+      "sunod-sunuran sa barkada",
+      "hindi alam kung saan ang patutunguhan",
+      "laging gustong umalis ng bahay o mahilig gumala",
+      "laging kinakamot ang paa dahil sa alipunga"
+    ],
+    "correctAnswer": "laging gustong umalis ng bahay o mahilig gumala",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-24",
+    "text": "Ang karamihan sa mga proyekto ng gobyerno ay ningas-kugon kaya hindi natatapos.",
+    "options": [
+      "puno ng pagpapanggap at mapagkunwari",
+      "masigasig at maganda lamang sa umpisa",
+      "madaling masira at mabulok",
+      "hindi mapagkakatiwalaan ang kalidad"
+    ],
+    "correctAnswer": "masigasig at maganda lamang sa umpisa",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-25",
+    "text": "Siya ay madalas kutyain ng kanyang mga kalaro dahil siya raw ay isang putok sa buho.",
+    "options": [
+      "anak ng isang mahirap",
+      "ang ikinabubuhay ay paglalako ng paninda",
+      "anak sa labas o walang kinikilalang ama",
+      "hindi maganda ang pisikal na kaanyuan"
+    ],
+    "correctAnswer": "anak sa labas o walang kinikilalang ama",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-26",
+    "text": "Araw-araw ay masayang nag-aayos ang binata dahil siya ay naningalang-pugad.",
+    "options": [
+      "nagsisimula nang magbinata",
+      "naghahanda sa paghahanap ng trabaho",
+      "malapit nang ikasal sa kanyang nobya",
+      "nanliligaw sa isang dalaga"
+    ],
+    "correctAnswer": "malapit nang ikasal sa kanyang nobya",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-27",
+    "text": "Kahit na siya ang pinuno, kilala siya bilang isang taong mababa ang loob sa kanyang mga nasasakupan.",
+    "options": [
+      "madaling maawa o maawain",
+      "duwag sa pagharap sa kalaban",
+      "mapagkumbaba at madaling lapitan",
+      "labis na maramdamin"
+    ],
+    "correctAnswer": "mapagkumbaba at madaling lapitan",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-28",
+    "text": "Ang sumpaan nilang mag-iibigan habambuhay ay itinaga sa bato ng magkasintahan.",
+    "options": [
+      "pilit na tinakasan",
+      "itinanim sa isip at hindi kakalimutan",
+      "hinayaan na lamang lumipas",
+      "madaling maaayos kapag nasira"
+    ],
+    "correctAnswer": "itinanim sa isip at hindi kakalimutan",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-29",
+    "text": "Nakakatakot kausapin ang matandang iyon dahil balita sa bayan na krus ang dila niya.",
+    "options": [
+      "may taglay na anting-anting",
+      "alam kung paano magsalita nang maayos",
+      "nagkakatotoo ang anumang kanyang sabihin",
+      "isang taong maka-Diyos"
+    ],
+    "correctAnswer": "nagkakatotoo ang anumang kanyang sabihin",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-30",
+    "text": "Huwag mong pagkakatiwalaan ang taong iyan dahil maitim ang dugo niya pagdating sa negosyo.",
+    "options": [
+      "laging nasasaktan kapag nabibigo",
+      "madaling makipag-away",
+      "may masamang budhi o tampalasan",
+      "mahilig kumain ng mga putaheng dugo"
+    ],
+    "correctAnswer": "may masamang budhi o tampalasan",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-31",
+    "text": "Si Maria ang laging kaututang dila ni Rosa tuwing sila ay may libreng oras sa pabrika.",
+    "options": [
+      "kasama lagi sa oras ng kainan",
+      "kasama lagi sa lahat ng trabaho",
+      "taong laging kakwentuhan o kausap",
+      "matalik na kaklase noong elementarya"
+    ],
+    "correctAnswer": "taong laging kakwentuhan o kausap",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-32",
+    "text": "Ang asahan na magbago ang kurakot na opisyal ay tila paghihintay sa pagputi ng uwak.",
+    "options": [
+      "isang bagay na imposibleng mangyari",
+      "kaligayahang walang kahambing",
+      "buhay na walang hanggan",
+      "kawalan ng anumang karamdaman"
+    ],
+    "correctAnswer": "kaligayahang walang kahambing",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-33",
+    "text": "Kahit na ang bata ay matigas ang ulo, hindi pa rin siya pinapabayaan ng kanyang mga magulang.",
+    "options": [
+      "hindi sanay makihalubilo sa mga kamag-anak",
+      "pasaway at hindi sumusunod sa pangaral",
+      "walang maibigay na biyaya sa pamilya",
+      "may ibang uri ng pananampalataya"
+    ],
+    "correctAnswer": "hindi sanay makihalubilo sa mga kamag-anak",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-34",
+    "text": "Ang mga taong bumbong na walang laman ay madalas na umaasa na lamang sa tulong ng gobyerno.",
+    "options": [
+      "hindi nakakatulong sa mga mahal sa buhay",
+      "taong hindi makatayo sa sariling paa o walang kakayahan",
+      "laging nahihirapan sa pagsagot ng mga simpleng tanong",
+      "salat na salat sa kayamanan"
+    ],
+    "correctAnswer": "taong hindi makatayo sa sariling paa o walang kakayahan",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-35",
+    "text": "Ang matinding trapiko sa Maynila araw-araw ay sadyang nakakasakit ng ulo para sa mga manggagawa.",
+    "options": [
+      "nakakapagdulot ng matinding sakit sa katawan",
+      "umuubos ng maraming oras",
+      "nagdudulot ng gulo at matinding problema",
+      "nakakatamad kaya ayaw nang lumabas"
+    ],
+    "correctAnswer": "nagdudulot ng gulo at matinding problema",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-36",
+    "text": "Bigyan natin ng sapat na oras at kalinga ang ating mga magulang bago pa dumating ang araw na hindi na makasampa sa patyo.",
+    "options": [
+      "wala nang natirang pera sa bulsa",
+      "matanda na o labis na humina ang katawan",
+      "nakalabas na nang tuluyan sa iyong poder",
+      "namayapa na o patay na"
+    ],
+    "correctAnswer": "nakalabas na nang tuluyan sa iyong poder",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-37",
+    "text": "Sa tuwing may salu-salo sa opisina, ang manedyer namin ay laging hindi kakapitan ng alikabok.",
+    "options": [
+      "sobrang linis manamit at pormang-porma",
+      "laging amoy malinis",
+      "may makinis at mapuputing kutis",
+      "masining ang pag-uugali"
+    ],
+    "correctAnswer": "laging amoy malinis",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-38",
+    "text": "Nawalan siya ng kumpiyansa sa sarili noong siya ay nagdalaga dahil siya ay nabasagan ng pinggan.",
+    "options": [
+      "naaksidente at napilay",
+      "nadumihan ang kanyang mga paboritong damit",
+      "nagkaroon ng maraming peklat o bulutong sa mukha",
+      "pumangit ang kanyang pisikal na anyo"
+    ],
+    "correctAnswer": "nagkaroon ng maraming peklat o bulutong sa mukha",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-39",
+    "text": "Umiwas ka sa kapitbahay na iyan dahil siya ay kilalang nagpapahaba ng alulod sa ating barangay.",
+    "options": [
+      "magnanakaw ng mga nakasampay na gamit",
+      "mapagsagot sa usapang hindi naman siya kasali",
+      "mahilig sa sabong na katulad ang utak",
+      "taong tsismosa na umaabot kahit saan ang balita"
+    ],
+    "correctAnswer": "mapagsagot sa usapang hindi naman siya kasali",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-40",
+    "text": "Akala ng marami ay inosente siya, subalit isa pala siyang mahinhin-talipandas.",
+    "options": [
+      "puro pagpapaganda lamang ang alam gawin",
+      "sobrang inarte sa pagkilos",
+      "tila mabait at mahinhin sa simula ngunit magaspang ang totoong ugali",
+      "isang mapagpanggap na babae na nagtatago ng yaman"
+    ],
+    "correctAnswer": "tila mabait at mahinhin sa simula ngunit magaspang ang totoong ugali",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-41",
+    "text": "Ang taong maluwag ang turnilyo ay madalas na nagiging katatawanan ng mga bata sa kalsada.",
+    "options": [
+      "mga itinuturing na bayani sa trabaho",
+      "taong nahihirapan sa pagsagot sa mga tanong",
+      "may kakulangan sa pag-iisip o luko-luko",
+      "mga trabahador na laging namumukpok ng pako"
+    ],
+    "correctAnswer": "may kakulangan sa pag-iisip o luko-luko",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-42",
+    "text": "Inaasahan na ang pag-iisang dibdib ng sikat na aktor at aktres ay magiging makabasag-kampana.",
+    "options": [
+      "napaka-engrande at tanyag",
+      "sadyang maingay at nakakabingi",
+      "dadaluhan ng maraming kilalang tao",
+      "gagastusan ng mamahaling kagamitan"
+    ],
+    "correctAnswer": "napaka-engrande at tanyag",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-43",
+    "text": "Laging pinapaalalahanan ang mga drayber na mag-ingat upang hindi sila madisgrasya sa daan.",
+    "options": [
+      "mapaso ng makina",
+      "mapahamak o maaksidente",
+      "mauntog sa loob ng sasakyan",
+      "gumawa ng mga bagay na hindi kaya"
+    ],
+    "correctAnswer": "gumawa ng mga bagay na hindi kaya",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-44",
+    "text": "Sa panahon ng giyera, ang mga ordinaryong mamamayan ang madalas na ginagawang pambala sa kanyon ng mga gahamang lider.",
+    "options": [
+      "taong ituturing na pain o walang halaga",
+      "mga dapat ipasok sa pagiging sundalo",
+      "mga taong pabigat sa lipunan",
+      "mga materyales na matitibay"
+    ],
+    "correctAnswer": "taong ituturing na pain o walang halaga",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-45",
+    "text": "Nang makamit niya ang gintong medalya, siya ay sinuob ng kamanyang pag-uwi sa kanilang probinsya.",
+    "options": [
+      "masigabong pinalakpakan ng mga tao",
+      "pinuri ng labis at kinilala nang husto",
+      "agarang binigyan ng bagong trabaho",
+      "ipinakilala bilang bagong pinuno"
+    ],
+    "correctAnswer": "pinuri ng labis at kinilala nang husto",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-46",
+    "text": "Hindi pa niya kayang bumukod ng tirahan sapagkat siya ay walang kamay sa mga gawaing bahay.",
+    "options": [
+      "may pisikal na kapansanan",
+      "kinukuha ang mga bagay na hindi kanya",
+      "walang kasanayan sa mga gawaing bahay o hindi marunong gumawa",
+      "walang pakialam sa kalat ng paligid"
+    ],
+    "correctAnswer": "walang kasanayan sa mga gawaing bahay o hindi marunong gumawa",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-47",
+    "text": "Laging mag-ipon para sa kinabukasan upang sa oras ng kagipitan ay hindi ka malalagutan ng pisi.",
+    "options": [
+      "mawawalan ng mga kaibigan",
+      "mauubusan ng pera o panustos",
+      "matatanggal sa kasalukuyang trabaho",
+      "mawawalan ng mahahalagang koneksyon"
+    ],
+    "correctAnswer": "mauubusan ng pera o panustos",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-48",
+    "text": "Hindi makakaipon kailanman ang isang tao kung siya ay patuloy na magiging bulang-gugo.",
+    "options": [
+      "walang pakialam sa nangyayari sa lipunan",
+      "laging umiiwas sa anumang mabigat na trabaho",
+      "tambay nang tambay sa kanto",
+      "napakagastador at walang pagpapahalaga sa pera"
+    ],
+    "correctAnswer": "napakagastador at walang pagpapahalaga sa pera",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-49",
+    "text": "Napakahirap pasakayin sa pampublikong sasakyan ang isang paslit na may uwang sa puwit.",
+    "options": [
+      "sadyang mabantot o mabaho",
+      "hindi mapakali o napakalikot",
+      "walang pakialam sa mga katabi",
+      "hindi nakatutuwa ang pag-uugali"
+    ],
+    "correctAnswer": "hindi mapakali o napakalikot",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-kawikaan-50",
+    "text": "Kahit batid niya ang panganib, ang bumbero ay sumugba sa ningas upang iligtas ang bata sa nasusunog na bahay.",
+    "options": [
+      "nagpakitang-gilas sa mga manonood",
+      "nagpakilala ng kanyang lakas at kapangyarihan",
+      "buong-tapang na sumuong sa tiyak na panganib",
+      "sumuporta at nagbigay ng tulong mula sa malayo"
+    ],
+    "correctAnswer": "buong-tapang na sumuong sa tiyak na panganib",
+    "subject": "Kawikaang Filipino"
+  },
+  {
+    "id": "cse-mali-1",
+    "text": "Ang isang mabuting tagapaglingkod sa tanggapan ng pamahalaan ay madalas kinalulugdan nang marami.",
+    "options": [
+      "Ang isang mabuting tagapaglingkod",
+      "sa tanggapan ng pamahalaan",
+      "madalas kinalulugdan",
+      "kinalulugdan nang marami"
+    ],
+    "correctAnswer": "kinalulugdan nang marami",
+    "subject": "Pagkilala sa Mali"
+  },
+  {
+    "id": "cse-mali-2",
+    "text": "Bilang pinakamahusay na kalahok sa isang paligsahan para sa mga kawani ng pamahalaan, ang isang gantimpala ay igagawad kay Gng. Alinsamara.",
+    "options": [
+      "Bilang pinakamahusay na kalahok.",
+      "Sa isang paligsahan para sa mga kawani ng pamahalaan.",
+      "Ang isang gantimpala.",
+      "Igagawad kay Gng. Alinsamara"
+    ],
+    "correctAnswer": "Ang isang gantimpala.",
+    "subject": "Pagkilala sa Mali"
+  },
+  {
+    "id": "cse-mali-3",
+    "text": "Halos araw-araw ay nanaisin kong ihandog ang aking paglilingkod para sa nangangailangan nito.",
+    "options": [
+      "Halos araw-araw",
+      "nanaisin kong ihandog",
+      "ang aking paglilingkod",
+      "para sa nangangailangan"
+    ],
+    "correctAnswer": "nanaisin kong ihandog",
+    "subject": "Pagkilala sa Mali"
+  },
+  {
+    "id": "cse-mali-4",
+    "text": "Ang katitikan ng pagpupulong ay isang ulat pinansyal ng pamahalaan na inihaharap sa taumbayan.",
+    "options": [
+      "katitikan ng pagpupulong",
+      "isang ulat pinansyal",
+      "ng pamahalaan",
+      "iniharap sa taumbayan"
+    ],
+    "correctAnswer": "katitikan ng pagpupulong",
+    "subject": "Pagkilala sa Mali"
+  },
+  {
+    "id": "cse-mali-5",
+    "text": "Pinuntahan ng buong kagawaran ang pook na nasalanta ng pagbaha sa bayan ng Plaridel sa Bulacan noong Lingo.",
+    "options": [
+      "Pinuntahan ng buong kagawaran",
+      "Ang pook na nasalanta ng pagbaha",
+      "sa bayan ng Plaridel sa Bulacan",
+      "noong Lingo"
+    ],
+    "correctAnswer": "noong Lingo",
+    "subject": "Pagkilala sa Mali"
+  },
+  {
+    "id": "cse-mali-6",
+    "text": "Dapat nating kausapin sila Konsehal Robles at mga kasapi ng samahan para sa ating panukalang pambarangay.",
+    "options": [
+      "Dapat nating kausapin",
+      "sila Konsehal Robles",
+      "mga kasapi ng samahan",
+      "para sa ating panukalang pambarangay"
+    ],
+    "correctAnswer": "sila Konsehal Robles",
+    "subject": "Pagkilala sa Mali"
+  },
+  {
+    "id": "cse-mali-7",
+    "text": "Nais kong maglingkod sa bagong sangay ng pamahalaan sapagkat maliban sa maganda na ang samahan ay may maayos ding patakaran.",
+    "options": [
+      "Nais kong maglingkod",
+      "sa bagong sangay ng pamahalaan",
+      "sapagkat maliban sa maganda na ang samahan",
+      "may maayos ding patakaran"
+    ],
+    "correctAnswer": "sapagkat maliban sa maganda na ang samahan",
+    "subject": "Pagkilala sa Mali"
+  },
+  {
+    "id": "cse-mali-8",
+    "text": "Maraming proyektong pang-bayan ang butihing alkalde kaya mahal siya ng kanyang nasasakupan.",
+    "options": [
+      "Maraming proyektong pang-bayan",
+      "Ang butihing alkalde",
+      "kaya mahal siya",
+      "ng kanyang nasasakupan"
+    ],
+    "correctAnswer": "Maraming proyektong pang-bayan",
+    "subject": "Pagkilala sa Mali"
+  },
+  {
+    "id": "cse-mali-9",
+    "text": "Ipinakita ng tagapagsanay sa bagong tanggap na kawani ang paggawa ng kasulatang pangkasunduan., \"Ganyan ang tamang paglalahad ng layunin ng kasunduan\".",
+    "options": [
+      "sa bagong tanggap na kawani",
+      "ang paggawa ng kasulatang pangkasunduan",
+      "Ganyan ang tamang paglalahad",
+      "ng layunin ng kasunduan"
+    ],
+    "correctAnswer": "Ganyan ang tamang paglalahad",
+    "subject": "Pagkilala sa Mali"
+  },
+  {
+    "id": "cse-mali-10",
+    "text": "Hindi nagtagumpay ang ginawang pag-aaklas ng mga rebelde para sa kakulangan ng kanilang hanay.",
+    "options": [
+      "Hindi nagtagumpay",
+      "ang ginawang pag-aaklas ng mga rebelde",
+      "para sa kakulangan",
+      "ng kanilang hanay"
+    ],
+    "correctAnswer": "para sa kakulangan",
+    "subject": "Pagkilala sa Mali"
+  },
+  {
+    "id": "cse-mali-11",
+    "text": "Masusugpo lamang ang katiwalian sa pamahalaan kung maipatutupad ng ganap ang batas.",
+    "options": [
+      "Masusugpo lamang",
+      "ang katiwalian sa pamahalaan",
+      "kung maipatutupad",
+      "ng ganap ang batas"
+    ],
+    "correctAnswer": "ng ganap ang batas",
+    "subject": "Pagkilala sa Mali"
+  },
+  {
+    "id": "cse-mali-12",
+    "text": "Ang sistemang palakasan ay isang anyo ng katiwalian ng pamahalaan.",
+    "options": [
+      "sistemang palakasan",
+      "isang anyo",
+      "ng katiwalian",
+      "ng pamahalaan"
+    ],
+    "correctAnswer": "ng pamahalaan",
+    "subject": "Pagkilala sa Mali"
+  },
+  {
+    "id": "cse-mali-13",
+    "text": "Maiiwasan ang pagkakataong makapangurakot sa kaban ng bayan kung maayos na matutuos ang pananalapi ng bawat tanggapan.",
+    "options": [
+      "ang pagkakataong makapangurakot",
+      "sa kaban ng bayan",
+      "kung maayos na matutuos",
+      "ang pananalapi ng bawat tanggapan"
+    ],
+    "correctAnswer": "kung maayos na matutuos",
+    "subject": "Pagkilala sa Mali"
+  },
+  {
+    "id": "cse-mali-14",
+    "text": "Alinsunod sa batas tagubilin, hindi pinahihintulutan ang pahinga sa oras ng serbisyo publiko.",
+    "options": [
+      "Alinsunod sa batas tagubilin",
+      "hindi pinahihintulutan",
+      "ang pahinga",
+      "sa oras ng serbisyo publiko"
+    ],
+    "correctAnswer": "ang pahinga",
+    "subject": "Pagkilala sa Mali"
+  },
+  {
+    "id": "cse-mali-15",
+    "text": "Karapatan ng bawat isa ang mamuhay ng payapa, ligtas at maginhawa.",
+    "options": [
+      "karapatan",
+      "ng bawat isa",
+      "ang mamuhay ng payapa",
+      "ligtas at maginhawa"
+    ],
+    "correctAnswer": "ang mamuhay ng payapa",
+    "subject": "Pagkilala sa Mali"
+  },
+  {
+    "id": "cse-mali-16",
+    "text": "Dapat bang laging isisi sa pamahalaan ang paghihirap ng bawat mamamayan!",
+    "options": [
+      "laging isisi",
+      "sa pamahalaan",
+      "ang paghihirap",
+      "ng bawat mamamayan!"
+    ],
+    "correctAnswer": "ng bawat mamamayan!",
+    "subject": "Pagkilala sa Mali"
+  },
+  {
+    "id": "cse-mali-17",
+    "text": "Agrikultura ang pangunahing kabuhayan ng mga tao sa kabundukan.",
+    "options": [
+      "Agrikultura",
+      "ang pangunahing kabuhayan",
+      "ng mga tao",
+      "sa kabundukan"
+    ],
+    "correctAnswer": "ang pangunahing kabuhayan",
+    "subject": "Pagkilala sa Mali"
+  },
+  {
+    "id": "cse-mali-18",
+    "text": "Ang kagawaran ng kalusugan ay nagsagawa ng isang misyong medikal-dental sa mga liblib na pamayanan.",
+    "options": [
+      "Ang kagawaran ng kalusugan",
+      "ay nagsagawa",
+      "ng isang misyong medikal-dental",
+      "sa mga liblib na pamayanan"
+    ],
+    "correctAnswer": "Ang kagawaran ng kalusugan",
+    "subject": "Pagkilala sa Mali"
+  },
+  {
+    "id": "cse-mali-19",
+    "text": "Higit na sinuri ng Tanggapan ng Pangulo ang naganap na labanan sa pagitan ng mga rebelde at militar.",
+    "options": [
+      "Higit na sinuri",
+      "ng Tanggapan ng Pangulo",
+      "ang naganap na labanan",
+      "sa pagitan ng mga rebelde at militar"
+    ],
+    "correctAnswer": "Higit na sinuri",
+    "subject": "Pagkilala sa Mali"
+  },
+  {
+    "id": "cse-mali-20",
+    "text": "Pinalugod niya ang kanyang pagkakakaluklok sa pwesto sa naturang ahensya dahil sa ipinamalas niyang kahanga-hangang kakayahan at katapatan.",
+    "options": [
+      "Pinalugod niya ang kanyang pagkakakaluklok",
+      "sa pwesto sa naturang ahensya",
+      "dahil sa ipinamalas niyang",
+      "kahanga-hangang kakayahan at katapatan"
+    ],
+    "correctAnswer": "Pinalugod niya ang kanyang pagkakakaluklok",
+    "subject": "Pagkilala sa Mali"
+  },
+  {
+    "id": "cse-mali-21",
+    "text": "Walang maidudulot na mabuti sa bayan ang anumang hidwaan, bagkus ay maaaring kumitil pa ng mga inosenteng buhay.",
+    "options": [
+      "Walang maidudulot na mabuti",
+      "ang anumang hidwaan",
+      "bagkus ay maaaring kumitil pa",
+      "ng mga inosenteng buhay"
+    ],
+    "correctAnswer": "Walang maidudulot na mabuti",
+    "subject": "Pagkilala sa Mali"
+  },
+  {
+    "id": "cse-mali-22",
+    "text": "Sa mahabang panahon, patuloy nating ipagmamalaki ang kabayanihan ng mga sundalong handang iaalay ang kanilang buhay para sa bayan.",
+    "options": [
+      "Sa mahabang panahon",
+      "patuloy nating ipagmamalaki",
+      "ang kabayanihan ng mga sundalong",
+      "handang iaalay ang kanilang buhay para sa bayan"
+    ],
+    "correctAnswer": "patuloy nating ipagmamalaki",
+    "subject": "Pagkilala sa Mali"
+  },
+  {
+    "id": "cse-mali-23",
+    "text": "Ang Kagawaran ng Panloob at Lokal na Pamahalaan ay isang sangay na nagpapatupad ng panuntunan hinggil sa kapakanan ng mga mamamayang magsasaka.",
+    "options": [
+      "Ang Kagawaran ng Panloob at Lokal na Pamahalaan",
+      "isang sangay na nagpapatupad ng panuntunan",
+      "hinggil sa kapakanan",
+      "ng mga mamamayang magsasaka"
+    ],
+    "correctAnswer": "Ang Kagawaran ng Panloob at Lokal na Pamahalaan",
+    "subject": "Pagkilala sa Mali"
+  },
+  {
+    "id": "cse-mali-24",
+    "text": "Dapat nating panatilihin ang mabuting reputasyon datapwa't ito ang pinakamahalaga nating taglay na hindi mananakaw.",
+    "options": [
+      "Dapat nating panatilihin",
+      "ang mabuting reputasyon",
+      "datapwa't ito ang pinakamahalaga",
+      "taglay na hindi mananakaw"
+    ],
+    "correctAnswer": "datapwa't ito ang pinakamahalaga",
+    "subject": "Pagkilala sa Mali"
+  },
+  {
+    "id": "cse-mali-25",
+    "text": "Matatamo lamang ang maayos na daloy ng sasakyan sa lansangan kong ang bawat isa ay masugid na susunod sa batas trapiko.",
+    "options": [
+      "Matatamo lamang",
+      "ang maayos na daloy ng sasakyan sa lansangan",
+      "kong ang bawat isa ay masugid",
+      "na susunod sa batas trapiko"
+    ],
+    "correctAnswer": "kong ang bawat isa ay masugid",
+    "subject": "Pagkilala sa Mali"
+  }
+
 ];

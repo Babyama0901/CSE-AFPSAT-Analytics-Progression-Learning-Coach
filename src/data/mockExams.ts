@@ -35,5 +35,25 @@ export const MOCK_EXAM_TEMPLATES: MockExamTemplate[] = [
     subjectDistribution: {
       'Talasitaan': 50
     }
+  },
+  {
+    id: 'practice-kawikaan',
+    title: 'Filipino - Kawikaan Practice Test',
+    examType: 'CSE',
+    totalItems: 50,
+    timeLimitMinutes: 50,
+    subjectDistribution: {
+      'Kawikaang Filipino': 50
+    }
+  },
+  {
+    id: 'practice-pagtukoy',
+    title: 'Filipino - Pagtukoy ng Mali Practice Test',
+    examType: 'CSE',
+    totalItems: 25,
+    timeLimitMinutes: 25,
+    subjectDistribution: {
+      'Pagkilala sa Mali': 25
+    }
   }
 ];
