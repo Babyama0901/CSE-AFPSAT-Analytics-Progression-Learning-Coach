@@ -15,5 +15,15 @@ export const MOCK_EXAM_TEMPLATES: MockExamTemplate[] = [
       'Identifying Errors (English Grammar)': 8,
       'Reading Comprehension': 8
     }
+  },
+  {
+    id: 'practice-geninfo',
+    title: 'General Information Practice Test',
+    examType: 'CSE',
+    totalItems: 50,
+    timeLimitMinutes: 45,
+    subjectDistribution: {
+      'General Information': 50
+    }
   }
 ];

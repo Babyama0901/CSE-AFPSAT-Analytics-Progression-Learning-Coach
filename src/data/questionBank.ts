@@ -1699,4 +1699,763 @@ export const QUESTION_BANK: Question[] = [
     "subject": "Reading Comprehension",
     "passage": ""
   }
+,
+
+  {
+    "id": "cse-geninfo-1",
+    "text": "Which is the Philippine population in 2017?",
+    "options": [
+      "More than 103 million",
+      "More than 150 million",
+      "Less than 100 million",
+      "Almost 200 million"
+    ],
+    "correctAnswer": "More than 103 million",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-2",
+    "text": "Of the more than 7,100 islands of the Philippine archipelago, how many are inhabited?",
+    "options": [
+      "About 2,000",
+      "3,000",
+      "More than 1,000",
+      "Between 1000 to 1500"
+    ],
+    "correctAnswer": "About 2,000",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-3",
+    "text": "Which is the largest island in the Philippines?",
+    "options": [
+      "Mindanao",
+      "Panay",
+      "Luzon",
+      "Palawan"
+    ],
+    "correctAnswer": "Luzon",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-4",
+    "text": "Which Islands have been the subject of dispute between the People’s Republic of China, Malaysia, the Philippines, Taiwan, and Vietnam?",
+    "options": [
+      "Mindanao Coron Islands",
+      "Tawi-tawi Islands",
+      "Babuyan Islands",
+      "Spratly Islands"
+    ],
+    "correctAnswer": "Spratly Islands",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-5",
+    "text": "Which does “greenhouse effect” mean?",
+    "options": [
+      "The cool effect of green leaves",
+      "Warming that results when the atmosphere traps heat radiating from Earth toward space",
+      "The cool effect of sea breeze",
+      "The cool effect of mountain breeze"
+    ],
+    "correctAnswer": "Warming that results when the atmosphere traps heat radiating from Earth toward space",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-6",
+    "text": "Which is the essence of sustainable development?",
+    "options": [
+      "Introducing development at the same time mindful of the effect of such development in the future",
+      "Introducing only something that can be sustained for a long time",
+      "Using new technology to replace the old technology regardless of the cost",
+      "Using old and new technology side by side"
+    ],
+    "correctAnswer": "Introducing development at the same time mindful of the effect of such development in the future",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-7",
+    "text": "Which is the tallest building in the world?",
+    "options": [
+      "Burj Khalifa in Dubai",
+      "Empire State Building in New York",
+      "Taipei 101 in Taiwan",
+      "Petronas Tower in Kualalumpur"
+    ],
+    "correctAnswer": "Burj Khalifa in Dubai",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-8",
+    "text": "What does ASEAN mean?",
+    "options": [
+      "Association of Southeast Asiatic Nations",
+      "Association of Southeast Asian Nationhood",
+      "Association of Southeast Asia for Nation Building",
+      "Association of Southeast Asian Nations"
+    ],
+    "correctAnswer": "Association of Southeast Asian Nations",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-9",
+    "text": "What does PQF mean?",
+    "options": [
+      "Philippine Qualifications Framework",
+      "Philippine Qualifying Framework",
+      "Philippine Qualification Frameworks",
+      "Philippine Qualifying Frameworks"
+    ],
+    "correctAnswer": "Philippine Qualifications Framework",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-10",
+    "text": "What does AQRF mean?",
+    "options": [
+      "ASEAN Qualifying Framework",
+      "Asian Qualifications Framework",
+      "ASEAN Qualifications Framework",
+      "Asian Qualifying Framework"
+    ],
+    "correctAnswer": "ASEAN Qualifications Framework",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-11",
+    "text": "Which is TRUE of the Enhanced Basic Education Act of 2013?",
+    "options": [
+      "It added 2 years to the 10-year basic education program.",
+      "It added junior and senior high school to the present basic education system.",
+      "It made basic education compulsory.",
+      "It required teachers of basic education to obtain a professional license."
+    ],
+    "correctAnswer": "It added junior and senior high school to the present basic education system.",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-12",
+    "text": "What does EFA mean?",
+    "options": [
+      "Education Accesible for All",
+      "Education for All",
+      "Education Free for All",
+      "Education Free and Accesible to All"
+    ],
+    "correctAnswer": "Education for All",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-13",
+    "text": "Which of the following best expresses the fact that “teaching peace is difficult”?",
+    "options": [
+      "It needs insightful thinking.",
+      "It is values education.",
+      "It is a value to be “caught” or realized.",
+      "It requires constructivist learning."
+    ],
+    "correctAnswer": "It is a value to be “caught” or realized.",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-14",
+    "text": "What strategy can be used by the government to apply openness and diplomacy in order to win insurgents back to society?",
+    "options": [
+      "Peace talks",
+      "Cultural reform",
+      "Counter revolution",
+      "Ideological education"
+    ],
+    "correctAnswer": "Peace talks",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-15",
+    "text": "For which main reason does some cities in the Philippines have an ordinance that prohibits the use of plastic bags in shopping areas?",
+    "options": [
+      "Plastic is non-biodegradable and adds to the problem of solid garbage disposal.",
+      "People must be taught to recycle plastic materials.",
+      "Filipinos must be taught to patronize their products.",
+      "Government must work for the convenience of the people they serve."
+    ],
+    "correctAnswer": "Plastic is non-biodegradable and adds to the problem of solid garbage disposal.",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-16",
+    "text": "Which is a proof that Philippine Laws have given women equality with men in terms of rights?",
+    "options": [
+      "The husband’s prerogative to choose the family residence is now a joint decision with his wife in",
+      "The husband’s prerogative to choose the family residence is now a matter for both husband and wife to",
+      "The wife’s prerogative to choose the family residence is now a joint decision with her husband in",
+      "The husband’s prerogative to choose the family residence is now transferred to the wife."
+    ],
+    "correctAnswer": "The husband’s prerogative to choose the family residence is now a matter for both husband and wife to",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-17",
+    "text": "Which problem is created when Filipinas are legally or illegally sent to other countries as mail-order brides and ended up in prostitution houses?",
+    "options": [
+      "Human trafficking",
+      "Terrorism",
+      "Piracy",
+      "White slavery"
+    ],
+    "correctAnswer": "Human trafficking",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-18",
+    "text": "Why is the present era in the world named “Information Age”?",
+    "options": [
+      "Information is at its height as a result of its accumulation through the years.",
+      "Emphasis in schools and acquisition of information.",
+      "The shift in global economy is towards the manipulation of information.",
+      "This is the period of correcting all erroneous information from the past."
+    ],
+    "correctAnswer": "The shift in global economy is towards the manipulation of information.",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-19",
+    "text": "From whom did we learn the love for lavish fiestas or celebrations?",
+    "options": [
+      "The Spaniards",
+      "The Americans",
+      "The Japanese",
+      "The Malays"
+    ],
+    "correctAnswer": "The Spaniards",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-20",
+    "text": "Cockfighting as a Filipino sport is an influence of which country?",
+    "options": [
+      "Spain",
+      "Japan",
+      "Great Britain",
+      "China"
+    ],
+    "correctAnswer": "Spain",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-21",
+    "text": "The Reform Movement was established by the “ilustrados” or members of the middle class who had received Western Education. Their foremost demand then was ________.",
+    "options": [
+      "for the Philippines to become a province of Spain",
+      "the separation of the Philippines from Spain",
+      "autonomy for the Philippines",
+      "for the Philippines to declare independence from Spain"
+    ],
+    "correctAnswer": "for the Philippines to become a province of Spain",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-22",
+    "text": "Which of the following strategies of the Millennium Development Goals (MDG) meets the goal of environmental sustainability?",
+    "options": [
+      "Halve the proportion of people living on less than the minimum wage daily.",
+      "Reduce biodiversity loss.",
+      "Eliminate gender disparity in primary and secondary education.",
+      "Reduce mortality rates by two-thirds."
+    ],
+    "correctAnswer": "Reduce biodiversity loss.",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-23",
+    "text": "What does LGBT mean?",
+    "options": [
+      "Lesbian, Gay, Bisexual and Transgender",
+      "Lover, Gay, Bisexual and Transgender",
+      "Lesbian, Girl, Bisexual and Transgender",
+      "Lesbian, Gay, Bisexual and Transfer"
+    ],
+    "correctAnswer": "Lesbian, Gay, Bisexual and Transgender",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-24",
+    "text": "In a research conducted, which area in the Philippines is the most prone to tsunami?",
+    "options": [
+      "Moro Gulf area",
+      "Lingayen Gulf area",
+      "Western Luzon",
+      "Eastern Mindanao"
+    ],
+    "correctAnswer": "Moro Gulf area",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-25",
+    "text": "Indonesia is occasionally rocked by strong earthquakes. What can you conclude of its geographical location?",
+    "options": [
+      "It is within the Pacific Ring of Fire.",
+      "It is in the tropics.",
+      "It is near the equator.",
+      "It is within the typhoon belt."
+    ],
+    "correctAnswer": "It is within the Pacific Ring of Fire.",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-26",
+    "text": "In its mountains, you mine gold. It also supplies most part of Luzon with fresh flowers and vegetables because of its climate. Which province is this?",
+    "options": [
+      "Mountain Province",
+      "Apayao",
+      "Benguet",
+      "Ifugao"
+    ],
+    "correctAnswer": "Benguet",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-27",
+    "text": "Which province is identified because of its treacherous mountain trail, which is occasionally damaged by landslides during the rainy season, consequently interrupting the delivery of fresh vegetable supply to the lowlands including Manila?",
+    "options": [
+      "Kalinga",
+      "Benguet",
+      "Mountain Province",
+      "Ifugao"
+    ],
+    "correctAnswer": "Benguet",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-28",
+    "text": "Which province is helped and developed by the advent of local and international tourists who go surfing in Siargao Island?",
+    "options": [
+      "Surigao del Sur",
+      "Misamis Oriental",
+      "Surigao del Norte",
+      "Agusan del Sur"
+    ],
+    "correctAnswer": "Surigao del Norte",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-29",
+    "text": "Which province in the Cordillera Administrative Region is known for its rich natural resources but its development is somehow hampered by several factors including tribal wars?",
+    "options": [
+      "Kalinga",
+      "Abra",
+      "Mountain Province",
+      "Apayao"
+    ],
+    "correctAnswer": "Kalinga",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-30",
+    "text": "What do you call the warm ocean currents that could be attributed to the drought in the Philippines?",
+    "options": [
+      "\"El Nino\"",
+      "Amihan",
+      "\"La Nina\"",
+      "Tsunami"
+    ],
+    "correctAnswer": "\"El Nino\"",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-31",
+    "text": "In which continent can we find the highest and lowest place in the world?",
+    "options": [
+      "Africa",
+      "Asia",
+      "North America",
+      "South America"
+    ],
+    "correctAnswer": "Asia",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-32",
+    "text": "What city in the northern Philippines earned the title \"Little Hongkong of the South\"? (Note: Question preserved verbatim from the text despite geographical inaccuracy)",
+    "options": [
+      "Pagadian",
+      "Roxas",
+      "Dipolog City",
+      "Zamboanga"
+    ],
+    "correctAnswer": "Pagadian",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-33",
+    "text": "Which place in CALABARZON was named \"Special Science and Nature City\" of the Philippines?",
+    "options": [
+      "Pagsanjan",
+      "Tagaytay",
+      "Los Banos",
+      "Kawit"
+    ],
+    "correctAnswer": "Los Banos",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-34",
+    "text": "What is the Bukidnon plateau known for?",
+    "options": [
+      "Strawberry plantation",
+      "Pineapple plantation",
+      "Orchidarium",
+      "Banana plantation"
+    ],
+    "correctAnswer": "Pineapple plantation",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-35",
+    "text": "Which one serves as the rice granary in the Northeast Philippines?",
+    "options": [
+      "Ilocos Region",
+      "Nueva Ecija",
+      "Cordillera Administrative Region",
+      "Cagayan Valley"
+    ],
+    "correctAnswer": "Cagayan Valley",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-36",
+    "text": "Which region is best known for its \"Abel ules\" (woven blankets)?",
+    "options": [
+      "Ilocos",
+      "Central Plain",
+      "Cagayan",
+      "Cordillera"
+    ],
+    "correctAnswer": "Ilocos",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-37",
+    "text": "People from this region make a living out of the lahar from the Mount Pinatubo eruption. Which region is referred here?",
+    "options": [
+      "I",
+      "V",
+      "III",
+      "IV"
+    ],
+    "correctAnswer": "III",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-38",
+    "text": "What is the one-China policy?",
+    "options": [
+      "Acknowledging that mainland China, Hongkong, Taiwan and Macao are governed by the People's Republic",
+      "Maintaining diplomatic relations with the Republic of China",
+      "Acknowledging that mainland China is the People's Republic of China",
+      "Acknowledging that the People's Republic of China consists of Macau, Taiwan and Hongkong"
+    ],
+    "correctAnswer": "Acknowledging that mainland China is the People's Republic of China",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-39",
+    "text": "Which is an unlawful act of escaping from payment of taxes?",
+    "options": [
+      "Tax Exemption",
+      "Tax evasion",
+      "Tax avoidance",
+      "Tax shifting"
+    ],
+    "correctAnswer": "Tax evasion",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-40",
+    "text": "What is the best economic indication of the level of development of every country in the world?",
+    "options": [
+      "High are mostly professionals",
+      "High literacy rate",
+      "Gross National Product (GNP)",
+      "Industrialization"
+    ],
+    "correctAnswer": "Gross National Product (GNP)",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-41",
+    "text": "What is GNP in economics?",
+    "options": [
+      "General National Product, a way to determine a country's productivity.",
+      "General National Product, a way to detect a country's economic growth.",
+      "Gross National Product, a way to determine a country's productivity.",
+      "Gross National Product, a way to determine a country's economic growth rate."
+    ],
+    "correctAnswer": "Gross National Product, a way to determine a country's productivity.",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-42",
+    "text": "If the price of Tide detergent is higher than that of Surf, the tendency is to buy Surf instead of Tide. What best illustrates this effect?",
+    "options": [
+      "Income",
+      "Utilization",
+      "Substitution",
+      "Inflation"
+    ],
+    "correctAnswer": "Substitution",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-43",
+    "text": "What is most likely to take place in the period of economic boom?",
+    "options": [
+      "Total spending rises",
+      "Production slows down",
+      "Cases of unemployment rise",
+      "Consumers refrain from spending"
+    ],
+    "correctAnswer": "Total spending rises",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-44",
+    "text": "What is the assumption of the Comprehensive Agrarian Reform Program?",
+    "options": [
+      "Land should benefit the citizenry",
+      "Equal land ownership for all",
+      "Land is exclusive right of the poor",
+      "Nationalize natural resources"
+    ],
+    "correctAnswer": "Land should benefit the citizenry",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-45",
+    "text": "Rebellion by the New People's Army points directly to the reality of ________ in the country.",
+    "options": [
+      "civil war",
+      "ethnic conflict",
+      "insurgency",
+      "agrarian revolt"
+    ],
+    "correctAnswer": "insurgency",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-46",
+    "text": "Which is the fundamental law of the land?",
+    "options": [
+      "The Ten Commandments",
+      "The Civil and Criminal Code",
+      "The Bill of Rights",
+      "The Philippine Constitution"
+    ],
+    "correctAnswer": "The Philippine Constitution",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-47",
+    "text": "A bill becomes a law even if it was not signed by the President after ____ days.",
+    "options": [
+      "90 days",
+      "30 days",
+      "60 days",
+      "45 days"
+    ],
+    "correctAnswer": "30 days",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-48",
+    "text": "What does a professional code of conduct prescribe?",
+    "options": [
+      "Moral and ethical standards",
+      "Civic conduct for all",
+      "Stricter Implementation of laws",
+      "Professional traditions and mores"
+    ],
+    "correctAnswer": "Moral and ethical standards",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-49",
+    "text": "What is the tax imposed on all forms of real properties by local governments (e.g. land, building, improvements, and machinery)?",
+    "options": [
+      "Documentary stamp tax",
+      "Real Property tax",
+      "Income tax",
+      "Value-added tax"
+    ],
+    "correctAnswer": "Real Property tax",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-50",
+    "text": "Conflicts in society, according to some sociologists need not be violent and can be resolved through what process?",
+    "options": [
+      "Peace talks",
+      "Conference",
+      "Negotiation",
+      "Assembly"
+    ],
+    "correctAnswer": "Negotiation",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-51",
+    "text": "In the history of the Philippines, it is what we are as Filipinos proved in EDSA.",
+    "options": [
+      "De-Facto Government",
+      "People Power",
+      "People's Violence",
+      "People's De-Jure Government"
+    ],
+    "correctAnswer": "People Power",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-52",
+    "text": "What is the power of the state in promoting public safety and general order?",
+    "options": [
+      "Military power",
+      "Judicial power",
+      "Police power",
+      "Emergency power"
+    ],
+    "correctAnswer": "Police power",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-53",
+    "text": "When people go to other societies which are very different from theirs, they may lose familiar signs and symbols of social interaction and experience some kind of unpleasant events. What do they experience?",
+    "options": [
+      "Culture shock",
+      "Cultural lag",
+      "Cultural dualism",
+      "Cultural relativity"
+    ],
+    "correctAnswer": "Culture shock",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-54",
+    "text": "Teacher A complains that it is taking her so much time to apply for an NSO-certified birth certificate. Her difficulty getting her document applied for is a proof of ______.",
+    "options": [
+      "corruption",
+      "graft",
+      "red tape",
+      "indifference"
+    ],
+    "correctAnswer": "red tape",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-55",
+    "text": "Which is the right or power of the state to take private property for public use upon payment of just compensation?",
+    "options": [
+      "Power to tax",
+      "Police power",
+      "Emergency power",
+      "Power of eminent domain"
+    ],
+    "correctAnswer": "Power of eminent domain",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-56",
+    "text": "Far from the central government, what is the only region in the Philippines that has its own government as decided by its people?",
+    "options": [
+      "ARMM",
+      "CAR",
+      "SOCCSARGEN",
+      "NCR"
+    ],
+    "correctAnswer": "ARMM",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-57",
+    "text": "What principle allows the Congress to prevent the Chief Executive from implementing unconstitutional presidential actions?",
+    "options": [
+      "Check and balance",
+      "Congress hold the purse.",
+      "Congress does not hold the purse.",
+      "Constitution is the basic law."
+    ],
+    "correctAnswer": "Check and balance",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-58",
+    "text": "Which may be an effect of the island characteristics of our geography?",
+    "options": [
+      "Multi-cultural diversity",
+      "Indolence",
+      "Widespread poverty",
+      "Low literacy"
+    ],
+    "correctAnswer": "Multi-cultural diversity",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-59",
+    "text": "Which statement is TRUE of the topography of the Philippines?",
+    "options": [
+      "It is generally mountainous.",
+      "Its coastal plains are very wide.",
+      "Its coastal plains are barren.",
+      "Its coastal plains are wide but barren."
+    ],
+    "correctAnswer": "It is generally mountainous.",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-60",
+    "text": "Which is a strategically located province in the western coast of Luzon right at the mouth of Manila Bay where development projects have mushroomed like the Export Processing Zone?",
+    "options": [
+      "Batangas",
+      "Pampanga",
+      "Zambales",
+      "Bataan"
+    ],
+    "correctAnswer": "Bataan",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-61",
+    "text": "Cebu is to Sinulog, as ________ is to Dinagyang.",
+    "options": [
+      "Laguna",
+      "Panay",
+      "Iloilo",
+      "Bohol"
+    ],
+    "correctAnswer": "Iloilo",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-62",
+    "text": "Why was Palawan declared as a nature sanctuary?",
+    "options": [
+      "It has abundant indigenous animal species.",
+      "It is surrounded by coral shelf that abounds with varied colourful marine life.",
+      "It is a popular destination among tourists.",
+      "Its irregular coastlines make excellent harbors."
+    ],
+    "correctAnswer": "It is surrounded by coral shelf that abounds with varied colourful marine life.",
+    "subject": "General Information"
+  },
+  {
+    "id": "cse-geninfo-63",
+    "text": "The Ifugao rice terraces has been inscribed in UNESCO's World Heritage list as \"a continuing cultural landscape\". What makes it more fascinating?",
+    "options": [
+      "The terraces were built by unschooled freemen, not slaves.",
+      "The rice terraces have sustained and shaped the lives of the Ifugaos.",
+      "The terraces' greatness is its watershed management.",
+      "Ifugao native huts do not use a single nail or metal to fasten their parts."
+    ],
+    "correctAnswer": "The rice terraces have sustained and shaped the lives of the Ifugaos.",
+    "subject": "General Information"
+  }
+
 ];
