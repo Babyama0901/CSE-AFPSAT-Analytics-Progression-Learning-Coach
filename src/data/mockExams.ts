@@ -25,5 +25,15 @@ export const MOCK_EXAM_TEMPLATES: MockExamTemplate[] = [
     subjectDistribution: {
       'General Information': 50
     }
+  },
+  {
+    id: 'practice-talasalitaan',
+    title: 'Filipino - Talasalitaan Practice Test',
+    examType: 'CSE',
+    totalItems: 50,
+    timeLimitMinutes: 50,
+    subjectDistribution: {
+      'Talasitaan': 50
+    }
   }
 ];

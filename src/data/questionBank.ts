@@ -2458,4 +2458,607 @@ export const QUESTION_BANK: Question[] = [
     "subject": "General Information"
   }
 
+,
+
+  {
+    "id": "cse-filipino-1",
+    "text": "Ang pamilya nila ay abang-aba sanhi ng pagsalanta ng bagyong Yolanda sa kanilang lugar.",
+    "options": [
+      "Kapos na kapos sa mga bagay na ikabubuhay",
+      "Awang awa sa kalagayan sa buhay",
+      "Nawawalan ng pag-asa sa buhay",
+      "Hindi makapag-isip kung ano ang magiging kahihinatnan ng buhay"
+    ],
+    "correctAnswer": "Kapos na kapos sa mga bagay na ikabubuhay",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-2",
+    "text": "Ang aming guro sa asignaturang “Kasaysayan ng Pilipinas” ay isang magaling na antikuwaryo.",
+    "options": [
+      "Isang dalubhasa sa paglalahad ng mga kuwentong bayan",
+      "Isang magaling na mamamahayag at tagasalaysay",
+      "Isang dalubhasa sa kaalaman ng mga matatandang bagay",
+      "Isang manlilikha ng mga bagay na may kaugnayan sa kasaysayan"
+    ],
+    "correctAnswer": "Isang dalubhasa sa kaalaman ng mga matatandang bagay",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-3",
+    "text": "Ang “Continuing Professional Development (CPD)” ay isinabatas dahil kailangang alumanahin ng mga propesyunal ang kanilang pag-unlad sa kani-kanilang mga larangan.",
+    "options": [
+      "pag-ibayuhin ang trabaho",
+      "pag-ukulan ng pansin",
+      "pagsamasamahin ang nalalaman",
+      "kailangang gawing bago ang luma"
+    ],
+    "correctAnswer": "pag-ukulan ng pansin",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-4",
+    "text": "Para maparami ang kanilang mga alagang hayop, kailangan nilang babahan ang mga ito.",
+    "options": [
+      "pagbibigay ng mas maraming bitamina para sa pagpaparami",
+      "pagbibigay ng sapat na pagkain sa mga alagang hayop",
+      "paglalaan ng mas maluwang na paglalagyan sa mga hayop para maparami",
+      "pagpapatong ng lalaking hayop sa babaeng hayop para malahian."
+    ],
+    "correctAnswer": "pagpapatong ng lalaking hayop sa babaeng hayop para malahian.",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-5",
+    "text": "Ang mga lugar na badilas ang mainam na pagtayuan ng mga subdibisyon para naman mapakinabangan ang mga ito.",
+    "options": [
+      "mayaman sa tubig",
+      "malalapit sa magagandang tanawin",
+      "tigang ang lupa at hindi mainam sa pagsasaka",
+      "malapit sa mga tirahan ng mga iskwater"
+    ],
+    "correctAnswer": "tigang ang lupa at hindi mainam sa pagsasaka",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-6",
+    "text": "Hinuli siya ng mga pulis dahil sa salang bagansya.",
+    "options": [
+      "pagnanakaw",
+      "estafa",
+      "pananakit sa kapwa",
+      "pagpapalaboy-laboy"
+    ],
+    "correctAnswer": "pagpapalaboy-laboy",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-7",
+    "text": "Hindi na bumubuti ay bagkus pang sumasama ang kalagayan ng ating kalikasan dahil sa kawalan ng disiplina ng maraming tao.",
+    "options": [
+      "sobra na",
+      "lalo na",
+      "subalit",
+      "datapwat"
+    ],
+    "correctAnswer": "lalo na",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-8",
+    "text": "Marami sa mga anak ang lumalapastangan sa kanilang mga magulang kapag malakas na ang kanilang mga bagwis.",
+    "options": [
+      "pakpak",
+      "utak",
+      "paa",
+      "kamay"
+    ],
+    "correctAnswer": "pakpak",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-9",
+    "text": "Bahete ang mga taong nagbigay ng kanilang mga pera nila sa mga negosyong \"networking\".",
+    "options": [
+      "lalong yumaman",
+      "sagana",
+      "nalugi",
+      "napasama"
+    ],
+    "correctAnswer": "nalugi",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-10",
+    "text": "Noong taong 1990, marami sa mga lugar sa Lungsod ng Baguio ang bakang-bakang.",
+    "options": [
+      "bitak-bitak likha ng lindol",
+      "tagpi-tagpi likha ng baha",
+      "hiwa-hiwalay sanhi ng sakuna",
+      "maraming gumuho na lupa"
+    ],
+    "correctAnswer": "bitak-bitak likha ng lindol",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-11",
+    "text": "Dahil hindi mahanap si Maliya, ang supremo ay hindi nakatulog. Siya ay balik-inikaw sa buong magdamag.",
+    "options": [
+      "hindi makatulog",
+      "hindi matanggap ang mga nangyayari",
+      "hindi mapalagay sa kinalalagyan",
+      "hindi makapag-isip nang mabuti"
+    ],
+    "correctAnswer": "hindi mapalagay sa kinalalagyan",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-12",
+    "text": "Ang larawan ng kanyang unang pag-ibig ay nakadikit sa kanyang balintataw kaya hindi niya ito makalimutan.",
+    "options": [
+      "salamin",
+      "aparador",
+      "guni-guni",
+      "utak"
+    ],
+    "correctAnswer": "guni-guni",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-13",
+    "text": "Sa pamumuno ng pulis na probinsiyano, nilusob ng mga miyembro ng Special Action Force (SAF) ang baluwarte ng mga miyembro ng Pulang Araw.",
+    "options": [
+      "pinakamatibay na kuta",
+      "pinakagustong kinatitirhan",
+      "pinakakilalang bayan",
+      "pinakamaayos na lugar"
+    ],
+    "correctAnswer": "pinakamatibay na kuta",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-14",
+    "text": "Ang pagdalumat sa mga ideya ni Pilosopo Tasyo ang pinakagusto ng mga mag-aaral sa asignaturang, \"Noli Me Tangere.\"",
+    "options": [
+      "masayahing pag-aaral",
+      "matatas na pagpapalitan ng opinyon",
+      "malalim na panghihiraya o paglilirip",
+      "malalimang pagbabasa"
+    ],
+    "correctAnswer": "malalim na panghihiraya o paglilirip",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-15",
+    "text": "Ang awit na pinamagatang \"Dayang-Dayang\" ay nakakapagpaindak sa mga taong nakakarinig dito.",
+    "options": [
+      "babaing maharlika",
+      "prinsesang nakakatuwa",
+      "taong sumasampalataya sa Islam",
+      "masayahing okasyon"
+    ],
+    "correctAnswer": "prinsesang nakakatuwa",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-16",
+    "text": "Siya ay sanay sa diplomasya kaya gustong gusto siya ng mga tao.",
+    "options": [
+      "pagbibigay halaga sa kapwa tao",
+      "matalas at mahusay sa pakikipag-unawaan",
+      "maalam sa pamamahala",
+      "magalang sa mga taong kinakausap"
+    ],
+    "correctAnswer": "matalas at mahusay sa pakikipag-unawaan",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-17",
+    "text": "Ang kanilang tahahan ay disareglado kaya ayaw pumasok ng mga bisita.",
+    "options": [
+      "hindi sagana sa pagkain",
+      "hindi marunong sa pagtanggap ng mga panauhin",
+      "hindi maayos o magulo ang kalagayan",
+      "masyadong maliit para matirhan"
+    ],
+    "correctAnswer": "hindi maayos o magulo ang kalagayan",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-18",
+    "text": "Ang mga eskudero ay matitipuno sa kanilang paglalakad patungo sa kanilang pinagtatrabahuhan.",
+    "options": [
+      "sundalong marurunong sa digmaan",
+      "manlililok ng mga kahoy",
+      "tagagawa ng kalasag",
+      "mandirigmang Griyego"
+    ],
+    "correctAnswer": "tagagawa ng kalasag",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-19",
+    "text": "Ang isang taong mapagsapantaha sa kapwa ay mahirap pakisamahan.",
+    "options": [
+      "mapag-imbot",
+      "mapangmata",
+      "mapaghinala",
+      "mapagkait"
+    ],
+    "correctAnswer": "mapaghinala",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-20",
+    "text": "Isa sa mga asignaturang sinusuportahan ng Department of Science and Technology (DOST) na lalong paunlarin sa mga iba't ibang paaralan ang asignaturang Sipnayan.",
+    "options": [
+      "Siyensiya",
+      "Matematika",
+      "Sining",
+      "Pananaliksik"
+    ],
+    "correctAnswer": "Matematika",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-21",
+    "text": "Ang mga mamamayang kumakandili sa mga rebelde ang isa sa mga kailangang bigyang pansin ng pamahalaan.",
+    "options": [
+      "nagmamalasakit",
+      "nagpapakain",
+      "nagtatakwil",
+      "nagsusumbong"
+    ],
+    "correctAnswer": "nagmamalasakit",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-22",
+    "text": "Hindi dapat kinakatigan ang mga taong mapag-imbot sa kapwa.",
+    "options": [
+      "minamahal",
+      "pinag-uukulan ng panahon",
+      "sinasang-ayunan",
+      "tinutulungan"
+    ],
+    "correctAnswer": "sinasang-ayunan",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-23",
+    "text": "Inaaninaw ng magnanakaw ang kapaligiran dahil gusto niyang lumabas sa kanyang kinaroroonan.",
+    "options": [
+      "inaaral ang kalagayan",
+      "inuusisa ang mga pangyayari",
+      "tinitingnan kung may tao o wala",
+      "inoobserbahan kung may mga pulis"
+    ],
+    "correctAnswer": "tinitingnan kung may tao o wala",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-24",
+    "text": "Hindi marami ang tao at mga bahay sa mga kabisera ng mga bayan sa kanilang probinsiya.",
+    "options": [
+      "baryo",
+      "kapital",
+      "subdibisyon",
+      "lungsod"
+    ],
+    "correctAnswer": "kapital",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-25",
+    "text": "Ang mga isda na kanilang nahuli ay pumapasag kaya ayaw nilang ihawin ang mga ito.",
+    "options": [
+      "gumagalaw",
+      "lumulukso",
+      "umaalingasaw ang amoy",
+      "hindi maayos ang lagay"
+    ],
+    "correctAnswer": "gumagalaw",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-26",
+    "text": "Ang duplikal ang siyang nagbigay hudyat sa mga tao para kaagad na tumungo sa mas mataas na lugar para maiwasan ang bagsik ng tsunami.",
+    "options": [
+      "malakas na busina",
+      "sunod-sunod na tunog ng kampana",
+      "sirena mula sa iisang lugar",
+      "pagsigaw ng mga namumuno"
+    ],
+    "correctAnswer": "sunod-sunod na tunog ng kampana",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-27",
+    "text": "Ang isang taong hindi nakapasok sa paaralan ay itinuturing na hungkag.",
+    "options": [
+      "walang silbi",
+      "hindi makabasa at makasulat",
+      "salat sa kaalaman",
+      "hindi natututo"
+    ],
+    "correctAnswer": "salat sa kaalaman",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-28",
+    "text": "Ang pagpapalahaw sa pagbibigay ng mensahe sa kapilya ay hindi nakatutulong sa pang-unawa ng mga tao sa mga salita ng Diyos.",
+    "options": [
+      "pagiging galit",
+      "pagsigaw",
+      "pagbibigay ng hindi magandang ehemplo",
+      "pagyayabang"
+    ],
+    "correctAnswer": "pagsigaw",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-29",
+    "text": "Ang mga bantayog na ipinagawa para sa mga bayani ay sinira ng digmaang pandaigdig.",
+    "options": [
+      "gusali",
+      "monumento",
+      "larawan",
+      "museo"
+    ],
+    "correctAnswer": "monumento",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-30",
+    "text": "Hindi mainam sa isang mamahaling bahay ang may tarangkahan na hindi matibay.",
+    "options": [
+      "bintana",
+      "pintuan",
+      "hagdanan",
+      "\"gate\""
+    ],
+    "correctAnswer": "\"gate\"",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-31",
+    "text": "Matalinghaga ang mga salitang namumutawi sa kanyang bibig.",
+    "options": [
+      "hindi maintindihan",
+      "malalim ang pakahulugan",
+      "iba-iba ang maaaring ibig sabihin",
+      "masining ang pagkakasabi"
+    ],
+    "correctAnswer": "malalim ang pakahulugan",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-32",
+    "text": "Ang kanyang ama ay pumanaw na.",
+    "options": [
+      "umalis",
+      "tumungo sa ibang bansa",
+      "namatay",
+      "nagpaalam"
+    ],
+    "correctAnswer": "namatay",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-33",
+    "text": "Isa sa mga kinakailangang laman ng pitaka ng isang negosyante ay tarheta para madali niya itong maibigay sa kanyang mga kausap sa negosyo.",
+    "options": [
+      "brochure",
+      "business card",
+      "calling card",
+      "business proposal"
+    ],
+    "correctAnswer": "calling card",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-34",
+    "text": "Ang kulay ng kanyang damit ay asul.",
+    "options": [
+      "bughaw",
+      "kulay abo",
+      "kulay pilak",
+      "kayumanggi"
+    ],
+    "correctAnswer": "bughaw",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-35",
+    "text": "Nahihirapan ang mga mag-aaral sa pagsulat sa lagom ng mga sinabi ng kanilang tagapagsalita sa seminar.",
+    "options": [
+      "kahulugan",
+      "buod",
+      "salin",
+      "transkripsiyon"
+    ],
+    "correctAnswer": "buod",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-36",
+    "text": "Ang mga kinikilalang dalubhasa sa larangan ng sining ang nabibigyan ng mas maraming proyekto ngayon ng pamahalaan.",
+    "options": [
+      "siyentista",
+      "artista",
+      "eksperto",
+      "manlalaro"
+    ],
+    "correctAnswer": "eksperto",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-37",
+    "text": "Ang horno ang ginagamit namin sa kusina para sa mas mainam na pagluto ng aming mga pagkain.",
+    "options": [
+      "pugon",
+      "kalan",
+      "lutuang gawa sa metal",
+      "makabagong lutuan"
+    ],
+    "correctAnswer": "pugon",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-38",
+    "text": "Ang mga panukala ng mga pulitiko ay hindi sinasang-ayunan ng mga mamamayan dahil hindi ito nakabubuti sa kanila.",
+    "options": [
+      "batas na ipapatupad",
+      "mungkahi o suhestiyon na inilalatag",
+      "adhikain na nais ipamahagi",
+      "tulong na naglalayong makapagbigay sigla"
+    ],
+    "correctAnswer": "mungkahi o suhestiyon na inilalatag",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-39",
+    "text": "Ginagamit niya ang kanyang salawal samantalang hindi pa ito nalalabhan.",
+    "options": [
+      "kumot",
+      "kamiseta",
+      "sapin sa ulo",
+      "pantalon"
+    ],
+    "correctAnswer": "pantalon",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-40",
+    "text": "Isa sa mga binili ng kanyang nanay na kanyang lalaruin ay guryon.",
+    "options": [
+      "bisikleta",
+      "saranggola",
+      "manika",
+      "trumpo"
+    ],
+    "correctAnswer": "saranggola",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-41",
+    "text": "Ang kulay ng araw sa bandila ng Pilipinas ay kulay kanaryo.",
+    "options": [
+      "puti",
+      "bughaw",
+      "dilaw",
+      "pula"
+    ],
+    "correctAnswer": "dilaw",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-42",
+    "text": "Ang mga magkakaalyansa sa pakikipaglaban sa kasamaan ay hindi nagkakaintindihan sa paraang gagamitin sa pagsugpo nito.",
+    "options": [
+      "magkakaanib",
+      "magkatunggali",
+      "magkakaibigan",
+      "magkaaway"
+    ],
+    "correctAnswer": "magkakaanib",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-43",
+    "text": "Ang taong pagal ay hindi nakakapag-isip nang malalim.",
+    "options": [
+      "mabagal",
+      "pagod",
+      "mahirap pakisamahan",
+      "masalimuot"
+    ],
+    "correctAnswer": "pagod",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-44",
+    "text": "Tuwang tuwa ang mga bata habang pinagmamasdan ang salipawpaw sa kaitaasan.",
+    "options": [
+      "saranggola",
+      "ibong mabilis ang paglipad",
+      "eroplano",
+      "malaking dahon"
+    ],
+    "correctAnswer": "eroplano",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-45",
+    "text": "Ang mga agiw sa kanilang bahay ang lalong nanira sa ganda nito.",
+    "options": [
+      "alikabok na naipon at bahagyang namuo",
+      "mga bahay ng mga alagang hayop na hindi nililinis",
+      "ang mga gamit na hindi na ginagamit kaya nasira na",
+      "ang mga sira-sirang bahagi ng bahay"
+    ],
+    "correctAnswer": "alikabok na naipon at bahagyang namuo",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-46",
+    "text": "Ang mga panaghoy ng mga biktima ng kalamidad ay nakakabagbag damdamin.",
+    "options": [
+      "ingay o mga pagsasalitang naghahatid ng pighati",
+      "mga pagsusumamo para sa paghingi ng tulong",
+      "pagsasalita nang malakas para ito ay mapakinggan",
+      "pag-iingay para mabigyan ng pansin"
+    ],
+    "correctAnswer": "ingay o mga pagsasalitang naghahatid ng pighati",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-47",
+    "text": "Ang mga pantas sa kanilang bayan ay tinipon ng kanilang alkalde para sa pagresolba sa kanilang kinakaharap na suliranin.",
+    "options": [
+      "malawak ang kaisipan o maalam",
+      "may kakayanan sa buhay",
+      "maraming nagawang mabuti para sa bayan",
+      "marunong mamuno sa mga tao"
+    ],
+    "correctAnswer": "malawak ang kaisipan o maalam",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-48",
+    "text": "Ang isang mag-aaral na laging kumukuha ng sipi ng kanyang mga aralin ay nakakaangat sa mga hindi.",
+    "options": [
+      "pangangailangan",
+      "modyul",
+      "aklat",
+      "kopya"
+    ],
+    "correctAnswer": "kopya",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-49",
+    "text": "Ang kanilang salumpuwit ay gawa sa isang materyales na mamahalin.",
+    "options": [
+      "palikuran",
+      "upuan",
+      "higaan",
+      "lamesa"
+    ],
+    "correctAnswer": "upuan",
+    "subject": "Talasitaan"
+  },
+  {
+    "id": "cse-filipino-50",
+    "text": "Ang payak na pamumuhay na ninanais ng kanyang asawa ay hindi niya maibigay kaya hindi sila nagkakaintindihan.",
+    "options": [
+      "simple",
+      "marangya",
+      "tahimik",
+      "sosyal"
+    ],
+    "correctAnswer": "simple",
+    "subject": "Talasitaan"
+  }
+
 ];

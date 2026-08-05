@@ -27,10 +27,17 @@ const highlightQuestionText = (text: string, subject: Subject) => {
       'white elephant', 'stands to reason', 'give my right arm', 'went bananas',
       'brought her into contact', 'grass grow under your feet', 'spill the beans',
       'starving'
+    ],
+    'Talasitaan': [
+      'abang-aba', 'antikuwaryo', 'alumanahin', 'babahan', 'badilas', 'bagansya', 'bagkus', 'bagwis', 'Bahete', 'bakang-bakang', 
+      'balik-inikaw', 'balintataw', 'baluwarte', 'pagdalumat', 'Dayang-Dayang', 'diplomasya', 'disareglado', 'eskudero', 'mapagsapantaha', 'Sipnayan', 
+      'kumakandili', 'kinakatigan', 'Inaaninaw', 'kabisera', 'pumapasag', 'duplikal', 'hungkag', 'pagpapalahaw', 'bantayog', 'tarangkahan', 
+      'Matalinghaga', 'pumanaw', 'tarheta', 'asul', 'lagom', 'dalubhasa', 'horno', 'panukala', 'salawal', 'guryon', 
+      'kanaryo', 'magkakaalyansa', 'pagal', 'salipawpaw', 'agiw', 'panaghoy', 'pantas', 'sipi', 'salumpuwit', 'payak'
     ]
   };
 
-  if (subject === 'Vocabulary' || subject === 'Idiomatic Expressions') {
+  if (subject === 'Vocabulary' || subject === 'Idiomatic Expressions' || subject === 'Talasitaan') {
     const words = highlights[subject];
     if (words) {
       words.forEach(word => {
