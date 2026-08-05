@@ -4,6 +4,43 @@ import { MockExam, Question, ExamSection, Subject } from '../types';
 import { Play, Clock, CheckCircle2, AlertCircle, ChevronLeft, ChevronRight, Check } from 'lucide-react';
 import { ExamResultsView } from './ExamResultsView';
 
+// Helper to highlight target words since the raw text lost its formatting
+const highlightQuestionText = (text: string, subject: Subject) => {
+  let highlightedText = text;
+
+  // Words/idioms to highlight based on the specific 50-item mock exam
+  const highlights: Record<string, string[]> = {
+    'Vocabulary': [
+      'Gullible', 'jettison', 'disseminate', 'feasible', 'perennial', 
+      'amicable', 'abridged', 'laudable', 'lackadaisical'
+    ],
+    'Idiomatic Expressions': [
+      'out of hand', 'picks on', 'black sheep', 'raining cats and dogs',
+      'put in for', 'wild-goose chase', 'prowled around', 'put her foot in it'
+    ]
+  };
+
+  if (subject === 'Vocabulary' || subject === 'Idiomatic Expressions') {
+    const words = highlights[subject];
+    if (words) {
+      words.forEach(word => {
+        const regex = new RegExp(`\\b(${word})\\b`, 'gi');
+        highlightedText = highlightedText.replace(regex, '<span class="text-cyan-400 font-bold underline decoration-cyan-500/50 underline-offset-4">$1</span>');
+      });
+    }
+  }
+
+  // Always highlight blanks
+  highlightedText = highlightedText.replace(/(_{2,})/g, '<span class="text-cyan-400 font-bold">$1</span>');
+
+  // Highlight (A), (B), (C), (D) for Identifying Errors
+  if (subject === 'Identifying Errors (English Grammar)') {
+    highlightedText = highlightedText.replace(/(\([A-E]\))/g, '<span class="text-indigo-400 font-bold bg-indigo-500/10 px-1 rounded mx-1">$1</span>');
+  }
+
+  return <span dangerouslySetInnerHTML={{ __html: highlightedText }} />;
+};
+
 export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any) => void }) {
   const [selectedExam, setSelectedExam] = useState<MockExam | null>(null);
   const [isStarted, setIsStarted] = useState(false);
@@ -11,7 +48,6 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
   const [timeLeft, setTimeLeft] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
   
-  // Flattened questions for easy navigation
   const [allQuestions, setAllQuestions] = useState<{question: Question, section: ExamSection, index: number}[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -60,8 +96,12 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
 
   const handleAnswer = (questionId: string, answer: string) => {
     setAnswers(prev => ({ ...prev, [questionId]: answer }));
+    
+    // Automatic next question with a slight delay for visual feedback
     if (currentIndex < allQuestions.length - 1) {
-      setTimeout(() => setCurrentIndex(prev => prev + 1), 300);
+      setTimeout(() => {
+        setCurrentIndex(prev => prev + 1);
+      }, 400);
     }
   };
 
@@ -83,14 +123,24 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
     const currentQ = allQuestions[currentIndex];
     const isLast = currentIndex === allQuestions.length - 1;
     const isFirst = currentIndex === 0;
+    const progressPercentage = ((currentIndex + 1) / allQuestions.length) * 100;
 
     return (
-      <div className="flex flex-col h-full glass-panel rounded-2xl overflow-hidden shadow-2xl border border-white/5 bg-slate-900/60">
+      <div className="flex flex-col h-full glass-panel rounded-2xl overflow-hidden shadow-2xl border border-white/5 bg-slate-900/60 relative">
+        
+        {/* Progress Bar */}
+        <div className="absolute top-0 left-0 w-full h-1.5 bg-slate-800 z-50">
+          <div 
+            className="h-full bg-gradient-to-r from-cyan-400 to-indigo-500 transition-all duration-300 ease-out"
+            style={{ width: `${progressPercentage}%` }}
+          />
+        </div>
+
         {/* Header */}
-        <div className="bg-slate-950/80 p-4 border-b border-white/5 flex justify-between items-center shrink-0">
+        <div className="bg-slate-950/80 p-4 pt-5 border-b border-white/5 flex justify-between items-center shrink-0">
           <div>
             <h2 className="text-lg font-bold text-white">{selectedExam.title}</h2>
-            <p className="text-xs text-slate-400">{currentQ.section.title}</p>
+            <div className="text-sm text-slate-400 font-medium">Question {currentIndex + 1} of {allQuestions.length}</div>
           </div>
           <div className="flex items-center gap-4">
             <div className={`flex items-center gap-2 px-3 py-1.5 rounded-lg font-mono font-bold text-sm ${timeLeft < 300 ? 'bg-rose-500/20 text-rose-400' : 'bg-slate-800 text-slate-300'}`}>
@@ -110,26 +160,24 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
           </div>
         </div>
 
-        {/* Progress Bar */}
-        <div className="h-1 w-full bg-slate-900">
-          <div 
-            className="h-full bg-indigo-500 transition-all duration-300 ease-out"
-            style={{ width: `${((currentIndex + 1) / allQuestions.length) * 100}%` }}
-          />
-        </div>
-
         {/* Body */}
         <div className="flex flex-1 overflow-hidden">
           {/* Main Question Area */}
           <div className="flex-1 overflow-y-auto p-6 md:p-10 flex flex-col">
             <div className="max-w-3xl mx-auto w-full flex-1">
-              {/* Instructions */}
-              {currentQ.section.instructions && (
-                <div className="bg-cyan-900/20 border border-cyan-500/20 text-cyan-200 p-4 rounded-xl mb-6 text-sm flex gap-3">
-                  <AlertCircle className="w-5 h-5 shrink-0" />
-                  <p>{currentQ.section.instructions}</p>
-                </div>
-              )}
+              
+              {/* Subject Name and Instructions */}
+              <div className="mb-8">
+                <h3 className="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-400 uppercase tracking-widest mb-3">
+                  {currentQ.section.title}
+                </h3>
+                {currentQ.section.instructions && (
+                  <div className="bg-slate-800/60 border border-slate-700/50 text-slate-300 p-4 rounded-xl text-sm flex gap-3 shadow-inner">
+                    <AlertCircle className="w-5 h-5 shrink-0 text-cyan-400" />
+                    <p className="font-medium">{currentQ.section.instructions}</p>
+                  </div>
+                )}
+              </div>
 
               {/* Passage (if any) */}
               {currentQ.question.passage && (
@@ -142,11 +190,13 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
 
               {/* Question Text */}
               <div className="mb-8">
-                <div className="flex items-start gap-4 mb-4">
+                <div className="flex items-start gap-4 mb-6">
                   <div className="bg-indigo-500/20 text-indigo-400 font-bold w-10 h-10 rounded-full flex items-center justify-center shrink-0 border border-indigo-500/30">
                     {currentIndex + 1}
                   </div>
-                  <h3 className="text-xl text-white font-medium pt-1 leading-relaxed">{currentQ.question.text}</h3>
+                  <h3 className="text-xl text-white font-medium pt-1 leading-relaxed">
+                    {highlightQuestionText(currentQ.question.text, currentQ.question.subject)}
+                  </h3>
                 </div>
 
                 {/* Options */}
@@ -160,8 +210,8 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
                         onClick={() => handleAnswer(currentQ.question.id, opt)}
                         className={`w-full text-left p-4 rounded-xl border transition-all duration-200 flex items-center gap-4 ${
                           isSelected 
-                            ? 'bg-indigo-600/20 border-indigo-500 shadow-[0_0_15px_rgba(99,102,241,0.2)]' 
-                            : 'bg-slate-800/50 border-white/5 hover:border-white/10 hover:bg-slate-800'
+                            ? 'bg-indigo-600/30 border-indigo-400 shadow-[0_0_15px_rgba(99,102,241,0.3)] transform scale-[1.01]' 
+                            : 'bg-slate-800/50 border-white/5 hover:border-white/20 hover:bg-slate-800'
                         }`}
                       >
                         <div className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm transition-colors ${
@@ -169,7 +219,9 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
                         }`}>
                           {optionLetter}
                         </div>
-                        <span className={`text-base ${isSelected ? 'text-white' : 'text-slate-300'}`}>{opt}</span>
+                        <span className={`text-base font-medium ${isSelected ? 'text-white' : 'text-slate-300'}`}>
+                          {highlightQuestionText(opt, currentQ.question.subject)}
+                        </span>
                       </button>
                     )
                   })}
@@ -187,16 +239,12 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
                 <ChevronLeft className="w-4 h-4" /> Previous
               </button>
               
-              <div className="text-sm text-slate-500 font-medium">
-                {currentIndex + 1} of {allQuestions.length}
-              </div>
-
               {!isLast ? (
                 <button 
                   onClick={() => setCurrentIndex(prev => prev + 1)}
                   className="px-5 py-2.5 rounded-lg font-medium bg-slate-800 hover:bg-slate-700 text-white transition-colors flex items-center gap-2 shadow-lg"
                 >
-                  Next <ChevronRight className="w-4 h-4" />
+                  Skip <ChevronRight className="w-4 h-4" />
                 </button>
               ) : (
                 <button 
@@ -229,8 +277,9 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {MOCK_EXAMS.map(exam => (
-            <div key={exam.id} className="glass-panel p-6 sm:p-8 rounded-2xl border border-white/5 hover:border-indigo-500/30 transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-indigo-500/10 flex flex-col h-full">
-              <div className="flex justify-between items-start mb-6">
+            <div key={exam.id} className="glass-panel p-6 sm:p-8 rounded-2xl border border-white/5 hover:border-indigo-500/30 transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-indigo-500/10 flex flex-col h-full relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-indigo-500"></div>
+              <div className="flex justify-between items-start mb-6 pt-2">
                 <div>
                   <h2 className="text-2xl font-bold text-white mb-2">{exam.title}</h2>
                   <div className="flex items-center gap-3">
@@ -244,13 +293,13 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
                   <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center shrink-0">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400" />
                   </div>
-                  <span>{exam.totalItems} Items Total</span>
+                  <span className="font-medium">{exam.totalItems} Items Total</span>
                 </div>
                 <div className="flex items-center gap-3 text-slate-300">
                   <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center shrink-0">
                     <Clock className="w-4 h-4 text-cyan-400" />
                   </div>
-                  <span>{Math.floor(exam.timeLimitMinutes / 60)}h {exam.timeLimitMinutes % 60}m Time Limit</span>
+                  <span className="font-medium">{Math.floor(exam.timeLimitMinutes / 60) > 0 ? `${Math.floor(exam.timeLimitMinutes / 60)}h ` : ''}{exam.timeLimitMinutes % 60}m Time Limit</span>
                 </div>
               </div>
               
