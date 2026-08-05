@@ -115,3 +115,27 @@ export interface AnalyticsData {
   weakestSubject: SubjectStats | null;
   strongestSubject: SubjectStats | null;
 }
+
+export interface Question {
+  id: string;
+  text: string;
+  passage?: string; // For reading comprehension
+  options: string[];
+  correctAnswer: string; // The exact string of the correct option
+  subject: Subject;
+}
+
+export interface ExamSection {
+  title: string;
+  instructions: string;
+  questions: Question[];
+}
+
+export interface MockExam {
+  id: string;
+  title: string;
+  examType: ExamType;
+  totalItems: number;
+  timeLimitMinutes: number;
+  sections: ExamSection[];
+}

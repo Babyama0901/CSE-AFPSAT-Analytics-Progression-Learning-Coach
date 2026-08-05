@@ -10,11 +10,12 @@ import { ProgressionChart } from './components/ProgressionChart';
 import { ExportModal } from './components/ExportModal';
 import { DashboardView } from './components/DashboardView';
 import { HistoryView } from './components/HistoryView';
+import { PracticeTestView } from './components/PracticeTestView';
 import { generateAnalyticsReport } from './utils/pdfGenerator';
 
 export default function App() {
   const [logs, setLogs] = useState<ScoreLog[]>([]);
-  const [activeTab, setActiveTab] = useState<'DASHBOARD' | ExamType | 'HISTORY'>('DASHBOARD');
+  const [activeTab, setActiveTab] = useState<'DASHBOARD' | ExamType | 'HISTORY' | 'PRACTICE'>('DASHBOARD');
   const [isExportModalOpen, setIsExportModalOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [saveStatus, setSaveStatus] = useState<'IDLE' | 'SAVING' | 'SAVED'>('IDLE');
@@ -50,6 +51,16 @@ export default function App() {
       timestamp: Date.now()
     };
     setLogs(prev => [...prev, newLog]);
+  };
+  
+  const handleAddMultipleLogs = (logsToAdd: Omit<ScoreLog, 'id' | 'timestamp'>[]) => {
+    const newLogs = logsToAdd.map(logData => ({
+      ...logData,
+      id: crypto.randomUUID(),
+      timestamp: Date.now()
+    }));
+    setLogs(prev => [...prev, ...newLogs]);
+    setActiveTab('DASHBOARD');
   };
 
   const handleUpdateLog = (updatedLog: ScoreLog) => {
@@ -157,11 +168,11 @@ export default function App() {
       <main className="max-w-7xl mx-auto px-6 py-10">
         
         {/* Exam View Toggle */}
-        <div className="flex justify-center mb-10">
-          <div className="glass-panel p-1.5 rounded-2xl inline-flex gap-2">
+        <div className="flex justify-center mb-10 overflow-x-auto custom-scrollbar pb-2">
+          <div className="glass-panel p-1.5 rounded-2xl inline-flex gap-2 whitespace-nowrap">
             <button
               onClick={() => setActiveTab('DASHBOARD')}
-              className={`px-8 py-3 rounded-xl text-sm font-bold tracking-widest uppercase flex items-center gap-2 ${
+              className={`px-6 py-3 rounded-xl text-sm font-bold tracking-widest uppercase flex items-center gap-2 ${
                 activeTab === 'DASHBOARD' 
                 ? 'bg-slate-700 text-white' 
                 : 'text-slate-400 hover:text-slate-200 hover:bg-white/5'
@@ -171,33 +182,43 @@ export default function App() {
             </button>
             <button
               onClick={() => setActiveTab('CSE')}
-              className={`px-8 py-3 rounded-xl text-sm font-bold tracking-widest uppercase flex items-center gap-2 ${
+              className={`px-6 py-3 rounded-xl text-sm font-bold tracking-widest uppercase flex items-center gap-2 ${
                 activeTab === 'CSE' 
                 ? 'bg-cyan-600 text-white' 
                 : 'text-slate-400 hover:text-slate-200 hover:bg-white/5'
               }`}
             >
-              <LayoutDashboard className="w-4 h-4" /> CSE View
+              <LayoutDashboard className="w-4 h-4" /> CSE
             </button>
             <button
               onClick={() => setActiveTab('AFPSAT')}
-              className={`px-8 py-3 rounded-xl text-sm font-bold tracking-widest uppercase flex items-center gap-2 ${
+              className={`px-6 py-3 rounded-xl text-sm font-bold tracking-widest uppercase flex items-center gap-2 ${
                 activeTab === 'AFPSAT' 
                 ? 'bg-purple-600 text-white' 
                 : 'text-slate-400 hover:text-slate-200 hover:bg-white/5'
               }`}
             >
-              <TrendingUp className="w-4 h-4" /> AFPSAT View
+              <TrendingUp className="w-4 h-4" /> AFPSAT
             </button>
             <button
               onClick={() => setActiveTab('HISTORY')}
-              className={`px-8 py-3 rounded-xl text-sm font-bold tracking-widest uppercase flex items-center gap-2 ${
+              className={`px-6 py-3 rounded-xl text-sm font-bold tracking-widest uppercase flex items-center gap-2 ${
                 activeTab === 'HISTORY' 
                 ? 'bg-amber-600 text-white' 
                 : 'text-slate-400 hover:text-slate-200 hover:bg-white/5'
               }`}
             >
               <History className="w-4 h-4" /> History
+            </button>
+            <button
+              onClick={() => setActiveTab('PRACTICE')}
+              className={`px-6 py-3 rounded-xl text-sm font-bold tracking-widest uppercase flex items-center gap-2 ${
+                activeTab === 'PRACTICE' 
+                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-900/20' 
+                : 'text-slate-400 hover:text-slate-200 hover:bg-white/5'
+              }`}
+            >
+              <Sparkles className="w-4 h-4" /> Practice Tests
             </button>
           </div>
         </div>
@@ -215,6 +236,10 @@ export default function App() {
             onUpdateLog={handleUpdateLog}
             onDeleteLog={handleDeleteLog}
           />
+        ) : activeTab === 'PRACTICE' ? (
+          <div className="h-[700px]">
+            <PracticeTestView onCompleteExam={handleAddMultipleLogs} />
+          </div>
         ) : (
           <div key={activeTab} className="space-y-8">
             {/* Top Stats Row */}
