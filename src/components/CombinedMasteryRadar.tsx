@@ -56,7 +56,30 @@ export function CombinedMasteryRadar({ cseAnalytics, afpsatAnalytics }: Combined
     });
   };
 
-  const cseData = processData(cseAnalytics.subjectStats, CSE_SUBJECTS);
+  const cseRadarNodes = [
+    { label: 'Verbal Ability', subjects: ['Vocabulary', 'Grammar and Language Usage', 'Spelling', 'Idiomatic Expressions', 'Reading Comprehension', 'Logical Verbal Reasoning'] },
+    { label: 'Gen Info', subjects: ['General Information'] },
+    { label: 'Talasitaan', subjects: ['Talasitaan'] },
+    { label: 'Kawikaan', subjects: ['Kawikaang Filipino'] },
+    { label: 'Mali', subjects: ['Pagkilala sa Mali'] },
+    { label: 'Numerical', subjects: ['Numerical Ability', 'Basic Arithmetic', 'Word Problems', 'Algebra Basics', 'Geometry Basics'] },
+    { label: 'Logic', subjects: ['Logic', 'Logical Relationships'] },
+    { label: 'Patterns', subjects: ['Seeing Patterns, Diagrams, Figures', 'Series Completion', 'Pattern Recognition 1', 'Pattern Recognition 2', 'Pattern Recognition 3'] },
+  ];
+
+  const cseData = cseRadarNodes.map(node => {
+    const matchingStats = cseAnalytics.subjectStats.filter(s => node.subjects.includes(s.subject));
+    let score = 0;
+    if (matchingStats.length > 0) {
+      score = matchingStats.reduce((sum, s) => sum + s.latestPercentage, 0) / matchingStats.length;
+    }
+    return {
+      subject: node.label,
+      fullSubject: node.label === 'Mali' ? 'Pagtukoy ng Mali' : (node.label === 'Gen Info' ? 'General Information' : node.label),
+      score: Number(score.toFixed(1))
+    };
+  });
+
   const afpsatData = processData(afpsatAnalytics.subjectStats, AFPSAT_SUBJECTS);
 
   const CustomTooltip = ({ active, payload }: any) => {
