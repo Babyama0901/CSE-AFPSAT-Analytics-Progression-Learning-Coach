@@ -37,7 +37,10 @@ const SHORT_NAMES: Record<string, string> = {
   'Talasitaan': 'Talasitaan',
   'Kawikaang Filipino': 'Kawikaan',
   'Pagkilala sa Mali': 'Mali',
-  'Logic': 'Logic'
+  'Logic': 'Logic',
+  'Seeing Patterns, Diagrams, Figures': 'Patterns',
+  'General Information': 'Gen Info',
+  'Numerical Ability': 'Numerical'
 };
 
 export function CombinedMasteryRadar({ cseAnalytics, afpsatAnalytics }: CombinedMasteryRadarProps) {

@@ -62,18 +62,24 @@ export const CSE_GROUPS = {
     'Pagkilala sa Mali'
   ] as Subject[],
   'NUMERICAL REASONING': [
-    ...AFPSAT_GROUPS['NUMERICAL REASONING']
+    ...AFPSAT_GROUPS['NUMERICAL REASONING'],
+    'Numerical Ability'
   ] as Subject[],
   'ABSTRACT REASONING & LOGIC': [
     ...AFPSAT_GROUPS['ABSTRACT REASONING'],
-    'Logic'
+    'Logic',
+    'Seeing Patterns, Diagrams, Figures'
+  ] as Subject[],
+  'GENERAL INFORMATION': [
+    'General Information'
   ] as Subject[]
 };
 
 export const CSE_SUBJECTS: Subject[] = [
   ...CSE_GROUPS['VERBAL REASONING'],
   ...CSE_GROUPS['NUMERICAL REASONING'],
-  ...CSE_GROUPS['ABSTRACT REASONING & LOGIC']
+  ...CSE_GROUPS['ABSTRACT REASONING & LOGIC'],
+  ...CSE_GROUPS['GENERAL INFORMATION']
 ];
 
 export const SUBJECTS: Subject[] = [

@@ -87,6 +87,8 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
   const [allQuestions, setAllQuestions] = useState<{question: Question, section: ExamSection, index: number}[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const [isPaused, setIsPaused] = useState(false);
+
   useEffect(() => {
     if (selectedExam) {
       let qList: any[] = [];
@@ -104,7 +106,7 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
 
   useEffect(() => {
     let timer: any;
-    if (isStarted && !isFinished && timeLeft > 0) {
+    if (isStarted && !isFinished && !isPaused && timeLeft > 0) {
       timer = setInterval(() => {
         setTimeLeft(prev => {
           if (prev <= 1) {
@@ -117,7 +119,7 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
       }, 1000);
     }
     return () => clearInterval(timer);
-  }, [isStarted, isFinished, timeLeft]);
+  }, [isStarted, isFinished, isPaused, timeLeft]);
 
   const generateExamFromTemplate = (template: MockExamTemplate): MockExam => {
     const seenQuestionsStr = localStorage.getItem('seen_questions') || '[]';
@@ -128,45 +130,51 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
 
     // Simple mapping of subject to instructions (can be expanded if needed)
     const instructionMap: Record<string, string> = {
-      'Grammar and Language Usage': 'Fill in the blanks with correct answers.',
-      'Vocabulary': 'Choose the meaning of the underlined word.',
-      'Spelling': 'Choose the letter of the correct answer according to the prompt.',
-      'Idiomatic Expressions': 'Choose the meaning of the underlined idiomatic expression.',
+      'Reading Comprehension': 'Read the passage and select the best answer.',
+      'Vocabulary': 'Select the word that is closest in meaning to the highlighted word.',
+      'Idiomatic Expressions': 'Select the correct meaning of the highlighted idiom.',
+      'Grammar and Language Usage': 'Select the option that makes the sentence grammatically correct.',
+      'Logical Verbal Reasoning': 'Select the most logical conclusion or relationship.',
+      'Basic Arithmetic': 'Solve the arithmetic problem.',
+      'Word Problems': 'Solve the word problem.',
+      'Algebra Basics': 'Solve the algebraic equation.',
+      'Geometry Basics': 'Solve the geometry problem.',
+      'Logical Relationships': 'Determine the logical relationship.',
+      'Series Completion': 'Determine the next item in the series.',
+      'Pattern Recognition 1': 'Identify the pattern.',
+      'Pattern Recognition 2': 'Identify the pattern.',
+      'Pattern Recognition 3': 'Identify the pattern.',
+      'Spelling': 'Identify the correctly or incorrectly spelled word.',
       'Identifying Errors (English Grammar)': 'Identify the error in the sentence.',
-      'Reading Comprehension': 'Read the passage and answer the questions.'
+      'Talasitaan': 'Piliin ang pinakamalapit na kahulugan ng salita.',
+      'Kawikaang Filipino': 'Piliin ang tamang kahulugan ng kawikaan.',
+      'Pagkilala sa Mali': 'Tukuyin ang mali sa pangungusap.',
+      'Logic': 'Select the most logical conclusion.',
+      'Numerical Ability': 'Solve the numerical problem.',
+      'General Information': 'Select the correct answer.',
+      'Seeing Patterns, Diagrams, Figures': 'Select the correct pattern or diagram.'
     };
 
-    Object.entries(template.subjectDistribution).forEach(([subjectStr, count]) => {
-      const subject = subjectStr as Subject;
+    Object.entries(template.subjectDistribution).forEach(([subj, count]) => {
+      const subject = subj as Subject;
       const availableQuestions = QUESTION_BANK.filter(q => q.subject === subject);
+      let unseen = availableQuestions.filter(q => !seenQuestions.includes(q.id));
       
-      // Separate into seen and unseen
-      const unseen = availableQuestions.filter(q => !seenQuestions.includes(q.id));
-      const seen = availableQuestions.filter(q => seenQuestions.includes(q.id));
-
-      // Shuffle both independently
-      const shuffledUnseen = shuffleArray(unseen);
-      const shuffledSeen = shuffleArray(seen);
-
-      // Prioritize unseen, then fill with seen if needed
-      let selectedPool = [...shuffledUnseen, ...shuffledSeen];
+      if (unseen.length < count) {
+        unseen = [...unseen, ...shuffleArray(availableQuestions).slice(0, count - unseen.length)];
+      }
       
-      // If we run out of everything (shouldn't happen unless exam is huge), it just wraps
-      let selectedForSection = selectedPool.slice(0, count);
+      const selectedQuestions = shuffleArray(unseen).slice(0, count);
+      selectedQuestions.forEach(q => newSeenIds.push(q.id));
 
-      // Shuffle options for each selected question
-      selectedForSection = selectedForSection.map(q => ({
-        ...q,
-        options: shuffleArray(q.options)
-      }));
-
-      newSeenIds.push(...selectedForSection.map(q => q.id));
-
-      sections.push({
-        title: subject,
-        instructions: instructionMap[subject] || 'Select the correct answer.',
-        questions: selectedForSection
-      });
+      if (selectedQuestions.length > 0) {
+        sections.push({
+          id: `sec-${subject}-${Date.now()}`,
+          subject: subject,
+          instructions: instructionMap[subject] || 'Answer the following questions.',
+          questions: selectedQuestions
+        });
+      }
     });
 
     // Update seen questions in localStorage (keep up to 1000 to avoid bloat, or just all)
@@ -189,6 +197,7 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
     setSelectedExam(generatedExam);
     setIsStarted(true);
     setIsFinished(false);
+    setIsPaused(false);
     setAnswers({});
     setCurrentIndex(0);
   };
@@ -197,6 +206,13 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
     const elapsed = Math.floor((Date.now() - examStartTime) / 1000);
     setTimeElapsed(elapsed);
     setIsFinished(true);
+    setIsPaused(false);
+  };
+
+  const closeExam = () => {
+    setIsStarted(false);
+    setIsFinished(false);
+    setSelectedExam(null);
   };
 
   const handleAnswer = (questionId: string, answer: string) => {
@@ -221,13 +237,17 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
 
   if (isFinished && selectedExam) {
     return (
-      <ExamResultsView 
-        exam={selectedExam} 
-        answers={answers} 
-        timeElapsed={timeElapsed}
-        onComplete={onCompleteExam} 
-        onRetry={() => setIsStarted(false)} 
-      />
+      <div className="fixed inset-0 z-[100] bg-slate-950 overflow-y-auto">
+        <div className="max-w-4xl mx-auto py-12 px-4">
+          <ExamResultsView 
+            exam={selectedExam} 
+            answers={answers} 
+            timeElapsed={timeElapsed}
+            onComplete={onCompleteExam} 
+            onRetry={closeExam} 
+          />
+        </div>
+      </div>
     );
   }
 
@@ -238,24 +258,44 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
     const progressPercentage = ((currentIndex + 1) / allQuestions.length) * 100;
 
     return (
-      <div className="flex flex-col h-full glass-panel rounded-2xl overflow-hidden shadow-2xl border border-white/5 bg-slate-900/60 relative">
-        <div className="absolute top-0 left-0 w-full h-1.5 bg-slate-800 z-50">
-          <div 
-            className="h-full bg-gradient-to-r from-cyan-400 to-indigo-500 transition-all duration-300 ease-out"
-            style={{ width: `${progressPercentage}%` }}
-          />
-        </div>
-
-        <div className="bg-slate-950/80 p-4 pt-5 border-b border-white/5 flex justify-between items-center shrink-0">
-          <div>
-            <h2 className="text-lg font-bold text-white">{selectedExam.title}</h2>
-            <div className="text-sm text-slate-400 font-medium">Question {currentIndex + 1} of {allQuestions.length}</div>
+      <div className="fixed inset-0 z-[100] bg-slate-950 overflow-hidden flex flex-col">
+        {isPaused && (
+          <div className="absolute inset-0 z-[200] bg-slate-950/90 backdrop-blur-xl flex flex-col items-center justify-center">
+            <h2 className="text-4xl font-bold text-white mb-6">Exam Paused</h2>
+            <p className="text-slate-300 mb-8 max-w-md text-center">Your timer is paused and the questions are hidden. Ready to continue?</p>
+            <button 
+              onClick={() => setIsPaused(false)}
+              className="px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-white font-bold rounded-xl shadow-lg transition-transform hover:scale-105 flex items-center gap-2"
+            >
+              <Play className="w-5 h-5 fill-current" /> Resume Exam
+            </button>
           </div>
-          <div className="flex items-center gap-4">
-            <div className={`flex items-center gap-2 px-3 py-1.5 rounded-lg font-mono font-bold text-sm ${timeLeft < 300 ? 'bg-rose-500/20 text-rose-400' : 'bg-slate-800 text-slate-300'}`}>
-              <Clock className="w-4 h-4" />
-              {formatTime(timeLeft)}
+        )}
+        <div className="flex-1 flex flex-col max-w-5xl mx-auto w-full p-4 relative">
+          <div className="flex flex-col h-full glass-panel rounded-2xl overflow-hidden shadow-2xl border border-white/5 bg-slate-900/60 relative">
+            <div className="absolute top-0 left-0 w-full h-1.5 bg-slate-800 z-50">
+              <div 
+                className="h-full bg-gradient-to-r from-cyan-400 to-indigo-500 transition-all duration-300 ease-out"
+                style={{ width: `${progressPercentage}%` }}
+              />
             </div>
+
+            <div className="bg-slate-950/80 p-4 pt-5 border-b border-white/5 flex justify-between items-center shrink-0">
+              <div>
+                <h2 className="text-lg font-bold text-white">{selectedExam.title}</h2>
+                <div className="text-sm text-slate-400 font-medium">Question {currentIndex + 1} of {allQuestions.length}</div>
+              </div>
+              <div className="flex items-center gap-4">
+                <button 
+                  onClick={() => setIsPaused(true)}
+                  className="px-3 py-1.5 rounded-lg font-bold text-sm bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors flex items-center gap-2"
+                >
+                  Pause
+                </button>
+                <div className={`flex items-center gap-2 px-3 py-1.5 rounded-lg font-mono font-bold text-sm ${timeLeft < 300 ? 'bg-rose-500/20 text-rose-400' : 'bg-slate-800 text-slate-300'}`}>
+                  <Clock className="w-4 h-4" />
+                  {formatTime(timeLeft)}
+                </div>
             <button 
               onClick={() => {
                 if(window.confirm('Are you sure you want to finish the exam early?')) {
@@ -302,17 +342,18 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
                   </h3>
                 </div>
 
-                {currentQ.question.pdfUrl && (
-                  <div className="w-full h-[500px] mb-8 border border-white/10 rounded-xl overflow-hidden bg-slate-900 shadow-inner">
-                    <iframe 
-                      src={currentQ.question.pdfUrl} 
-                      className="w-full h-full bg-white"
-                      title={`Reference for Question ${currentIndex + 1}`}
-                    />
-                  </div>
-                )}
-
-                <div className="space-y-3 pl-14">
+                <div className="space-y-6">
+                  {currentQ.question.imageUrl && (
+                    <div className="w-full mb-6 border border-white/10 rounded-xl overflow-hidden bg-white flex justify-center p-4 shadow-inner">
+                      <img 
+                        src={currentQ.question.imageUrl} 
+                        alt="Question Reference"
+                        className="max-w-full h-auto max-h-[400px] object-contain rounded"
+                      />
+                    </div>
+                  )}
+                  
+                  <div className="space-y-3 pl-14">
                   {currentQ.question.options.map((opt, i) => {
                     const isSelected = answers[currentQ.question.id] === opt;
                     const optionLetter = String.fromCharCode(65 + i);
@@ -369,6 +410,7 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
           </div>
         </div>
       </div>
+    </div>
     );
   }
 

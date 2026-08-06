@@ -208,7 +208,7 @@ export function ExamResultsView({ exam, answers, timeElapsed, onComplete, onRetr
             onClick={onRetry}
             className="px-8 py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-black tracking-widest uppercase transition-colors shadow-lg shadow-indigo-900/30 flex items-center gap-2"
           >
-             Take Another Test
+             Return to Dashboard
           </button>
         </div>
 
