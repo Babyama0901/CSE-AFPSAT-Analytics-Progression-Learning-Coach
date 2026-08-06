@@ -363,8 +363,8 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
   }
 
   return (
-    <div className="h-full flex flex-col items-center justify-center">
-      <div className="max-w-4xl w-full">
+    <div className="h-full flex flex-col items-center justify-start py-8">
+      <div className="max-w-6xl w-full">
         <div className="text-center mb-10">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-indigo-500/20 text-indigo-400 mb-6 shadow-[0_0_30px_rgba(99,102,241,0.2)]">
             <Play className="w-8 h-8 ml-1" />
