@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { MOCK_EXAM_TEMPLATES } from '../data/mockExams';
 import { QUESTION_BANK } from '../data/questionBank';
 import { MockExamTemplate, MockExam, Question, ExamSection, Subject } from '../types';
-import { Play, Clock, CheckCircle2, AlertCircle, ChevronLeft, ChevronRight, Check } from 'lucide-react';
+import { Play, Clock, CheckCircle2, AlertCircle, ChevronLeft, ChevronRight, Check, BookOpen, Calculator, BrainCircuit, Globe2, MessageSquare } from 'lucide-react';
 import { ExamResultsView } from './ExamResultsView';
 
 // Helper to highlight target words since the raw text lost its formatting
@@ -375,44 +375,103 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {MOCK_EXAM_TEMPLATES.map(template => (
-            <div key={template.id} className="glass-panel p-6 sm:p-8 rounded-2xl border border-white/5 hover:border-indigo-500/30 transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-indigo-500/10 flex flex-col h-full relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-indigo-500"></div>
-              <div className="flex justify-between items-start mb-6 pt-2">
-                <div>
-                  <h2 className="text-2xl font-bold text-white mb-2">{template.title}</h2>
-                  <div className="flex items-center gap-3">
-                    <span className="px-2.5 py-1 rounded-md bg-indigo-500/20 text-indigo-300 text-xs font-bold tracking-wider">{template.examType}</span>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="space-y-3 mb-8">
-                <div className="flex items-center gap-3 text-slate-300">
-                  <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center shrink-0">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  </div>
-                  <span className="font-medium">{template.totalItems} Items Total</span>
-                </div>
-                <div className="flex items-center gap-3 text-slate-300">
-                  <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center shrink-0">
-                    <Clock className="w-4 h-4 text-cyan-400" />
-                  </div>
-                  <span className="font-medium">{Math.floor(template.timeLimitMinutes / 60) > 0 ? `${Math.floor(template.timeLimitMinutes / 60)}h ` : ''}{template.timeLimitMinutes % 60}m Time Limit</span>
-                </div>
-              </div>
-              
-              <button 
-                onClick={() => handleStart(template)}
-                className="mt-auto w-full py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition-all shadow-lg shadow-indigo-500/25 flex items-center justify-center gap-2"
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {MOCK_EXAM_TEMPLATES.map(template => {
+            // Determine theme based on title keywords
+            const t = template.title.toLowerCase();
+            let theme = {
+              color: 'from-indigo-500 to-cyan-400',
+              bg: 'bg-indigo-500/10 text-indigo-400',
+              border: 'group-hover:border-indigo-500/50',
+              shadow: 'group-hover:shadow-indigo-500/20',
+              icon: <BookOpen className="w-6 h-6" />
+            };
+
+            if (t.includes('numerical')) {
+              theme = {
+                color: 'from-fuchsia-500 to-purple-500',
+                bg: 'bg-fuchsia-500/10 text-fuchsia-400',
+                border: 'group-hover:border-fuchsia-500/50',
+                shadow: 'group-hover:shadow-fuchsia-500/20',
+                icon: <Calculator className="w-6 h-6" />
+              };
+            } else if (t.includes('logic')) {
+              theme = {
+                color: 'from-amber-500 to-orange-400',
+                bg: 'bg-amber-500/10 text-amber-400',
+                border: 'group-hover:border-amber-500/50',
+                shadow: 'group-hover:shadow-amber-500/20',
+                icon: <BrainCircuit className="w-6 h-6" />
+              };
+            } else if (t.includes('general')) {
+              theme = {
+                color: 'from-emerald-500 to-teal-400',
+                bg: 'bg-emerald-500/10 text-emerald-400',
+                border: 'group-hover:border-emerald-500/50',
+                shadow: 'group-hover:shadow-emerald-500/20',
+                icon: <Globe2 className="w-6 h-6" />
+              };
+            } else if (t.includes('filipino')) {
+              theme = {
+                color: 'from-rose-500 to-pink-500',
+                bg: 'bg-rose-500/10 text-rose-400',
+                border: 'group-hover:border-rose-500/50',
+                shadow: 'group-hover:shadow-rose-500/20',
+                icon: <MessageSquare className="w-6 h-6" />
+              };
+            }
+
+            return (
+              <div 
+                key={template.id} 
+                className={`group glass-panel p-6 sm:p-7 rounded-2xl border border-white/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${theme.border} ${theme.shadow} flex flex-col h-full relative overflow-hidden`}
               >
-                <Play className="w-5 h-5 fill-current" /> Start Exam
-              </button>
-            </div>
-          ))}
+                {/* Gradient Top Border */}
+                <div className={`absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r ${theme.color} opacity-80 group-hover:opacity-100 transition-opacity`}></div>
+                
+                {/* Background glow on hover */}
+                <div className={`absolute -inset-24 bg-gradient-to-br ${theme.color} opacity-0 group-hover:opacity-[0.03] blur-2xl transition-opacity duration-500 pointer-events-none`}></div>
+
+                <div className="flex justify-between items-start mb-5 relative z-10 pt-1">
+                  <div className={`p-3 rounded-xl ${theme.bg} shadow-inner`}>
+                    {theme.icon}
+                  </div>
+                  <span className="px-3 py-1 rounded-full bg-white/5 text-slate-300 text-xs font-bold tracking-wider uppercase border border-white/5 shadow-sm">
+                    {template.examType}
+                  </span>
+                </div>
+                
+                <h2 className="text-xl font-bold text-white mb-6 leading-snug group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-slate-300 transition-all relative z-10">
+                  {template.title}
+                </h2>
+                
+                <div className="space-y-4 mb-8 mt-auto relative z-10">
+                  <div className="flex items-center gap-3 text-slate-300 bg-white/[0.02] p-2.5 rounded-lg border border-white/[0.02]">
+                    <div className="w-7 h-7 rounded-md bg-slate-800/50 flex items-center justify-center shrink-0 border border-white/5">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                    </div>
+                    <span className="font-medium text-sm">{template.totalItems} Items Total</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-slate-300 bg-white/[0.02] p-2.5 rounded-lg border border-white/[0.02]">
+                    <div className="w-7 h-7 rounded-md bg-slate-800/50 flex items-center justify-center shrink-0 border border-white/5">
+                      <Clock className="w-4 h-4 text-cyan-400" />
+                    </div>
+                    <span className="font-medium text-sm">{Math.floor(template.timeLimitMinutes / 60) > 0 ? `${Math.floor(template.timeLimitMinutes / 60)}h ` : ''}{template.timeLimitMinutes % 60}m Time Limit</span>
+                  </div>
+                </div>
+                
+                <button 
+                  onClick={() => handleStart(template)}
+                  className={`w-full py-3.5 rounded-xl bg-gradient-to-r ${theme.color} text-white font-bold transition-all shadow-lg hover:shadow-xl opacity-90 group-hover:opacity-100 flex items-center justify-center gap-2 relative z-10 transform active:scale-[0.98]`}
+                >
+                  <Play className="w-4 h-4 fill-current group-hover:translate-x-0.5 transition-transform" /> 
+                  <span className="tracking-wide">Start Exam</span>
+                </button>
+              </div>
+            );
+          })}
           {MOCK_EXAM_TEMPLATES.length === 0 && (
-             <div className="col-span-1 md:col-span-2 text-center p-12 text-slate-500 border border-dashed border-white/10 rounded-2xl">
+             <div className="col-span-1 md:col-span-2 lg:col-span-3 text-center p-12 text-slate-500 border border-dashed border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm">
                No mock exams available yet.
              </div>
           )}
