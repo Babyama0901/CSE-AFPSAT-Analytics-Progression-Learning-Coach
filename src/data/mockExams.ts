@@ -85,5 +85,25 @@ export const MOCK_EXAM_TEMPLATES: MockExamTemplate[] = [
     subjectDistribution: {
       'Seeing Patterns, Diagrams, Figures': 35
     }
+  },
+  {
+    id: 'practice-final-cse',
+    title: 'Final Mock-up CSE Exam',
+    examType: 'CSE',
+    totalItems: 170,
+    timeLimitMinutes: 170,
+    subjectDistribution: {
+      'Vocabulary': 15,
+      'Grammar and Language Usage': 15,
+      'Idiomatic Expressions': 10,
+      'Reading Comprehension': 10,
+      'Talasalitaan': 15,
+      'Kawikaang Filipino': 15,
+      'Pagkilala sa Mali': 10,
+      'Numerical Ability': 35,
+      'Logic': 10,
+      'Seeing Patterns, Diagrams, Figures': 15,
+      'General Information': 20
+    }
   }
 ];

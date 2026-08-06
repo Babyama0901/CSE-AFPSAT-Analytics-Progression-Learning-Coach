@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { MOCK_EXAM_TEMPLATES } from '../data/mockExams';
 import { QUESTION_BANK } from '../data/questionBank';
 import { MockExamTemplate, MockExam, Question, ExamSection, Subject } from '../types';
-import { Play, Clock, CheckCircle2, AlertCircle, ChevronLeft, ChevronRight, Check, BookOpen, Calculator, BrainCircuit, Globe2, MessageSquare, Shapes } from 'lucide-react';
+import { Play, Clock, CheckCircle2, AlertCircle, ChevronLeft, ChevronRight, Check, BookOpen, Calculator, BrainCircuit, Globe2, MessageSquare, Shapes, Award } from 'lucide-react';
 import { ExamResultsView } from './ExamResultsView';
 
 // Helper to highlight target words since the raw text lost its formatting
@@ -436,6 +436,14 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
                 border: 'group-hover:border-blue-500/50',
                 shadow: 'group-hover:shadow-blue-500/20',
                 icon: <Shapes className="w-6 h-6" />
+              };
+            } else if (t.includes('final')) {
+              theme = {
+                color: 'from-yellow-400 to-amber-600',
+                bg: 'bg-yellow-500/10 text-yellow-400',
+                border: 'group-hover:border-yellow-500/50',
+                shadow: 'group-hover:shadow-yellow-500/30',
+                icon: <Award className="w-6 h-6" />
               };
             }
 
