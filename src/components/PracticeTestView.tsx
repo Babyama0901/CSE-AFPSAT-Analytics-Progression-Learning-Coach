@@ -411,6 +411,7 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
         </div>
       </div>
     </div>
+    </div>
     );
   }
 
