@@ -128,6 +128,7 @@ export interface Question {
   correctAnswer: string; // The exact string of the correct option
   subject: Subject;
   explanation?: string; // Explanation for the answer
+  pdfUrl?: string;
 }
 
 export interface ExamSection {

@@ -75,5 +75,15 @@ export const MOCK_EXAM_TEMPLATES: MockExamTemplate[] = [
     subjectDistribution: {
       'Logic': 15
     }
+  },
+  {
+    id: 'practice-patterns',
+    title: 'Patterns, Diagrams, and Figures Practice Test',
+    examType: 'CSE',
+    totalItems: 35,
+    timeLimitMinutes: 35,
+    subjectDistribution: {
+      'Seeing Patterns, Diagrams, Figures': 35
+    }
   }
 ];

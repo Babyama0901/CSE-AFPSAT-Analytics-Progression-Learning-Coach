@@ -4747,4 +4747,462 @@ export const QUESTION_BANK: Question[] = [
     "subject": "Numerical Ability"
   }
 
+,
+
+  {
+    "id": "cse-patterns-1",
+    "text": "Refer to Question 1 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=7"
+  },
+  {
+    "id": "cse-patterns-2",
+    "text": "Refer to Question 2 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=7"
+  },
+  {
+    "id": "cse-patterns-3",
+    "text": "Refer to Question 3 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=7"
+  },
+  {
+    "id": "cse-patterns-4",
+    "text": "Refer to Question 4 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=7"
+  },
+  {
+    "id": "cse-patterns-5",
+    "text": "Refer to Question 5 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=8"
+  },
+  {
+    "id": "cse-patterns-6",
+    "text": "Refer to Question 6 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=8"
+  },
+  {
+    "id": "cse-patterns-7",
+    "text": "Refer to Question 7 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=8"
+  },
+  {
+    "id": "cse-patterns-8",
+    "text": "Refer to Question 8 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=8"
+  },
+  {
+    "id": "cse-patterns-9",
+    "text": "Refer to Question 9 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=9"
+  },
+  {
+    "id": "cse-patterns-10",
+    "text": "Refer to Question 10 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=9"
+  },
+  {
+    "id": "cse-patterns-11",
+    "text": "Refer to Question 11 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=9"
+  },
+  {
+    "id": "cse-patterns-12",
+    "text": "Refer to Question 12 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=10"
+  },
+  {
+    "id": "cse-patterns-13",
+    "text": "Refer to Question 13 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=10"
+  },
+  {
+    "id": "cse-patterns-14",
+    "text": "Refer to Question 14 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=10"
+  },
+  {
+    "id": "cse-patterns-15",
+    "text": "Refer to Question 15 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=11"
+  },
+  {
+    "id": "cse-patterns-16",
+    "text": "Refer to Question 16 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=11"
+  },
+  {
+    "id": "cse-patterns-17",
+    "text": "Refer to Question 17 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=11"
+  },
+  {
+    "id": "cse-patterns-18",
+    "text": "Refer to Question 18 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=11"
+  },
+  {
+    "id": "cse-patterns-19",
+    "text": "Refer to Question 19 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=12"
+  },
+  {
+    "id": "cse-patterns-20",
+    "text": "Refer to Question 20 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=12"
+  },
+  {
+    "id": "cse-patterns-21",
+    "text": "Refer to Question 21 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=12"
+  },
+  {
+    "id": "cse-patterns-22",
+    "text": "Refer to Question 22 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=12"
+  },
+  {
+    "id": "cse-patterns-23",
+    "text": "Refer to Question 23 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=13"
+  },
+  {
+    "id": "cse-patterns-24",
+    "text": "Refer to Question 24 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=13"
+  },
+  {
+    "id": "cse-patterns-25",
+    "text": "Refer to Question 25 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=13"
+  },
+  {
+    "id": "cse-patterns-26",
+    "text": "Refer to Question 26 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=14"
+  },
+  {
+    "id": "cse-patterns-27",
+    "text": "Refer to Question 27 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=14"
+  },
+  {
+    "id": "cse-patterns-28",
+    "text": "Refer to Question 28 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=14"
+  },
+  {
+    "id": "cse-patterns-29",
+    "text": "Refer to Question 29 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=15"
+  },
+  {
+    "id": "cse-patterns-30",
+    "text": "Refer to Question 30 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=15"
+  },
+  {
+    "id": "cse-patterns-31",
+    "text": "Refer to Question 31 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=15"
+  },
+  {
+    "id": "cse-patterns-32",
+    "text": "Refer to Question 32 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=16"
+  },
+  {
+    "id": "cse-patterns-33",
+    "text": "Refer to Question 33 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=16"
+  },
+  {
+    "id": "cse-patterns-34",
+    "text": "Refer to Question 34 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=16"
+  },
+  {
+    "id": "cse-patterns-35",
+    "text": "Refer to Question 35 in the embedded PDF document below.",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctAnswer": "A",
+    "subject": "Seeing Patterns, Diagrams, Figures",
+    "pdfUrl": "/reviewer.pdf#page=16"
+  }
+
 ];

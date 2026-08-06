@@ -302,6 +302,16 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
                   </h3>
                 </div>
 
+                {currentQ.question.pdfUrl && (
+                  <div className="w-full h-[500px] mb-8 border border-white/10 rounded-xl overflow-hidden bg-slate-900 shadow-inner">
+                    <iframe 
+                      src={currentQ.question.pdfUrl} 
+                      className="w-full h-full bg-white"
+                      title={`Reference for Question ${currentIndex + 1}`}
+                    />
+                  </div>
+                )}
+
                 <div className="space-y-3 pl-14">
                   {currentQ.question.options.map((opt, i) => {
                     const isSelected = answers[currentQ.question.id] === opt;
