@@ -3964,4 +3964,787 @@ export const QUESTION_BANK: Question[] = [
     "subject": "Pagkilala sa Mali"
   }
 
+,
+
+  {
+    "id": "cse-logic-1",
+    "text": "From the statement \"all politicians are liars\", which of the following can be immediately inferred?",
+    "options": [
+      "Some liars are politicians.",
+      "Some politicians are not liars.",
+      "All liars are politicians.",
+      "Some liars are not politicians."
+    ],
+    "correctAnswer": "Some liars are politicians.",
+    "subject": "Logic"
+  },
+  {
+    "id": "cse-logic-2",
+    "text": "What is wrong with the following argument. \"All men are banana-eaters, but all monkeys are also banana-eaters; therefore, all men are monkeys.\"",
+    "options": [
+      "It is a following with circular reasoning",
+      "Nothing is wrong",
+      "No class of men and monkeys follows under the same category",
+      "\"banana-eaters\" is understood with two different meanings."
+    ],
+    "correctAnswer": "No class of men and monkeys follows under the same category",
+    "subject": "Logic"
+  },
+  {
+    "id": "cse-logic-3",
+    "text": "From the statement, \"if you study hard, you will pass the Civil Service Exams\", which of the following can be immediately inferred?",
+    "options": [
+      "Studying hard is a sufficient condition for passing the Civil Service Commission Exams.",
+      "Studying hard is necessary condition for passing the Civil Service Commission Exams.",
+      "Passing the Civil Service Commission Exams implies one's studying hard.",
+      "If one does not study, he will not pass the Civil Service Commission Exams."
+    ],
+    "correctAnswer": "Studying hard is a sufficient condition for passing the Civil Service Commission Exams.",
+    "subject": "Logic"
+  },
+  {
+    "id": "cse-logic-4",
+    "text": "What fallacy is committed in the following argument? \"If Benigno Aquino could become President of the Philippines, you can be president too!\"",
+    "options": [
+      "What is possible for Benigno Aquino is also possible for me.",
+      "Faulty analogy",
+      "What is true for him can be true for me.",
+      "No fallacy"
+    ],
+    "correctAnswer": "Faulty analogy",
+    "subject": "Logic"
+  },
+  {
+    "id": "cse-logic-5",
+    "text": "A big billboard has this sign: NO JAYWALKING. The billboard stands conspicuously near the post where 3 policemen manning the street were standing. A man who was far from the pedestrian lane suddenly crossed the street and was quickly apprehended by the police. Which of the following sentences is TRUE?",
+    "options": [
+      "The man was in a hurry.",
+      "The man did not use the pedestrian lane.",
+      "The man was blind so he did not see the NO JAYWALKING sign.",
+      "The policemen waved at the man but the man ignored them."
+    ],
+    "correctAnswer": "The man did not use the pedestrian lane.",
+    "subject": "Logic"
+  },
+  {
+    "id": "cse-logic-6",
+    "text": "What's wrong with the following argument? \"XYZ soap is the best soap because Marian Rivera says so.\"",
+    "options": [
+      "Nothing is wrong.",
+      "Fallacy of misplaced authority",
+      "What is endorsed by a popular actress is always the best",
+      "Endorsement is useless."
+    ],
+    "correctAnswer": "Fallacy of misplaced authority",
+    "subject": "Logic"
+  },
+  {
+    "id": "cse-logic-7",
+    "text": "\"You got to believe or follow what I say, because if you don't, I will kill you.\" Valid or invalid?",
+    "options": [
+      "Personal attack",
+      "False cause",
+      "Appeal to force or argumentum ad baculum",
+      "Appeal to pity"
+    ],
+    "correctAnswer": "Appeal to force or argumentum ad baculum",
+    "subject": "Logic"
+  },
+  {
+    "id": "cse-logic-8",
+    "text": "What's wrong with the following argument: \"Jesus Christ came from an unknown little town of Nazareth. So there is nothing believable in what He was saying.\"",
+    "options": [
+      "Argumentum ad hominem or personal attack",
+      "Nothing wrong",
+      "Faulty analogy",
+      "Fallacy of misplaced authority"
+    ],
+    "correctAnswer": "Argumentum ad hominem or personal attack",
+    "subject": "Logic"
+  },
+  {
+    "id": "cse-logic-9",
+    "text": "All Physics teacher are highly intelligent. People who are not intelligent are not good in Physics. Julie is not intelligent. Therefore, ________.",
+    "options": [
+      "Julie is not a teacher.",
+      "Julie does not like Physics.",
+      "Julie is not good in Physics.",
+      "Julie is good in English."
+    ],
+    "correctAnswer": "Julie is not good in Physics.",
+    "subject": "Logic"
+  },
+  {
+    "id": "cse-logic-10",
+    "text": "\"If it rains, the ground gets wet\". Which one is equivalent to this statement?",
+    "options": [
+      "If the ground is not wet, then there was no rain.",
+      "If it did not rain, then the ground is not wet.",
+      "If the ground is wet, then it rained.",
+      "None"
+    ],
+    "correctAnswer": "If the ground is not wet, then there was no rain.",
+    "subject": "Logic"
+  },
+  {
+    "id": "cse-logic-11",
+    "text": "Which is TRUE of inductive reasoning?",
+    "options": [
+      "Drawing a general statement from another general statement",
+      "Deriving a particular instance from a general statement",
+      "Deriving a particular instance from over particular statement",
+      "Deriving or drawing a statement from particular instances."
+    ],
+    "correctAnswer": "Deriving or drawing a statement from particular instances.",
+    "subject": "Logic"
+  },
+  {
+    "id": "cse-logic-12",
+    "text": "Feathers are light, but light comes from the sun; therefore feathers come from the sun.\" Which does the statement show?",
+    "options": [
+      "Fallacy of equivocation; the word \"light\" is equivocal.",
+      "Fallacy of false analogy",
+      "Hasty generalization",
+      "Circular reasoning"
+    ],
+    "correctAnswer": "Fallacy of equivocation; the word \"light\" is equivocal.",
+    "subject": "Logic"
+  },
+  {
+    "id": "cse-logic-13",
+    "text": "The announcement on the school bulletin board is very explicit to be held that night. Only girls below 15 years old and can sing high notes will be accepted to participate in the upcoming musical contest. Nicolle who was 14 years old was easily accepted when she auditioned. This means that ________.",
+    "options": [
+      "Liza can sing high notes",
+      "Liza qualified because she is 14 years old",
+      "Liza can sing well",
+      "Liza is a former choir member and so can sign high notes"
+    ],
+    "correctAnswer": "Liza can sing high notes",
+    "subject": "Logic"
+  },
+  {
+    "id": "cse-logic-14",
+    "text": "If A is equal to B and B is equal to C, then ________.",
+    "options": [
+      "A is equal to C.",
+      "B + C are equal to A",
+      "A + B + C is equal to 3 A",
+      "A minus B is equal to C"
+    ],
+    "correctAnswer": "A is equal to C.",
+    "subject": "Logic"
+  },
+  {
+    "id": "cse-logic-15",
+    "text": "All lawyers are good in English and are interested in politics. Rommel is good in English and are interested in politics. Which will hold TRUE of Rommel?",
+    "options": [
+      "Rommel is like a lawyer, good in English and interested in politics.",
+      "Rommel will enter politics.",
+      "Rommel will be a good lawyer.",
+      "Rommel will seriously study English and Political Science subjects."
+    ],
+    "correctAnswer": "Rommel is like a lawyer, good in English and interested in politics.",
+    "subject": "Logic"
+  },
+  {
+    "id": "cse-math-1",
+    "text": "What is 58 hundreds rounded to the nearest thousands?",
+    "options": [
+      "5000",
+      "6000",
+      "600",
+      "500"
+    ],
+    "correctAnswer": "6000",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-2",
+    "text": "What is 10 000 less than 3 million?",
+    "options": [
+      "299 000",
+      "2900000",
+      "2990000",
+      "29000"
+    ],
+    "correctAnswer": "2990000",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-3",
+    "text": "Which number when rounded to the nearest millions becomes 8 000 000?",
+    "options": [
+      "7.099999",
+      "8.909010",
+      "8010000",
+      "7499999"
+    ],
+    "correctAnswer": "8010000",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-4",
+    "text": "What is the least number which when rounded to the nearest hundredths gives 51.64?",
+    "options": [
+      "51.636",
+      "51.740",
+      "51.647",
+      "51.639"
+    ],
+    "correctAnswer": "51.636",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-5",
+    "text": "What number subtracted from 450 so that the difference is equal to the sum of 2.73 and 8.0361?",
+    "options": [
+      "41.9639",
+      "47.28",
+      "11.654",
+      "39.2339"
+    ],
+    "correctAnswer": "39.2339",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-6",
+    "text": "What is the result when 3.07 is added to itself 12 times?",
+    "options": [
+      "15.07",
+      "33.11",
+      "36.84",
+      "29.14"
+    ],
+    "correctAnswer": "36.84",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-7",
+    "text": "The result when the cube of 5.1 is increased by 0.032 is _",
+    "options": [
+      "131.11",
+      "132.11",
+      "132.683",
+      "132.777"
+    ],
+    "correctAnswer": "132.683",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-8",
+    "text": "When two ratios as equivalent they are called",
+    "options": [
+      "Percent",
+      "Fraction",
+      "Proportion",
+      "Decimal"
+    ],
+    "correctAnswer": "Proportion",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-18",
+    "text": "Melchor played basketball for the College Varsity Team. He attempted 45 free throws and short of 85% of these. How many free throws did he make?",
+    "options": [
+      "38",
+      "37",
+      "38.25",
+      "36"
+    ],
+    "correctAnswer": "38.25",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-19",
+    "text": "How much is 25% of 55% of 350?",
+    "options": [
+      "48.13",
+      "48.75",
+      "48.50",
+      "48.26"
+    ],
+    "correctAnswer": "48.13",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-20",
+    "text": "A certain number doubled and increased by 15 is 29. What is the number?",
+    "options": [
+      "5",
+      "7",
+      "6",
+      "4"
+    ],
+    "correctAnswer": "7",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-21",
+    "text": "What is the floor area of a 5 storey building whose each floor measures 15m x 22.5?",
+    "options": [
+      "1,687 sq. m.",
+      "1006.87 sq. m.",
+      "1,6887.50 sq. m.",
+      "1067.00 sq. m."
+    ],
+    "correctAnswer": "1,687 sq. m.",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-22",
+    "text": "In the series of 1, 5, 10, 16, 23, _, _, _, the 8th term is ?",
+    "options": [
+      "45",
+      "61",
+      "50",
+      "72"
+    ],
+    "correctAnswer": "50",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-23",
+    "text": "What is the remainder of the division 5100 / 7?",
+    "options": [
+      "4",
+      "2",
+      "5",
+      "7"
+    ],
+    "correctAnswer": "2",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-24",
+    "text": "How many factors of 2000 are perfect squares?",
+    "options": [
+      "7",
+      "6",
+      "10",
+      "54"
+    ],
+    "correctAnswer": "6",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-25",
+    "text": "How many odd integers are there in 10/4 and 71/3?",
+    "options": [
+      "Five",
+      "Ten",
+      "Eleven",
+      "Twenty"
+    ],
+    "correctAnswer": "Eleven",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-26",
+    "text": "If the sum of four different prime numbers is an odd number, what is the smallest of the four?",
+    "options": [
+      "5",
+      "2",
+      "4",
+      "6"
+    ],
+    "correctAnswer": "2",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-9",
+    "text": "What is the Least Common Multiple (LCM) of 3 and 18?",
+    "options": [
+      "18",
+      "3",
+      "12",
+      "54"
+    ],
+    "correctAnswer": "18",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-10",
+    "text": "Which of the following is divisible by 17?",
+    "options": [
+      "1026",
+      "1410",
+      "1547",
+      "1517"
+    ],
+    "correctAnswer": "1547",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-11",
+    "text": "What is the numerical value of 5 / 5 + 5.5 - 5?",
+    "options": [
+      "26",
+      "25",
+      "27",
+      "24"
+    ],
+    "correctAnswer": "25",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-12",
+    "text": "Remove the grouping symbols and simplify: 5 + (7+8-3)?",
+    "options": [
+      "16",
+      "17",
+      "18",
+      "15"
+    ],
+    "correctAnswer": "17",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-13",
+    "text": "Simplify the following: -8 - (3+ 10 - 9) ?",
+    "options": [
+      "-12",
+      "+12",
+      "+13",
+      "-13"
+    ],
+    "correctAnswer": "-12",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-14",
+    "text": "Remove the symbols of grouping and simplify: (-x^2 + 3x - 3)?",
+    "options": [
+      "+x^2 + 3x + 3",
+      "-x^2 + 3x - 3",
+      "-x^2 + 3x - 3",
+      "-x^2 - 3x + 3"
+    ],
+    "correctAnswer": "-x^2 + 3x - 3",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-15",
+    "text": "Give the ratio of 18 Clinical Instructors to 12 Nursing Students?",
+    "options": [
+      "4:3",
+      "3:2",
+      "6:3",
+      "2:3"
+    ],
+    "correctAnswer": "3:2",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-16",
+    "text": "How many hectares are there in a rectangular field measuring 750m wide and 800m long?",
+    "options": [
+      "60",
+      "40",
+      "50",
+      "120"
+    ],
+    "correctAnswer": "60",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-17",
+    "text": "What is the difference between 109 and 49?",
+    "options": [
+      "50",
+      "45",
+      "55",
+      "60"
+    ],
+    "correctAnswer": "60",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-27",
+    "text": "If 45% of A is 30% of B, what % of A is B?",
+    "options": [
+      "0.15%",
+      "15.1%",
+      "150%",
+      "35%"
+    ],
+    "correctAnswer": "150%",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-28",
+    "text": "Find the product of 2a (x - 4y)?",
+    "options": [
+      "2a (x + 4y)",
+      "2ax - 4y",
+      "2ax - 8ay",
+      "2ax + 8ay"
+    ],
+    "correctAnswer": "2ax - 8ay",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-29",
+    "text": "Find the products of (7a - 4b)^2?",
+    "options": [
+      "7a^2 - 28ab + 16b^2",
+      "49a^2 - 56ab + 16b^2",
+      "49a^2 + 56ab - 16b^2",
+      "-19a^2 - 56ab - a6b^2"
+    ],
+    "correctAnswer": "49a^2 - 56ab + 16b^2",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-30",
+    "text": "What is the Greatest Common Factor (GCF) of 18 and 24?",
+    "options": [
+      "5",
+      "9",
+      "7",
+      "6"
+    ],
+    "correctAnswer": "6",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-31",
+    "text": "What is the Greatest Common Factor (GCF) of 54, 90 and 126?",
+    "options": [
+      "19",
+      "18",
+      "20",
+      "11"
+    ],
+    "correctAnswer": "18",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-32",
+    "text": "What is the value of the unknown: x + 7 = 9?",
+    "options": [
+      "5",
+      "3",
+      "2",
+      "3"
+    ],
+    "correctAnswer": "2",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-33",
+    "text": "If the sum of three consecutive integers is 36, what is the three integers?",
+    "options": [
+      "10, 11, 12",
+      "11, 13, 15",
+      "11, 12, 13",
+      "10, 14, 15"
+    ],
+    "correctAnswer": "11, 12, 13",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-34",
+    "text": "Emma invested a part of Php100,000.00 in the money market at 12% and deposited the remainder in the bank at the rate of 6% simple interest. If both investments gave her Php9,600.00 annual income, how much was invested at each rate?",
+    "options": [
+      "Php45,000",
+      "Php35,000",
+      "Php40,000",
+      "Php32,000"
+    ],
+    "correctAnswer": "Php40,000",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-35",
+    "text": "What is the area of a triangle whose base is 16m and height is 12m?",
+    "options": [
+      "25 sq. m.",
+      "90 sq.m.",
+      "96 sq.m.",
+      "192 sq.m."
+    ],
+    "correctAnswer": "96 sq.m.",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-36",
+    "text": "What is the square root of 841?",
+    "options": [
+      "24",
+      "32",
+      "29",
+      "38"
+    ],
+    "correctAnswer": "29",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-37",
+    "text": "What is 185 of 35%?",
+    "options": [
+      "64",
+      "64.5",
+      "64.75",
+      "64.85"
+    ],
+    "correctAnswer": "64.75",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-38",
+    "text": "There are 275 HRM students. If there are 19 more male students that female students, how many students are female?",
+    "options": [
+      "129",
+      "130",
+      "128",
+      "1256"
+    ],
+    "correctAnswer": "128",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-39",
+    "text": "There are 3 feet in a yard and 12 inches in a foot. How many yards are there together in 2 yards, 2 feet and 2 inches?",
+    "options": [
+      "2 3/18",
+      "2 11/18",
+      "2 13/18",
+      "2 1/9"
+    ],
+    "correctAnswer": "2 13/18",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-40",
+    "text": "The total number of sixths in three wholes and two-thirds is",
+    "options": [
+      "21",
+      "22",
+      "23",
+      "24"
+    ],
+    "correctAnswer": "22",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-41",
+    "text": "If the arithmetic mean of 15 consecutive odd integers is 45. What is the LEAST of these integers?",
+    "options": [
+      "62",
+      "31",
+      "15",
+      "675"
+    ],
+    "correctAnswer": "31",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-42",
+    "text": "106 is how many times as much as (0.01)^3 ?",
+    "options": [
+      "10",
+      "10",
+      "10",
+      "10"
+    ],
+    "correctAnswer": "10",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-43",
+    "text": "Charice weighs 94 kilos. How much is her weight in pounds?",
+    "options": [
+      "216.80",
+      "206.13",
+      "213.60",
+      "215.92"
+    ],
+    "correctAnswer": "206.13",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-44",
+    "text": "How many ribbons, each at 12 3/4 cm long, can be obtained from a roll of 6.63 meters long?",
+    "options": [
+      "51",
+      "55",
+      "52",
+      "57"
+    ],
+    "correctAnswer": "52",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-45",
+    "text": "Change the following percent to decimals: 25%, 5.5%; 4%; and 35.5%",
+    "options": [
+      "0.225, 0.56, 0.42, 0.36",
+      "0.025, 0.55, 0.4, 0.355",
+      "0.25, 0.055, 0.04, 0.355",
+      ".25, 0055, 042, .355"
+    ],
+    "correctAnswer": "0.25, 0.055, 0.04, 0.355",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-46",
+    "text": "Express in Scientific Notation: .000435",
+    "options": [
+      "4.35 x 10^5",
+      "4.35 x 10^5",
+      "4.35 x 10^-4",
+      "4.35 x 10^4"
+    ],
+    "correctAnswer": "4.35 x 10^-4",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-47",
+    "text": "Which of the following gives the sum of the polynomials by a monomial? (x + 2y) (3x^2 - 5xy + y^2)",
+    "options": [
+      "3x^3 - x^2y + 9xy^2 + 2y^3",
+      "-3x^3 + x^2y - 9xy^2 - 2y^3",
+      "3x^3 - x^2y^2 + 9xy^2 - 2y^3",
+      "3x^3 + x^2y - 9xy^2 + 2y^3"
+    ],
+    "correctAnswer": "3x^3 + x^2y - 9xy^2 + 2y^3",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-48",
+    "text": "Find the products of two binomials with similar terms? (x - 4y) (x + 7y)",
+    "options": [
+      "x^2 + 3xy - 28y^2",
+      "-x^2 - 3xy + 28y^2",
+      "x^2 + 3xy + 28y^2",
+      "-x^2 + 3xy + 28y^2"
+    ],
+    "correctAnswer": "x^2 + 3xy - 28y^2",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-49",
+    "text": "Which of the following equation has the LEAST value?",
+    "options": [
+      "6 + 2 x 2 =",
+      "6 x 2 + 3 =",
+      "2 + 6 x 4 =",
+      "6 + 4 x 3 ="
+    ],
+    "correctAnswer": "6 + 2 x 2 =",
+    "subject": "Numerical Ability"
+  },
+  {
+    "id": "cse-math-50",
+    "text": "There are two numbers whose sum is 48. One of the numbers is greater by 6. What are the numbers?",
+    "options": [
+      "23, 25",
+      "21, 27",
+      "23, 26",
+      "20, 28"
+    ],
+    "correctAnswer": "21, 27",
+    "subject": "Numerical Ability"
+  }
+
 ];

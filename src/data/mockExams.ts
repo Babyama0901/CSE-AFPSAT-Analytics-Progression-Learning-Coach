@@ -55,5 +55,25 @@ export const MOCK_EXAM_TEMPLATES: MockExamTemplate[] = [
     subjectDistribution: {
       'Pagkilala sa Mali': 25
     }
+  },
+  {
+    id: 'practice-numerical',
+    title: 'Numerical Ability Practice Test',
+    examType: 'CSE',
+    totalItems: 50,
+    timeLimitMinutes: 50,
+    subjectDistribution: {
+      'Numerical Ability': 50
+    }
+  },
+  {
+    id: 'practice-logic',
+    title: 'Logic Practice Test',
+    examType: 'CSE',
+    totalItems: 15,
+    timeLimitMinutes: 20,
+    subjectDistribution: {
+      'Logic': 15
+    }
   }
 ];
