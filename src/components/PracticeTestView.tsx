@@ -243,7 +243,11 @@ export function PracticeTestView({ onCompleteExam, logs = [] }: { onCompleteExam
         timePerQuestion={timePerQuestion}
         logs={logs}
         onComplete={onCompleteExam} 
-        onRetry={() => setIsStarted(false)} 
+        onRetry={() => {
+          setIsStarted(false);
+          setIsFinished(false);
+          setSelectedExam(null);
+        }} 
       />
     );
   }
