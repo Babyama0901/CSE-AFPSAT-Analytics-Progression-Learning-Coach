@@ -28,7 +28,7 @@ const highlightQuestionText = (text: string, subject: Subject) => {
       'brought her into contact', 'grass grow under your feet', 'spill the beans',
       'starving'
     ],
-    'Talasitaan': [
+    'Talasalitaan': [
       'abang-aba', 'antikuwaryo', 'alumanahin', 'babahan', 'badilas', 'bagansya', 'bagkus', 'bagwis', 'Bahete', 'bakang-bakang', 
       'balik-inikaw', 'balintataw', 'baluwarte', 'pagdalumat', 'Dayang-Dayang', 'diplomasya', 'disareglado', 'eskudero', 'mapagsapantaha', 'Sipnayan', 
       'kumakandili', 'kinakatigan', 'Inaaninaw', 'kabisera', 'pumapasag', 'duplikal', 'hungkag', 'pagpapalahaw', 'bantayog', 'tarangkahan', 
@@ -145,7 +145,10 @@ export function PracticeTestView({ onCompleteExam, logs = [] }: { onCompleteExam
       'Spelling': 'Choose the letter of the correct answer according to the prompt.',
       'Idiomatic Expressions': 'Choose the meaning of the underlined idiomatic expression.',
       'Identifying Errors (English Grammar)': 'Identify the error in the sentence.',
-      'Reading Comprehension': 'Read the passage and answer the questions.'
+      'Reading Comprehension': 'Read the passage and answer the questions.',
+      'Talasalitaan': 'Piliin ang letra ng tamang kahulugan ng mga salitang nasalungguhitan',
+      'Kawikaang Filipino': 'Piliin ang letra ng tamang kahulugan ng mga salitang nasalungguhitan',
+      'Pagkilala sa Mali': 'Piliin ang letra ng tamang kahulugan ng mga salitang nasalungguhitan'
     };
 
     Object.entries(template.subjectDistribution).forEach(([subjectStr, count]) => {
