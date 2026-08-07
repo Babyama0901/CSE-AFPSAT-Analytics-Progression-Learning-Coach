@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { MOCK_EXAM_TEMPLATES } from '../data/mockExams';
 import { QUESTION_BANK } from '../data/questionBank';
 import { MockExamTemplate, MockExam, Question, ExamSection, Subject } from '../types';
-import { Play, Clock, CheckCircle2, AlertCircle, ChevronLeft, ChevronRight, Check, BookOpen, Calculator, BrainCircuit, Globe2, MessageSquare, Shapes, Award } from 'lucide-react';
+import { Play, Clock, CheckCircle2, AlertCircle, ChevronLeft, ChevronRight, Check, BookOpen, Calculator, BrainCircuit, Globe2, MessageSquare, Shapes, Award, Pause } from 'lucide-react';
 import { ExamResultsView } from './ExamResultsView';
 
 // Helper to highlight target words since the raw text lost its formatting
@@ -47,7 +47,7 @@ const highlightQuestionText = (text: string, subject: Subject) => {
     ]
   };
 
-  if (subject === 'Vocabulary' || subject === 'Idiomatic Expressions' || subject === 'Talasitaan' || subject === 'Kawikaang Filipino') {
+  if (subject === 'Vocabulary' || subject === 'Idiomatic Expressions' || subject === 'Talasalitaan' || subject === 'Kawikaang Filipino') {
     const words = highlights[subject];
     if (words) {
       words.forEach(word => {
@@ -75,7 +75,7 @@ function shuffleArray<T>(array: T[]): T[] {
   return arr;
 }
 
-export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any) => void }) {
+export function PracticeTestView({ onCompleteExam, logs = [] }: { onCompleteExam: (log: any) => void, logs?: any[] }) {
   const [selectedExam, setSelectedExam] = useState<MockExam | null>(null);
   const [isStarted, setIsStarted] = useState(false);
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -83,6 +83,7 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
   const [isFinished, setIsFinished] = useState(false);
   const [examStartTime, setExamStartTime] = useState<number>(0);
   const [timeElapsed, setTimeElapsed] = useState<number>(0);
+  const [timePerQuestion, setTimePerQuestion] = useState<Record<string, number>>({});
   
   const [allQuestions, setAllQuestions] = useState<{question: Question, section: ExamSection, index: number}[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -100,6 +101,7 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
       setAllQuestions(qList);
       setTimeLeft(selectedExam.timeLimitMinutes * 60);
       setExamStartTime(Date.now());
+      setTimePerQuestion({});
     }
   }, [selectedExam]);
 
@@ -115,10 +117,19 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
           }
           return prev - 1;
         });
+        
+        // Track time for current question
+        if (allQuestions.length > 0 && currentIndex >= 0 && currentIndex < allQuestions.length) {
+          const currentQId = allQuestions[currentIndex].question.id;
+          setTimePerQuestion(prev => ({
+            ...prev,
+            [currentQId]: (prev[currentQId] || 0) + 1
+          }));
+        }
       }, 1000);
     }
     return () => clearInterval(timer);
-  }, [isStarted, isFinished, isPaused, timeLeft]);
+  }, [isStarted, isFinished, isPaused, timeLeft, currentIndex, allQuestions]);
 
   const generateExamFromTemplate = (template: MockExamTemplate): MockExam => {
     const seenQuestionsStr = localStorage.getItem('seen_questions') || '[]';
@@ -226,6 +237,8 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
         exam={selectedExam} 
         answers={answers} 
         timeElapsed={timeElapsed}
+        timePerQuestion={timePerQuestion}
+        logs={logs}
         onComplete={onCompleteExam} 
         onRetry={() => setIsStarted(false)} 
       />
@@ -239,7 +252,7 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
     const progressPercentage = ((currentIndex + 1) / allQuestions.length) * 100;
 
     return (
-      <div className="flex flex-col h-full glass-panel rounded-2xl overflow-hidden shadow-2xl border border-white/5 bg-slate-900/60 relative">
+      <div className="fixed inset-0 z-[100] flex flex-col glass-panel overflow-hidden bg-slate-950">
         <div className="absolute top-0 left-0 w-full h-1.5 bg-slate-800 z-50">
           <div 
             className="h-full bg-gradient-to-r from-cyan-400 to-indigo-500 transition-all duration-300 ease-out"
@@ -257,12 +270,15 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
               <Clock className="w-4 h-4" />
               {formatTime(timeLeft)}
             </div>
+            <button
+              onClick={() => setIsPaused(!isPaused)}
+              className="bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-lg text-sm font-semibold transition-colors flex items-center gap-2 border border-white/5 shadow-sm"
+            >
+              {isPaused ? <Play className="w-4 h-4" /> : <Pause className="w-4 h-4" />}
+              {isPaused ? 'Resume' : 'Pause'}
+            </button>
             <button 
-              onClick={() => {
-                if(window.confirm('Are you sure you want to finish the exam early?')) {
-                  handleFinishExam();
-                }
-              }}
+              onClick={() => handleFinishExam()}
               className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors flex items-center gap-2 shadow-lg shadow-indigo-900/20"
             >
               <CheckCircle2 className="w-4 h-4" /> Submit Exam
@@ -272,6 +288,13 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
 
         <div className="flex flex-1 overflow-hidden">
           <div className="flex-1 overflow-y-auto p-6 md:p-10 flex flex-col">
+            {isPaused ? (
+              <div className="flex flex-col items-center justify-center flex-1 h-64 border-2 border-dashed border-white/10 rounded-2xl bg-white/5">
+                <Pause className="w-12 h-12 text-slate-400 mb-4" />
+                <h3 className="text-xl font-bold text-slate-300 mb-2">Exam Paused</h3>
+                <p className="text-slate-500">Click Resume to continue</p>
+              </div>
+            ) : (
             <div className="max-w-3xl mx-auto w-full flex-1">
               <div className="mb-8">
                 <h3 className="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-400 uppercase tracking-widest mb-3">
@@ -341,6 +364,7 @@ export function PracticeTestView({ onCompleteExam }: { onCompleteExam: (log: any
                 </div>
               </div>
             </div>
+            )}
 
             <div className="max-w-3xl mx-auto w-full flex justify-between items-center pt-6 border-t border-white/5 mt-auto">
               <button 

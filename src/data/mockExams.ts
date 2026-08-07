@@ -33,7 +33,7 @@ export const MOCK_EXAM_TEMPLATES: MockExamTemplate[] = [
     totalItems: 50,
     timeLimitMinutes: 50,
     subjectDistribution: {
-      'Talasitaan': 50
+      'Talasalitaan': 50
     }
   },
   {

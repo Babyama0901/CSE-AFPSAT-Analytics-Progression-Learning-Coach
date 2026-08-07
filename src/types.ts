@@ -24,9 +24,10 @@ export type Subject =
   | 'Spelling'
   | 'Idiomatic Expressions'
   | 'Identifying Errors (English Grammar)'
-  | 'Talasitaan'
+  | 'Talasalitaan'
   | 'Kawikaang Filipino'
   | 'Pagkilala sa Mali'
+  | 'Seeing Patterns, Diagrams, Figures'
   | 'Logic';
 
 export const AFPSAT_GROUPS = {
@@ -57,7 +58,7 @@ export const CSE_GROUPS = {
     'Spelling',
     'Idiomatic Expressions',
     'Identifying Errors (English Grammar)',
-    'Talasitaan',
+    'Talasalitaan',
     'Kawikaang Filipino',
     'Pagkilala sa Mali'
   ] as Subject[],
@@ -135,6 +136,7 @@ export interface Question {
   subject: Subject;
   explanation?: string; // Explanation for the answer
   pdfUrl?: string;
+  imageUrl?: string;
 }
 
 export interface ExamSection {

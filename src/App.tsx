@@ -60,7 +60,6 @@ export default function App() {
       timestamp: Date.now()
     }));
     setLogs(prev => [...prev, ...newLogs]);
-    setActiveTab('DASHBOARD');
   };
 
   const handleUpdateLog = (updatedLog: ScoreLog) => {
@@ -238,7 +237,7 @@ export default function App() {
           />
         ) : activeTab === 'PRACTICE' ? (
           <div className="h-[700px]">
-            <PracticeTestView onCompleteExam={handleAddMultipleLogs} />
+            <PracticeTestView onCompleteExam={handleAddMultipleLogs} logs={logs} />
           </div>
         ) : (
           <div key={activeTab} className="space-y-8">

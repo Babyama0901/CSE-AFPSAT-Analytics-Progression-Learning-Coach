@@ -767,7 +767,7 @@ export const QUESTION_BANK: Question[] = [
       "Hindi makapag-isip kung ano ang magiging kahihinatnan ng buhay"
     ],
     "correctAnswer": "Kapos na kapos sa mga bagay na ikabubuhay",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-2",
@@ -779,7 +779,7 @@ export const QUESTION_BANK: Question[] = [
       "Isang manlilikha ng mga bagay na may kaugnayan sa kasaysayan"
     ],
     "correctAnswer": "Isang dalubhasa sa kaalaman ng mga matatandang bagay",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-3",
@@ -791,7 +791,7 @@ export const QUESTION_BANK: Question[] = [
       "kailangang gawing bago ang luma"
     ],
     "correctAnswer": "pag-ukulan ng pansin",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-4",
@@ -803,7 +803,7 @@ export const QUESTION_BANK: Question[] = [
       "pagpapatong ng lalaking hayop sa babaeng hayop para malahian."
     ],
     "correctAnswer": "pagpapatong ng lalaking hayop sa babaeng hayop para malahian.",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-5",
@@ -815,7 +815,7 @@ export const QUESTION_BANK: Question[] = [
       "malapit sa mga tirahan ng mga iskwater"
     ],
     "correctAnswer": "tigang ang lupa at hindi mainam sa pagsasaka",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-6",
@@ -827,7 +827,7 @@ export const QUESTION_BANK: Question[] = [
       "pagpapalaboy-laboy"
     ],
     "correctAnswer": "pagpapalaboy-laboy",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-7",
@@ -839,7 +839,7 @@ export const QUESTION_BANK: Question[] = [
       "datapwat"
     ],
     "correctAnswer": "lalo na",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-8",
@@ -851,7 +851,7 @@ export const QUESTION_BANK: Question[] = [
       "kamay"
     ],
     "correctAnswer": "pakpak",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-9",
@@ -863,7 +863,7 @@ export const QUESTION_BANK: Question[] = [
       "napasama"
     ],
     "correctAnswer": "nalugi",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-10",
@@ -875,7 +875,7 @@ export const QUESTION_BANK: Question[] = [
       "maraming gumuho na lupa"
     ],
     "correctAnswer": "bitak-bitak likha ng lindol",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-11",
@@ -887,7 +887,7 @@ export const QUESTION_BANK: Question[] = [
       "hindi makapag-isip nang mabuti"
     ],
     "correctAnswer": "hindi mapalagay sa kinalalagyan",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-12",
@@ -899,7 +899,7 @@ export const QUESTION_BANK: Question[] = [
       "utak"
     ],
     "correctAnswer": "guni-guni",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-13",
@@ -911,7 +911,7 @@ export const QUESTION_BANK: Question[] = [
       "pinakamaayos na lugar"
     ],
     "correctAnswer": "pinakamatibay na kuta",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-14",
@@ -923,7 +923,7 @@ export const QUESTION_BANK: Question[] = [
       "malalimang pagbabasa"
     ],
     "correctAnswer": "malalim na panghihiraya o paglilirip",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-15",
@@ -935,7 +935,7 @@ export const QUESTION_BANK: Question[] = [
       "masayahing okasyon"
     ],
     "correctAnswer": "prinsesang nakakatuwa",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-16",
@@ -947,7 +947,7 @@ export const QUESTION_BANK: Question[] = [
       "magalang sa mga taong kinakausap"
     ],
     "correctAnswer": "matalas at mahusay sa pakikipag-unawaan",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-17",
@@ -959,7 +959,7 @@ export const QUESTION_BANK: Question[] = [
       "masyadong maliit para matirhan"
     ],
     "correctAnswer": "hindi maayos o magulo ang kalagayan",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-18",
@@ -971,7 +971,7 @@ export const QUESTION_BANK: Question[] = [
       "mandirigmang Griyego"
     ],
     "correctAnswer": "tagagawa ng kalasag",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-19",
@@ -983,7 +983,7 @@ export const QUESTION_BANK: Question[] = [
       "mapagkait"
     ],
     "correctAnswer": "mapaghinala",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-20",
@@ -995,7 +995,7 @@ export const QUESTION_BANK: Question[] = [
       "Pananaliksik"
     ],
     "correctAnswer": "Matematika",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-21",
@@ -1007,7 +1007,7 @@ export const QUESTION_BANK: Question[] = [
       "nagsusumbong"
     ],
     "correctAnswer": "nagmamalasakit",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-22",
@@ -1019,7 +1019,7 @@ export const QUESTION_BANK: Question[] = [
       "tinutulungan"
     ],
     "correctAnswer": "sinasang-ayunan",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-23",
@@ -1031,7 +1031,7 @@ export const QUESTION_BANK: Question[] = [
       "inoobserbahan kung may mga pulis"
     ],
     "correctAnswer": "tinitingnan kung may tao o wala",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-24",
@@ -1043,7 +1043,7 @@ export const QUESTION_BANK: Question[] = [
       "lungsod"
     ],
     "correctAnswer": "kapital",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-25",
@@ -1055,7 +1055,7 @@ export const QUESTION_BANK: Question[] = [
       "hindi maayos ang lagay"
     ],
     "correctAnswer": "gumagalaw",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-26",
@@ -1067,7 +1067,7 @@ export const QUESTION_BANK: Question[] = [
       "pagsigaw ng mga namumuno"
     ],
     "correctAnswer": "sunod-sunod na tunog ng kampana",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-27",
@@ -1079,7 +1079,7 @@ export const QUESTION_BANK: Question[] = [
       "hindi natututo"
     ],
     "correctAnswer": "salat sa kaalaman",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-28",
@@ -1091,7 +1091,7 @@ export const QUESTION_BANK: Question[] = [
       "pagyayabang"
     ],
     "correctAnswer": "pagsigaw",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-29",
@@ -1103,7 +1103,7 @@ export const QUESTION_BANK: Question[] = [
       "museo"
     ],
     "correctAnswer": "monumento",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-30",
@@ -1115,7 +1115,7 @@ export const QUESTION_BANK: Question[] = [
       "\"gate\""
     ],
     "correctAnswer": "\"gate\"",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-31",
@@ -1127,7 +1127,7 @@ export const QUESTION_BANK: Question[] = [
       "masining ang pagkakasabi"
     ],
     "correctAnswer": "malalim ang pakahulugan",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-32",
@@ -1139,7 +1139,7 @@ export const QUESTION_BANK: Question[] = [
       "nagpaalam"
     ],
     "correctAnswer": "namatay",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-33",
@@ -1151,7 +1151,7 @@ export const QUESTION_BANK: Question[] = [
       "business proposal"
     ],
     "correctAnswer": "calling card",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-34",
@@ -1163,7 +1163,7 @@ export const QUESTION_BANK: Question[] = [
       "kayumanggi"
     ],
     "correctAnswer": "bughaw",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-35",
@@ -1175,7 +1175,7 @@ export const QUESTION_BANK: Question[] = [
       "transkripsiyon"
     ],
     "correctAnswer": "buod",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-36",
@@ -1187,7 +1187,7 @@ export const QUESTION_BANK: Question[] = [
       "manlalaro"
     ],
     "correctAnswer": "eksperto",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-37",
@@ -1199,7 +1199,7 @@ export const QUESTION_BANK: Question[] = [
       "makabagong lutuan"
     ],
     "correctAnswer": "pugon",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-38",
@@ -1211,7 +1211,7 @@ export const QUESTION_BANK: Question[] = [
       "tulong na naglalayong makapagbigay sigla"
     ],
     "correctAnswer": "mungkahi o suhestiyon na inilalatag",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-39",
@@ -1223,7 +1223,7 @@ export const QUESTION_BANK: Question[] = [
       "pantalon"
     ],
     "correctAnswer": "pantalon",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-40",
@@ -1235,7 +1235,7 @@ export const QUESTION_BANK: Question[] = [
       "trumpo"
     ],
     "correctAnswer": "saranggola",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-41",
@@ -1247,7 +1247,7 @@ export const QUESTION_BANK: Question[] = [
       "pula"
     ],
     "correctAnswer": "dilaw",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-42",
@@ -1259,7 +1259,7 @@ export const QUESTION_BANK: Question[] = [
       "magkaaway"
     ],
     "correctAnswer": "magkakaanib",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-43",
@@ -1271,7 +1271,7 @@ export const QUESTION_BANK: Question[] = [
       "masalimuot"
     ],
     "correctAnswer": "pagod",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-44",
@@ -1283,7 +1283,7 @@ export const QUESTION_BANK: Question[] = [
       "malaking dahon"
     ],
     "correctAnswer": "eroplano",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-45",
@@ -1295,7 +1295,7 @@ export const QUESTION_BANK: Question[] = [
       "ang mga sira-sirang bahagi ng bahay"
     ],
     "correctAnswer": "alikabok na naipon at bahagyang namuo",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-46",
@@ -1307,7 +1307,7 @@ export const QUESTION_BANK: Question[] = [
       "pag-iingay para mabigyan ng pansin"
     ],
     "correctAnswer": "ingay o mga pagsasalitang naghahatid ng pighati",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-47",
@@ -1319,7 +1319,7 @@ export const QUESTION_BANK: Question[] = [
       "marunong mamuno sa mga tao"
     ],
     "correctAnswer": "malawak ang kaisipan o maalam",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-48",
@@ -1331,7 +1331,7 @@ export const QUESTION_BANK: Question[] = [
       "kopya"
     ],
     "correctAnswer": "kopya",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-49",
@@ -1343,7 +1343,7 @@ export const QUESTION_BANK: Question[] = [
       "lamesa"
     ],
     "correctAnswer": "upuan",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-filipino-50",
@@ -1355,7 +1355,7 @@ export const QUESTION_BANK: Question[] = [
       "sosyal"
     ],
     "correctAnswer": "simple",
-    "subject": "Talasitaan"
+    "subject": "Talasalitaan"
   },
   {
     "id": "cse-kawikaan-1",
@@ -5370,7 +5370,7 @@ export const QUESTION_BANK: Question[] = [
     ],
     "correctAnswer": "It threatens to fracture the nation further.",
     "subject": "Reading Comprehension",
-    "passage": "?\nA. Adopting federalism risks reverting the country to its historically divided, village-centric state.\nB. Federalism should be embraced to empower local municipalities.\nC. Federalism is the key to unlocking the nation's unfulfilled potential.\nD. The public should remain neutral because federalism is a complex topic."
+    "passage": "Federalism offers distinct advantages, such as allowing states to create laws tailored to their specific needs, boosting civic involvement, and preventing power from concentrating in one central authority. Conversely, it can complicate the formation of cohesive national policies, lead to confusing jurisdictional overlaps, and cause citizens to lose sight of broader national issues."
   },
   {
     "id": "cse-verb-155",
@@ -5383,7 +5383,7 @@ export const QUESTION_BANK: Question[] = [
     ],
     "correctAnswer": "Adopting federalism risks reverting the country to its historically divided, village-centric state.",
     "subject": "Reading Comprehension",
-    "passage": "Surveys indicate that productivity-based compensation benefits both the workforce and the organization. Nearly 80% of surveyed workers noted that their employers utilize these bonuses to connect individual employee targets with broader business objectives. Additionally, 63% viewed productivity pay simply as a reward for delivering excellent work."
+    "passage": "Federalism offers distinct advantages, such as allowing states to create laws tailored to their specific needs, boosting civic involvement, and preventing power from concentrating in one central authority. Conversely, it can complicate the formation of cohesive national policies, lead to confusing jurisdictional overlaps, and cause citizens to lose sight of broader national issues."
   },
   {
     "id": "cse-verb-156",
@@ -5396,7 +5396,7 @@ export const QUESTION_BANK: Question[] = [
     ],
     "correctAnswer": "To align the personal goals of employees with the strategic goals of the company.",
     "subject": "Reading Comprehension",
-    "passage": "The integration of ASEAN nations facilitates the unrestricted movement and exchange of goods and services across the borders of its member countries."
+    "passage": "Surveys indicate that productivity-based compensation benefits both the workforce and the organization. Nearly 80% of surveyed workers noted that their employers utilize these bonuses to connect individual employee targets with broader business objectives. Additionally, 63% viewed productivity pay simply as a reward for delivering excellent work."
   },
   {
     "id": "cse-verb-157",
@@ -5422,7 +5422,7 @@ export const QUESTION_BANK: Question[] = [
     ],
     "correctAnswer": "You find your true identity and purpose through the act of serving others.",
     "subject": "Reading Comprehension",
-    "passage": "Millennials, generally defined as the demographic cohort born between 1980 and 2000, are also referred to by terms like Generation Y, Echo Boomers, and Digital Natives. Because they are the first generation to mature in an environment saturated with digital technology, they possess distinct cultural, social, and political traits that strongly differentiate them from previous generations."
+    "passage": "\"Discovering your true identity is best achieved by fully dedicating yourself to helping other people.\""
   },
   {
     "id": "cse-verb-159",
@@ -5435,7 +5435,7 @@ export const QUESTION_BANK: Question[] = [
     ],
     "correctAnswer": "Digital immigrants",
     "subject": "Reading Comprehension",
-    "passage": "People born under the Tiger zodiac are known for their ability to earn significant income, though they often struggle with saving, leaning toward an extravagant, spendthrift lifestyle. Their immense generosity and habit of giving expensive gifts to family and friends make them highly popular and well-connected."
+    "passage": "Millennials, generally defined as the demographic cohort born between 1980 and 2000, are also referred to by terms like Generation Y, Echo Boomers, and Digital Natives. Because they are the first generation to mature in an environment saturated with digital technology, they possess distinct cultural, social, and political traits that strongly differentiate them from previous generations."
   },
   {
     "id": "cse-verb-160",
@@ -5461,7 +5461,7 @@ export const QUESTION_BANK: Question[] = [
     ],
     "correctAnswer": "Their habit of generously gifting their friends.",
     "subject": "Reading Comprehension",
-    "passage": "Laughter is highly beneficial for our well-being. Evidence shows it lowers blood sugar, decreases pain perception, and helps us handle discomfort. It also enhances workplace performance—especially in creative or complex problem-solving roles—and plays a critical, often unrecognized role in aligning the emotions of couples in intimate relationships."
+    "passage": "People born under the Tiger zodiac are known for their ability to earn significant income, though they often struggle with saving, leaning toward an extravagant, spendthrift lifestyle. Their immense generosity and habit of giving expensive gifts to family and friends make them highly popular and well-connected."
   },
   {
     "id": "cse-verb-162",
@@ -5474,7 +5474,7 @@ export const QUESTION_BANK: Question[] = [
     ],
     "correctAnswer": "Sorrowful for not witnessing the successful outcome of their struggles.",
     "subject": "Reading Comprehension",
-    "passage": "While the President is granted immunity from prosecution under domestic Philippine law, this protection does not extend to the jurisdiction of the International Criminal Court. Furthermore, liability for crimes under the ICC has no expiration date, meaning a President can still face charges long after departing from office."
+    "passage": "\"I am passing away before I can witness the break of dawn.\""
   },
   {
     "id": "cse-verb-163",
@@ -5487,7 +5487,7 @@ export const QUESTION_BANK: Question[] = [
     ],
     "correctAnswer": "It produces a wide array of positive effects for individual health and interpersonal dynamics.",
     "subject": "Reading Comprehension",
-    "passage": "The invention of the mobile phone stands as arguably the greatest advancement in modern communication. In the past, people relied on letters that took a long time to arrive, but today, mobile devices allow instant conversations with loved ones regardless of distance."
+    "passage": "Laughter is highly beneficial for our well-being. Evidence shows it lowers blood sugar, decreases pain perception, and helps us handle discomfort. It also enhances workplace performance—especially in creative or complex problem-solving roles—and plays a critical, often unrecognized role in aligning the emotions of couples in intimate relationships."
   },
   {
     "id": "cse-verb-164",
@@ -5500,6 +5500,6 @@ export const QUESTION_BANK: Question[] = [
     ],
     "correctAnswer": "International legal frameworks override domestic presidential immunity for specific crimes.",
     "subject": "Reading Comprehension",
-    "passage": ""
+    "passage": "While the President is granted immunity from prosecution under domestic Philippine law, this protection does not extend to the jurisdiction of the International Criminal Court. Furthermore, liability for crimes under the ICC has no expiration date, meaning a President can still face charges long after departing from office."
   }
 ];

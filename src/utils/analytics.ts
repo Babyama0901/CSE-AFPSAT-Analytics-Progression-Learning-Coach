@@ -114,7 +114,7 @@ export function generateCoachingPlan(weakestSubject: SubjectStats | null, latest
     plan.push("FAST-TRACK TECHNIQUE: Utilize estimation. If options vary significantly, round numbers before calculating.");
   } else if (subject === 'Verbal Ability') {
     plan.push("FAST-TRACK TECHNIQUE: Isolate the root word. Eliminate extreme absolutes (e.g., 'always', 'never') in conclusion questions.");
-  } else if (subject === 'Abstract Reasoning') {
+  } else if (subject === 'Seeing Patterns, Diagrams, Figures') {
     plan.push("FAST-TRACK TECHNIQUE: Track one element at a time (e.g., just the black dot's rotation) to rapidly eliminate wrong choices.");
   }
 

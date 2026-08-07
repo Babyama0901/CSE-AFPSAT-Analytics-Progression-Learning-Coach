@@ -1,21 +1,28 @@
 import React, { useMemo, useEffect, useState } from 'react';
 import { MockExam, ScoreLog, ExamType, Subject, Question } from '../types';
-import { Trophy, ArrowLeft, Send, CheckCircle2, XCircle, AlertTriangle, Clock, Timer, Check, X } from 'lucide-react';
+import { Trophy, ArrowLeft, Send, CheckCircle2, XCircle, AlertTriangle, Clock, Timer, Check, X, TrendingUp } from 'lucide-react';
+import { calculateAnalytics } from '../utils/analytics';
+import { CSE_SUBJECTS, AFPSAT_SUBJECTS } from '../types';
+import { CombinedMasteryRadar } from './CombinedMasteryRadar';
 
 interface ExamResultsViewProps {
   exam: MockExam;
   answers: Record<string, string>;
   timeElapsed: number; // in seconds
+  timePerQuestion: Record<string, number>;
+  logs: ScoreLog[];
   onComplete: (logs: Omit<ScoreLog, 'id' | 'timestamp'>[]) => void;
   onRetry: () => void;
 }
 
-export function ExamResultsView({ exam, answers, timeElapsed, onComplete, onRetry }: ExamResultsViewProps) {
+export function ExamResultsView({ exam, answers, timeElapsed, timePerQuestion, logs, onComplete, onRetry }: ExamResultsViewProps) {
   const [hasInjected, setHasInjected] = useState(false);
+  const [progressionDelta, setProgressionDelta] = useState<number | null>(null);
+  const [updatedLogs, setUpdatedLogs] = useState<ScoreLog[]>(logs);
 
   // Group questions by subject and calculate scores
   const resultsBySubject = useMemo(() => {
-    const stats: Record<Subject, { correct: number; total: number; questions: { q: Question; isCorrect: boolean; userAnswer: string }[] }> = {} as any;
+    const stats: Record<string, { correct: number; total: number; questions: { q: Question; isCorrect: boolean; userAnswer: string }[] }> = {};
     
     exam.sections.forEach(sec => {
       sec.questions.forEach(q => {
@@ -38,24 +45,24 @@ export function ExamResultsView({ exam, answers, timeElapsed, onComplete, onRetr
     return stats;
   }, [exam, answers]);
 
-  const totalCorrect = Object.values(resultsBySubject).reduce((acc, curr) => acc + curr.correct, 0);
-  const totalQuestions = Object.values(resultsBySubject).reduce((acc, curr) => acc + curr.total, 0);
+  const totalCorrect = (Object.values(resultsBySubject) as any[]).reduce((acc, curr) => acc + curr.correct, 0);
+  const totalQuestions = (Object.values(resultsBySubject) as any[]).reduce((acc, curr) => acc + curr.total, 0);
   const overallPercentage = Math.round((totalCorrect / totalQuestions) * 100) || 0;
   const avgTimePerQuestion = totalQuestions > 0 ? Math.round(timeElapsed / totalQuestions) : 0;
 
   // Auto-inject on mount
   useEffect(() => {
     if (!hasInjected) {
-      const logs: Omit<ScoreLog, 'id' | 'timestamp'>[] = [];
+      const newLogs: Omit<ScoreLog, 'id' | 'timestamp'>[] = [];
       const groupId = exam.id; // use exam ID to group them
       
-      Object.entries(resultsBySubject).forEach(([subjectStr, stat]) => {
-        if (stat.total > 0) {
-          logs.push({
+      Object.entries(resultsBySubject).forEach(([subjectStr, stat]: [string, any]) => {
+        if ((stat as any).total > 0) {
+          newLogs.push({
             exam: exam.examType,
             subject: subjectStr as Subject,
-            score: stat.correct,
-            total: stat.total,
+            score: (stat as any).correct,
+            total: (stat as any).total,
             groupId,
             isMockExam: true,
             mockExamTitle: exam.title,
@@ -64,12 +71,26 @@ export function ExamResultsView({ exam, answers, timeElapsed, onComplete, onRetr
         }
       });
       
-      if (logs.length > 0) {
-        onComplete(logs);
+      if (newLogs.length > 0) {
+        onComplete(newLogs);
+        
+        // Calculate progression delta
+        const subjectsList = exam.examType === 'AFPSAT' ? AFPSAT_SUBJECTS : CSE_SUBJECTS;
+        
+        const beforeLogs = logs.filter(l => l.exam === exam.examType || !l.exam);
+        const beforeAnalytics = calculateAnalytics(beforeLogs, subjectsList);
+        
+        const fullUpdatedLogs = [...logs, ...newLogs.map(l => ({...l, id: 'temp', timestamp: Date.now()}))] as ScoreLog[];
+        setUpdatedLogs(fullUpdatedLogs);
+        const afterLogs = fullUpdatedLogs.filter(l => l.exam === exam.examType || !l.exam);
+        const afterAnalytics = calculateAnalytics(afterLogs, subjectsList);
+        
+        const delta = afterAnalytics.readinessScore - beforeAnalytics.readinessScore;
+        setProgressionDelta(delta);
       }
       setHasInjected(true);
     }
-  }, [hasInjected, exam, resultsBySubject, onComplete, timeElapsed]);
+  }, [hasInjected, exam, resultsBySubject, onComplete, timeElapsed, logs]);
 
   const formatTime = (seconds: number) => {
     const m = Math.floor(seconds / 60);
@@ -80,14 +101,14 @@ export function ExamResultsView({ exam, answers, timeElapsed, onComplete, onRetr
   // Flatten all questions for Answer Key
   const allQuestionsWithStatus = useMemo(() => {
     let list: { q: Question; isCorrect: boolean; userAnswer: string }[] = [];
-    Object.values(resultsBySubject).forEach(stat => {
-      list.push(...stat.questions);
+    (Object.values(resultsBySubject) as any[]).forEach(stat => {
+      list.push(...(stat as any).questions);
     });
     return list;
   }, [resultsBySubject]);
 
   return (
-    <div className="h-full flex flex-col items-center p-6 md:p-10 overflow-y-auto custom-scrollbar">
+    <div className="fixed inset-0 z-[100] bg-slate-950 flex flex-col items-center p-6 md:p-10 overflow-y-auto custom-scrollbar">
       <div className="max-w-4xl w-full">
         
         {/* Header summary */}
@@ -126,11 +147,28 @@ export function ExamResultsView({ exam, answers, timeElapsed, onComplete, onRetr
                 {avgTimePerQuestion}s
               </p>
             </div>
+            <div className="bg-slate-900/80 p-4 rounded-xl border border-white/5">
+              <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 flex justify-center items-center gap-1"><TrendingUp className="w-3 h-3"/> Progression</p>
+              <p className={`text-2xl font-black ${progressionDelta && progressionDelta > 0 ? 'text-emerald-400' : progressionDelta && progressionDelta < 0 ? 'text-rose-400' : 'text-slate-400'}`}>
+                {progressionDelta !== null ? (progressionDelta > 0 ? `+${progressionDelta.toFixed(1)}%` : `${progressionDelta.toFixed(1)}%`) : '-'}
+              </p>
+            </div>
           </div>
           
           <div className="inline-flex items-center gap-2 text-sm text-emerald-400 bg-emerald-500/10 px-4 py-2 rounded-full border border-emerald-500/20">
             <CheckCircle2 className="w-4 h-4" /> Results automatically synced to Analytics Engine
           </div>
+        </div>
+
+        {/* Mastery Overview Radar */}
+        <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2 mt-8">
+           Mastery Overview Update
+        </h3>
+        <div className="mb-10 w-full h-[400px]">
+          <CombinedMasteryRadar 
+            cseAnalytics={calculateAnalytics(updatedLogs.filter(l => l.exam === 'CSE' || !l.exam), CSE_SUBJECTS)}
+            afpsatAnalytics={calculateAnalytics(updatedLogs.filter(l => l.exam === 'AFPSAT'), AFPSAT_SUBJECTS)}
+          />
         </div>
 
         {/* Breakdown by Subject */}
@@ -139,13 +177,13 @@ export function ExamResultsView({ exam, answers, timeElapsed, onComplete, onRetr
         </h3>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-          {Object.entries(resultsBySubject).map(([subject, stat]) => {
-            const perc = Math.round((stat.correct / stat.total) * 100);
+          {Object.entries(resultsBySubject).map(([subject, stat]: [string, any]) => {
+            const perc = Math.round(((stat as any).correct / (stat as any).total) * 100);
             return (
               <div key={subject} className="bg-slate-900/60 border border-white/5 p-5 rounded-xl flex items-center justify-between">
                 <div>
                   <h4 className="font-bold text-slate-200">{subject}</h4>
-                  <p className="text-sm text-slate-500">{stat.correct} out of {stat.total}</p>
+                  <p className="text-sm text-slate-500">{(stat as any).correct} out of {(stat as any).total}</p>
                 </div>
                 <div className={`text-lg font-black ${perc >= 80 ? 'text-emerald-400' : perc >= 60 ? 'text-amber-400' : 'text-rose-400'}`}>
                   {perc}%
@@ -167,7 +205,12 @@ export function ExamResultsView({ exam, answers, timeElapsed, onComplete, onRetr
                   {index + 1}
                 </div>
                 <div className="flex-1">
-                  <div className="text-xs text-slate-400 uppercase tracking-widest font-bold mb-1">{item.q.subject}</div>
+                  <div className="flex items-center justify-between mb-1">
+                    <div className="text-xs text-slate-400 uppercase tracking-widest font-bold">{item.q.subject}</div>
+                    <div className="text-xs font-bold text-slate-500 flex items-center gap-1">
+                      <Clock className="w-3 h-3" /> {timePerQuestion[item.q.id] || 0}s spent
+                    </div>
+                  </div>
                   <p className="text-slate-200 font-medium mb-4">{item.q.text}</p>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
@@ -208,7 +251,7 @@ export function ExamResultsView({ exam, answers, timeElapsed, onComplete, onRetr
             onClick={onRetry}
             className="px-8 py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-black tracking-widest uppercase transition-colors shadow-lg shadow-indigo-900/30 flex items-center gap-2"
           >
-             Return to Dashboard
+            <ArrowLeft className="w-5 h-5" /> Return to Practice Tests
           </button>
         </div>
 
